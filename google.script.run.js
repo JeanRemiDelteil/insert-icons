@@ -14,7 +14,10 @@ let google = {
 // NEVER DO THAT in normal code
 // this overwrite the prototype, here we do this of auto-completion only
 google.script.run.prototype = {
+  onInstall: onInstall,
+  onOpen: onOpen,
 	
+  addImageInCurrentPage: addImageInCurrentPage,
 };
 
 
