@@ -79,32 +79,46 @@
       <input id="filter" type="text" onkeyup="filterList()" placeholder="Search by icon name...">
     </div>
   </div>
+  
   <div id="icon-list"></div>
+  
   <div id="footer" class="footer">Adding icon to current slide...</div>
   
   <script>
-    var iconList = JSON.parse("<?= iconList ?>");
+    var domList = document.getElementById('icon-list'),
+      domFooter = document.getElementById('footer');
     
-    var domList = document.getElementById('icon-list');
+    /**
+     * Insert Font Awesome icons
+     */
+    function insertIcon_FA(){
+      var iconList = JSON.parse('<?= iconList ?>');
+      
+      var html = '';
+      
+      for (var i = 0; i < iconList.length; i++) {
+        var id = 'fa'+ iconList[i].t +'-'+ iconList[i].n;
     
-    var html = "";
-    for (var i = 0; i < iconList.length; i++) {
-      var id = "fa" + iconList[i].t + "-" + iconList[i].n;
-      html+= "<div id='" + id + "' class='iconParent text-tooltip' onclick='addToSlide(this)' title='" + iconList[i].n + "'>";
-      html+= "<i class='fa" + iconList[i].t + " fa-" + iconList[i].n + "'></i></div>"
+        html += '<div id="'+ id +'" class="iconParent text-tooltip" onclick="addToSlide(this)" title="'+ iconList[i].n +'">';
+        html += '<i class="fa'+ iconList[i].t +' fa-'+ iconList[i].n +'"></i></div>';
+      }
+      
+      domList.innerHTML = html;
     }
-    domList.innerHTML = html;
     
-    tippy('.text-tooltip', {
-      arrow: true,
-      size: 'small'
-    });
-    
-    function updateColor(jscolor) {
+    /**
+     * Update display with new selected color
+     * 
+     * @param {string} jsColor
+     */
+    function updateColor(jsColor) {
       // 'jscolor' instance can be used as a string
-      domList.style.color = '#' + jscolor
+      domList.style.color = '#' + jsColor
     }
     
+    /**
+     * Filter the displayed icon list
+     */
     function filterList() {
       // Declare variables
       var filter = document.getElementById('filter').value.toLowerCase();
@@ -120,6 +134,12 @@
       }
     }
     
+    /**
+     * Convert the chosen SVG icon,
+     * then send it to the server to insert it in the slide
+     * 
+     * @param {HTMLDivElement} el
+     */
     function addToSlide(el) {
       // Add proper color to icon
       var color = domList.style.color;
@@ -133,11 +153,24 @@
       icon.style.color = "";
       document.getElementById("footer").style.display = "block";
     }
-    
+
+    /**
+     * Upon icon insertion success, hide the footer
+     */
     function onSuccess() {
-      document.getElementById("footer").style.display = "none";
+      domFooter.style.display = "none";
     }
-  
+    
+    
+    
+    insertIcon_FA();
+
+    // Add tooltip display to show the icon's name
+    tippy('.text-tooltip', {
+      arrow: true,
+      size: 'small'
+    });
+    
   </script>
 </body>
 </html>
