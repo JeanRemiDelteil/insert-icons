@@ -12,6 +12,8 @@
   <!-- To use Material Design icons, we need a way to convert web font / <i> to png -->
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
   
+  <?!= HtmlService.createHtmlOutputFromFile('Sidebar_IconList.js').getContent(); ?>
+  
   <style>
     html{
       overflow: scroll;
@@ -102,7 +104,7 @@
   <div class="header">
     <div class="left-label">
       <label for="color-picker">Color:</label>
-      <input id="color-picker" type="text" class="jscolor" onchange="updateColor(this.jscolor)" value="rgb(73, 80, 87)">
+      <input id="color-picker" type="text" class="jscolor" onchange="updateColor(this.jscolor)" value="rgb(243, 179, 42)">
     </div>
     <div class="left-label">
       <label for="filter">Search:</label>
