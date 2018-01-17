@@ -1,54 +1,57 @@
 <html>
 <head>
-  <link rel="stylesheet" href="//ssl.gstatic.com/docs/script/css/add-ons1.css">
+  
   <script src="//use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/saveSvgAsPng.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js" defer></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/tippy.min.js"></script>
+  
+  <link rel="stylesheet" href="//ssl.gstatic.com/docs/script/css/add-ons1.css">
   <link rel="stylesheet" href="//storage.googleapis.com/yamm-ressources/CSS/tippy.css">
+  
+  <!-- To use Material Design icons, we need a way to convert web font / <i> to png -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  
   <style>
+    html{
+      overflow: scroll;
+    }
     .header {
       position:fixed;
       top:0;
+      
       width:100%;
-      z-index:100;
-      background-color: white;
       padding: 10px;
+      box-sizing: border-box;
+      
+      z-index:100;
+      
+      background-color: white;
       border-bottom: 1px solid rgb(224, 224, 224)
     }
     
-    #color-picker {
-      height: 25px;
-      padding: 4px;
-      box-sizing: border-box;
-      width: 155px;
-    }
-    
     .footer {
+      display: none;
       position:fixed;
+      
       bottom:0;
       width:100%;
+      padding: 10px;
+      
       z-index:100;
+      
       background-color: rgb(97, 97, 97);
       color: white;
       font-weight: bold;
-      padding: 10px;
-      display: none;
     }
     
-    .iconParent {
-      font-size: 40px;
-      padding: 5px;
-      margin: 5px;
-      cursor: pointer;
+    
+    /*<editor-fold desc="# HEADER content">*/
+    
+    .left-label {
       display: flex;
+      align-items: baseline;
     }
-    
-    .iconParent:hover {
-      padding: 4px;
-      border: 1px solid rgb(224, 224, 224);
-    }
-  
     .left-label:not(:last-child){
       margin-bottom:3px
     }
@@ -56,23 +59,50 @@
       display:inline-block;
       width:50px;
     }
+    .left-label>input {
+      flex: auto;
+    }
+    
+    /*</editor-fold>*/
+    
     
     #icon-list{
-      margin-top: 70px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      
+      margin-top: 70px;
+      
       color: rgb(73, 80, 87);
     }
+    
+    
+    .iconParent {
+      display: flex;
+      padding: 5px;
+      margin: 5px;
+      
+      font-size: 40px;
+      cursor: pointer;
+    }
+    
+    .iconParent:hover {
+      padding: 4px;
+      
+      border: 1px solid rgb(224, 224, 224);
+    }
+  
+    .last-body-element+div{
+      margin-left: -14px;
+    }
   </style>
-  <!-- To use Material Design icons, we need a way to convert web font / <i> to png -->
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
 </head>
 <body>
   <div class="header">
     <div class="left-label">
       <label for="color-picker">Color:</label>
-      <input id="color-picker" class="jscolor" onchange="updateColor(this.jscolor)" value="rgb(73, 80, 87)">
+      <input id="color-picker" type="text" class="jscolor" onchange="updateColor(this.jscolor)" value="rgb(73, 80, 87)">
     </div>
     <div class="left-label">
       <label for="filter">Search:</label>
@@ -86,19 +116,18 @@
   
   <script>
     var domList = document.getElementById('icon-list'),
-      domFooter = document.getElementById('footer');
+      domFooter = document.getElementById('footer'),
+      iconList = JSON.parse('<?= iconList ?>');
     
     /**
      * Insert Font Awesome icons
      */
     function insertIcon_FA(){
-      var iconList = JSON.parse('<?= iconList ?>');
-      
       var html = '';
       
       for (var i = 0; i < iconList.length; i++) {
         var id = 'fa'+ iconList[i].t +'-'+ iconList[i].n;
-    
+        
         html += '<div id="'+ id +'" class="iconParent text-tooltip" onclick="addToSlide(this)" title="'+ iconList[i].n +'">';
         html += '<i class="fa'+ iconList[i].t +' fa-'+ iconList[i].n +'"></i></div>';
       }
@@ -108,7 +137,7 @@
     
     /**
      * Update display with new selected color
-     * 
+     *
      * @param {string} jsColor
      */
     function updateColor(jsColor) {
@@ -137,7 +166,7 @@
     /**
      * Convert the chosen SVG icon,
      * then send it to the server to insert it in the slide
-     * 
+     *
      * @param {HTMLDivElement} el
      */
     function addToSlide(el) {
@@ -153,7 +182,7 @@
       icon.style.color = "";
       document.getElementById("footer").style.display = "block";
     }
-
+    
     /**
      * Upon icon insertion success, hide the footer
      */
@@ -164,7 +193,7 @@
     
     
     insertIcon_FA();
-
+    
     // Add tooltip display to show the icon's name
     tippy('.text-tooltip', {
       arrow: true,
@@ -172,5 +201,8 @@
     });
     
   </script>
+  
+  <!-- Don't remove this div, it serve to apply CSS on the color picker -->
+  <div class="last-body-element"></div>
 </body>
 </html>
