@@ -1,0 +1,7 @@
+/.idea/
+/node_modules/
+
+/build/src/
+/build/cred/
+/build/config/dev_config.json
+/build/addon_webstore_draft.zip
