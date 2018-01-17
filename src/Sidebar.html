@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="//ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <script src="//use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <script src="//storage.googleapis.com/yamm-ressources/JS/saveSvgAsPng.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
+    <script src="//storage.googleapis.com/yamm-ressources/JS/tippy.min.js"></script>
+    <link rel="stylesheet" href="//storage.googleapis.com/yamm-ressources/CSS/tippy.css">
+    <style>
+      .header { 
+        position:fixed;
+        top:0; 
+        width:100%; 
+        z-index:100; 
+        background-color: white; 
+        padding: 10px; 
+        border-bottom: 1px solid rgb(224, 224, 224)
+      }
+      
+      #color-picker {
+        height: 25px;
+        padding: 4px;
+        box-sizing: border-box;
+        width: 155px;
+      }
+      
+      .footer { 
+        position:fixed;
+        bottom:0; 
+        width:100%; 
+        z-index:100; 
+        background-color: rgb(97, 97, 97); 
+        color: white;
+        font-weight: bold;
+        padding: 10px; 
+        display: none;
+      }
+      
+      .iconParent {
+        font-size: 40px; 
+        padding: 5px; 
+        margin: 5px; 
+        cursor: pointer; 
+        display: flex;
+      }
+      
+      .iconParent:hover {
+        padding: 4px; 
+        border: 1px solid rgb(224, 224, 224); 
+      }
+      
+    </style>
+    <!-- To use Material Design icons, we need a way to convert web font / <i> to png -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  </head>
+  <body>
+    <div class="header">
+      <div class="left-label" style="margin-bottom:3px">
+        <label for="color-picker" style="display:inline-block;width:50px">Color:</label>
+        <input id="color-picker"  class="jscolor" onchange="updateColor(this.jscolor)" value="rgb(73, 80, 87)">
+      </div>
+      <div class="left-label">
+        <label for="filter" style="display:inline-block;width:50px">Search:</label>
+        <input id="filter" type="text" onkeyup="filterList()" placeholder="Search by icon name...">
+      </div>
+    </div>
+    <div id="icon-list" style="margin-top: 70px; display: flex; flex-direction: row; flex-wrap: wrap; color: rgb(73, 80, 87)"></div>
+    <div id="footer" class="footer">Adding icon to current slide...</div>
+    
+    <script>
+    var iconList = <?= iconList ?>;
+    iconList = JSON.parse(iconList);
+    
+    var list = document.getElementById("icon-list");
+    var html = "";
+    for (var i = 0; i < iconList.length; i++) {
+      var id = "fa" + iconList[i].t + "-" + iconList[i].n;
+      html+= "<div id='" + id + "' class='iconParent text-tooltip' onclick='addToSlide(this)' title='" + iconList[i].n + "'>";
+      html+= "<i class='fa" + iconList[i].t + " fa-" + iconList[i].n + "'></i></div>"
+    }
+    document.getElementById("icon-list").innerHTML = html;
+    
+    tippy('.text-tooltip', {
+      arrow: true,
+      size: 'small'
+    });
+    
+    function updateColor(jscolor) {
+      // 'jscolor' instance can be used as a string
+      document.getElementById('icon-list').style.color = '#' + jscolor
+    }
+    
+    function filterList() {
+      // Declare variables
+      var filter = document.getElementById('filter').value.toLowerCase();
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (var i = 0; i < iconList.length; i++) {
+        if (iconList[i].n.toLowerCase().indexOf(filter) > -1 || iconList[i].a.toLowerCase().indexOf(filter) > -1) {
+          document.getElementById("fa" + iconList[i].t + "-" + iconList[i].n).style.display = "";
+        } 
+        else {
+          document.getElementById("fa" + iconList[i].t + "-" + iconList[i].n).style.display = "none";
+        }
+      }
+    }
+    
+    function addToSlide(el) {
+      // Add proper color to icon
+      var color = document.getElementById("icon-list").style.color;
+      var icon = el.childNodes[0];
+      icon.style.color = color;
+      svgAsPngUri(icon, {}, function(uri) {
+        google.script.run.withSuccessHandler(onSuccess).addImageInCurrentPage(uri);
+      });
+      icon.style.color = "";
+      document.getElementById("footer").style.display = "block";
+    }
+    
+    function onSuccess() {
+      document.getElementById("footer").style.display = "none";
+    }
+      
+    </script>
+  </body>
+</html>
