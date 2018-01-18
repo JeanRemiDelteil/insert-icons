@@ -107,7 +107,7 @@
       color: 'F3B32A',
       filter: ''
     };
-
+    
     /**
      * Init and customize color picker
      */
@@ -124,7 +124,7 @@
       this.dom.colorPicker.jscolor.padding = 8;
       this.dom.colorPicker.jscolor.sliderSize = 8;
     };
-
+    
     /**
      * Update display with new selected color
      *
@@ -177,11 +177,41 @@
      * Loads all icons lists
      */
     self.initIconDisplay = function () {
-      this.display = new IconDisplay(self.dom.list);
-  
+      this.display = new IconDisplay(self.dom.list, self.addIconToSlide);
+      
       this.display.addList('fa', this.insertIcon_FA);
       this.display.showList('fa');
     };
+    
+    /**
+     * Convert the chosen SVG icon,
+     * then send it to the server to insert it in the slide
+     *
+     * @param domSVG
+     */
+    self.addIconToSlide = function (domSVG) {
+      // Add proper color to icon
+      domSVG.style.color = '#'+ this.color;
+      
+      // Show footer
+      this.dom.footer.style.display = 'block';
+      
+      svgAsPngUri(domSVG, {}, function(uri) {
+        google.script.run
+          .withSuccessHandler(self.onIconAddSuccess)
+          .addImageInCurrentPage(uri);
+      });
+      
+      // reset as SVG could still be in real DOM
+      domSVG.style.color = '';
+    }.bind(self);
+    
+    /**
+     * Upon icon insertion success, hide the footer
+     */
+    self.onIconAddSuccess = function () {
+      this.dom.footer.style.display = 'none';
+    }.bind(self);
     
     
     /**
@@ -204,36 +234,6 @@
     
     /* Start */
     self.init();
-        
-    
-    
-    /**
-     * Convert the chosen SVG icon,
-     * then send it to the server to insert it in the slide
-     *
-     * @param {HTMLDivElement} el
-     */
-    function addToSlide(el) {
-      // Add proper color to icon
-      var color = domList.style.color;
-      var icon = el.childNodes[0];
-      
-      icon.style.color = color;
-      svgAsPngUri(icon, {}, function(uri) {
-        google.script.run.withSuccessHandler(onSuccess).addImageInCurrentPage(uri);
-      });
-      
-      icon.style.color = "";
-      document.getElementById("footer").style.display = "block";
-    }
-    
-    /**
-     * Upon icon insertion success, hide the footer
-     */
-    function onSuccess() {
-      domFooter.style.display = "none";
-    }
-
     
   </script>
 </body>

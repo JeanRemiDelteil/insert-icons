@@ -25,7 +25,7 @@
     
     border: 1px solid rgb(224, 224, 224);
   }
-  .iconParent>* {
+  .icon-parent>* {
     margin: auto;
   }
   
@@ -37,15 +37,20 @@
    * Initialize a new icon list
    *
    * @param {HTMLElement} container
+   * @param {function} onSelectIconCallback
    */
-  var IconDisplay = function (container) {
+  var IconDisplay = function (container, onSelectIconCallback) {
     this.dom = container;
+    this._onSelectIconCallback = onSelectIconCallback;
     
     /** @type {Object.<IconList>} */
     this.lists = {};
   
     /** @type {IconList} */
     this.current = null;
+    
+    // Install click listener
+    this.dom.addEventListener('click', this._onClick.bind(this));
   };
   
   /**
@@ -82,6 +87,33 @@
     if (!this.current) return;
     
     this.current.filterList(filter.toLowerCase());
+  };
+  
+  
+  /**
+   * Global listener on all the icon display
+   * 
+   * @param {MouseEvent} event
+   */
+  IconDisplay.prototype._onClick = function (event) {
+    // Find clicked icon
+    var target = event.target;
+    while (!target._listName && target !== this.dom){
+      target = target.parentElement;
+    }
+    if (target === this.dom) return;
+    
+    var list = this.lists[target._listName];
+    if (!list) return;
+    
+    var iconItem = list.iconMap[target._iconName];
+    if (!iconItem) return;
+    
+    var domSVG = list.getSVG(iconItem);
+    if (!domSVG) return;
+    
+    // Send SVG to be inserted in the SLIDE
+    this._onSelectIconCallback(domSVG);
   };
   
   //</editor-fold>
@@ -167,6 +199,15 @@
         ? ''
         : 'none';
     }
+  };
+
+  /**
+   * Retrieve SVG dom for this icon
+   *
+   * @param {IconItem} iconItem
+   */
+  IconList.prototype.getSVG = function (iconItem) {
+    return iconItem.dom.querySelector('svg');
   };
 
   //</editor-fold>
