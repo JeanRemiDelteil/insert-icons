@@ -55,13 +55,13 @@
       align-items: baseline;
     }
     .left-label:not(:last-child){
-      margin-bottom:3px
+      margin-bottom: 3px
     }
     .left-label>label{
-      display:inline-block;
-      width:50px;
+      display: inline-block;
+      width: 53px;
     }
-    .left-label>input {
+    .left-label>input, .left-label>select {
       flex: auto;
     }
     
@@ -73,7 +73,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       
-      margin-top: 74px;
+      margin-top: 106px;
       
       color: #f3b32a;
     }
@@ -90,6 +90,13 @@
       <label for="filter">Search:</label>
       <input id="filter" type="text" placeholder="Search by icon name...">
     </div>
+    <div class="left-label">
+      <label for="icon-set">Icon set:</label>
+      <select id="icon-set">
+        <option value="fa">Font Awesome</option>
+        <option value="md">Material Design</option>
+      </select>
+    </div>
   </div>
   
   <div id="icon-list"></div>
@@ -102,6 +109,7 @@
         list: document.getElementById('icon-list'),
         colorPicker: document.getElementById('color-picker'),
         filter: document.getElementById('filter'),
+        iconSet: document.getElementById('icon-set'),
         footer: document.getElementById('footer')
       },
       
@@ -145,6 +153,15 @@
       // Fire filter if 300ms pass without input
       clearTimeout(this._filterDebouncer);
       this._filterDebouncer = setTimeout(this._onFilter, 300);
+    };
+    
+    /**
+     * Change displayed icon set
+     */
+    self.onIconSetChange = function () {
+      var set = this.dom.iconSet.value;
+      
+      this.display.showList(set);
     };
     
     /**
@@ -281,7 +298,9 @@
       this.display.addList('fa', this.FA_insertIcon);
       this.display.addList('md', this.MD_insertIcon, this.MD_getSVG, {scale: 10.5});
       
-      this.display.showList('md');
+      // Set initial displayed Set
+      this.display.showList('fa');
+      this.dom.iconSet.value = 'fa';
     };
     
     /**
@@ -320,13 +339,17 @@
      * Start the app
      */
     self.init = function () {
+      // Bind function that will be used in different context
       this.addIconToSlide = this.addIconToSlide.bind(this);
       this.onIconAddSuccess = this.onIconAddSuccess.bind(this);
       this._onFilter = this._onFilter.bind(this);
       
+      // Add control event listeners
       this.dom.colorPicker.addEventListener('change', this.onColorChange.bind(this));
       this.dom.filter.addEventListener('keyup', this.onFilterKeyUP.bind(this));
+      this.dom.iconSet.addEventListener('change', this.onIconSetChange.bind(this));
       
+      // Init
       this.initColorPicker();
       this.initIconDisplay();
       
