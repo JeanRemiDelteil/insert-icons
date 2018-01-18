@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+  
+    width: 100%;
   }
   
   .icon-parent {
@@ -41,6 +43,9 @@
     
     /** @type {Object.<IconList>} */
     this.lists = {};
+  
+    /** @type {IconList} */
+    this.current = null;
   };
   
   /**
@@ -66,6 +71,17 @@
     // Show selected list
     this.dom.innerHTML = '';
     this.dom.appendChild(list.dom);
+    
+    this.current = list;
+  };
+  
+  /**
+   * Filter displayed list
+   */
+  IconDisplay.prototype.filter = function (filter) {
+    if (!this.current) return;
+    
+    this.current.filterList(filter.toLowerCase());
   };
   
   //</editor-fold>
@@ -73,11 +89,24 @@
   //<editor-fold desc="# IconList">
 
   /**
+   * @typedef {{
+   *   dom: HTMLElement | {
+   *     _listName: string,
+   *     _iconName: string,
+   *   },
+   *   search: string,
+   *   info: Object
+   * }} IconItem
+   */
+  
+  /**
    * Initialize a new icon list
    * 
    * @param {string} name
    */
   var IconList = function (name) {
+    
+    /** @type {Object.<IconItem>} */
     this.iconMap = {};
     
     this.name = name;
@@ -92,9 +121,10 @@
    * @param {string} htmlIcon
    * @param {string} name
    * @param {string} toolTip
+   * @param {string} search
    * @param {Object} info
    */
-  IconList.prototype.insertIcon = function (htmlIcon, name, toolTip, info) {
+  IconList.prototype.insertIcon = function (htmlIcon, name, toolTip, search, info) {
     if (this.iconMap[name]) {
       console.log('ICON already exist', name);
       
@@ -117,12 +147,26 @@
     // Save info
     this.iconMap[name] = {
       dom: domIconContainer,
+      search: search.toLowerCase(),
       info: info
     };
   };
 
+  /**
+   * Only display icons matching <filter>
+   * 
+   * @param filter
+   */
   IconList.prototype.filterList = function (filter) {
-  
+    // Loop through all list items, and hide those who don't match the search query
+    for (var name in this.iconMap){
+      var iconItem = this.iconMap[name];
+      
+      // Hide / Show item
+      iconItem.dom.style.display = !filter || iconItem.search.indexOf(filter) !== -1
+        ? ''
+        : 'none';
+    }
   };
 
   //</editor-fold>
