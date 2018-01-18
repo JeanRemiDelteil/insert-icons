@@ -388,7 +388,6 @@ module.exports = function(grunt) {
 	]);
 	
 	grunt.registerTask('push', [
-		'build',
 		'clasp:push',
 	]);
 	
