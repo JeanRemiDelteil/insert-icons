@@ -3,7 +3,7 @@
   
   <script src="//use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/saveSvgAsPng.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/tippy.min.js"></script>
   
   <link rel="stylesheet" href="//ssl.gstatic.com/docs/script/css/add-ons1.css">
@@ -16,7 +16,7 @@
   
   <style>
     html{
-      overflow: scroll;
+      overflow-y: scroll;
     }
     .header {
       position:fixed;
@@ -73,29 +73,9 @@
       flex-direction: row;
       flex-wrap: wrap;
       
-      margin-top: 70px;
+      margin-top: 74px;
       
-      color: rgb(73, 80, 87);
-    }
-    
-    
-    .iconParent {
-      display: flex;
-      padding: 5px;
-      margin: 5px;
-      
-      font-size: 40px;
-      cursor: pointer;
-    }
-    
-    .iconParent:hover {
-      padding: 4px;
-      
-      border: 1px solid rgb(224, 224, 224);
-    }
-  
-    .last-body-element+div{
-      margin-left: -14px;
+      color: rgb(243, 179, 42);
     }
   </style>
 
@@ -118,24 +98,48 @@
   
   <script>
     var domList = document.getElementById('icon-list'),
+      domColorPicker = document.getElementById('color-picker'),
       domFooter = document.getElementById('footer'),
-      iconList = JSON.parse('<?= iconList ?>');
-    
+      iconList_FA = JSON.parse('<?= iconList ?>');
+
+    /**
+     * Init and customize color picker
+     */
+    function initColorPicker() {
+      // Disable automatic lookup
+      jscolor.lookupClass = null;
+      // Install now
+      jscolor.installByClassName('jscolor');
+  
+      domColorPicker.jscolor.padding = 8;
+      domColorPicker.jscolor.sliderSize = 8;
+    }
+
     /**
      * Insert Font Awesome icons
+     *
+     * @param {IconList} iconList
      */
-    function insertIcon_FA(){
-      var html = '';
-      
-      for (var i = 0; i < iconList.length; i++) {
-        var id = 'fa'+ iconList[i].t +'-'+ iconList[i].n;
+    function insertIcon_FA(iconList){
+      for (var i = 0; i < iconList_FA.length; i++) {
+        var iconName = 'fa'+ iconList_FA[i].t +'-'+ iconList_FA[i].n;
+        var html = '<i class="fa'+ iconList_FA[i].t +' fa-'+ iconList_FA[i].n +'"></i>';
         
-        html += '<div id="'+ id +'" class="iconParent text-tooltip" onclick="addToSlide(this)" title="'+ iconList[i].n +'">';
-        html += '<i class="fa'+ iconList[i].t +' fa-'+ iconList[i].n +'"></i></div>';
+        iconList.insertIcon(html, iconName, iconList_FA[i].n, iconList_FA[i]);
       }
-      
-      domList.innerHTML = html;
     }
+    
+    /**
+     * Init the icon display
+     * Loads all icons lists
+     */
+    function initIconDisplay() {
+      var display = new IconDisplay(domList);
+      
+      display.addList('fa', insertIcon_FA);
+      display.showList('fa');
+    }
+    
     
     /**
      * Update display with new selected color
@@ -191,10 +195,12 @@
     function onSuccess() {
       domFooter.style.display = "none";
     }
+
     
-    
-    
-    insertIcon_FA();
+    /* Start */
+
+    initColorPicker();
+    initIconDisplay();
     
     // Add tooltip display to show the icon's name
     tippy('.text-tooltip', {
@@ -203,8 +209,5 @@
     });
     
   </script>
-  
-  <!-- Don't remove this div, it serve to apply CSS on the color picker -->
-  <div class="last-body-element"></div>
 </body>
 </html>

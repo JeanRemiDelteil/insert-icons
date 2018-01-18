@@ -1,8 +1,129 @@
 <style>
   
+  .icon-list-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .icon-parent {
+    display: flex;
+    width: calc(25% - 10px);
+    
+    padding: 5px;
+    margin: 5px;
+    box-sizing: border-box;
+    
+    font-size: 40px;
+    cursor: pointer;
+  }
+  
+  .icon-parent:hover {
+    padding: 4px;
+    
+    border: 1px solid rgb(224, 224, 224);
+  }
+  .iconParent>* {
+    margin: auto;
+  }
+  
 </style>
 <script>
+  //<editor-fold desc="# IconDisplay">
   
+  /**
+   * Initialize a new icon list
+   *
+   * @param {HTMLElement} container
+   */
+  var IconDisplay = function (container) {
+    this.dom = container;
+    
+    /** @type {Object.<IconList>} */
+    this.lists = {};
+  };
   
+  /**
+   * Add new IconList to the display
+   *
+   * @param {string} name
+   * @param {function} fillList
+   */
+  IconDisplay.prototype.addList = function (name, fillList) {
+    var iconList = new IconList(name);
+    fillList(iconList);
+    
+    this.lists[name] = iconList;
+  };
   
+  /**
+   * Change displayed list
+   */
+  IconDisplay.prototype.showList = function (name) {
+    var list = this.lists[name];
+    if (!list) return;
+    
+    // Show selected list
+    this.dom.innerHTML = '';
+    this.dom.appendChild(list.dom);
+  };
+  
+  //</editor-fold>
+
+  //<editor-fold desc="# IconList">
+
+  /**
+   * Initialize a new icon list
+   * 
+   * @param {string} name
+   */
+  var IconList = function (name) {
+    this.iconMap = {};
+    
+    this.name = name;
+    
+    this.dom = document.createElement('div');
+    this.dom.classList.add('icon-list-content');
+  };
+
+  /**
+   * Add a icon in the list
+   *
+   * @param {string} htmlIcon
+   * @param {string} name
+   * @param {string} toolTip
+   * @param {Object} info
+   */
+  IconList.prototype.insertIcon = function (htmlIcon, name, toolTip, info) {
+    if (this.iconMap[name]) {
+      console.log('ICON already exist', name);
+      
+      return;
+    }
+    
+    var domIconContainer = document.createElement('div');
+    domIconContainer.classList.add('icon-parent', 'text-tooltip');
+    
+    // For global event listener
+    domIconContainer._listName = this.name;
+    domIconContainer._iconName = name;
+    domIconContainer.setAttribute('title', toolTip);
+    
+    domIconContainer.innerHTML = htmlIcon;
+    
+    // Add icon in the list
+    this.dom.appendChild(domIconContainer);
+    
+    // Save info
+    this.iconMap[name] = {
+      dom: domIconContainer,
+      info: info
+    };
+  };
+
+  IconList.prototype.filterList = function (filter) {
+  
+  };
+
+  //</editor-fold>
 </script>
