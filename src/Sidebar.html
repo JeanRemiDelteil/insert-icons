@@ -164,6 +164,17 @@
       
       this.display.showList(set);
       this.display.filter(this.filter);
+      
+      // Add tooltip on first display
+      if (!this.display.current._toolTipDone){
+        this.display.current._toolTipDone = true;
+        
+        // add tooltip display to show the icon's name
+        tippy('.text-tooltip', {
+          arrow: true,
+          size: 'small'
+        });
+      }
     };
     
     /**
@@ -301,8 +312,8 @@
       this.display.addList('md', this.MD_insertIcon, this.MD_getSVG, {scale: 10.5});
       
       // Set initial displayed Set
-      this.display.showList('fa');
       this.dom.iconSet.value = 'fa';
+      this.onIconSetChange();
     };
     
     /**
@@ -354,12 +365,6 @@
       // Init
       this.initColorPicker();
       this.initIconDisplay();
-      
-      // Add tooltip display to show the icon's name
-      tippy('.text-tooltip', {
-        arrow: true,
-        size: 'small'
-      });
     };
     
     
