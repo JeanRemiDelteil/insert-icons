@@ -3,18 +3,21 @@
   
   <script src="//use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/saveSvgAsPng.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/tippy.min.js"></script>
   
   <link rel="stylesheet" href="//ssl.gstatic.com/docs/script/css/add-ons1.css">
   <link rel="stylesheet" href="//storage.googleapis.com/yamm-ressources/CSS/tippy.css">
   
   <!-- To use Material Design icons, we need a way to convert web font / <i> to png -->
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <?!= HtmlService.createHtmlOutputFromFile('Sidebar_IconList.js').getContent(); ?>
   
   <style>
     html{
-      overflow: scroll;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
     .header {
       position:fixed;
@@ -29,7 +32,6 @@
       background-color: white;
       border-bottom: 1px solid rgb(224, 224, 224)
     }
-    
     .footer {
       display: none;
       position:fixed;
@@ -53,14 +55,17 @@
       align-items: baseline;
     }
     .left-label:not(:last-child){
-      margin-bottom:3px
+      margin-bottom: 3px
     }
     .left-label>label{
-      display:inline-block;
-      width:50px;
+      display: inline-block;
+      width: 53px;
     }
-    .left-label>input {
+    .left-label>input, .left-label>select {
       flex: auto;
+    }
+    .left-label>select>option{
+      font-size: 13px;
     }
     
     /*</editor-fold>*/
@@ -71,29 +76,9 @@
       flex-direction: row;
       flex-wrap: wrap;
       
-      margin-top: 70px;
+      margin-top: 106px;
       
-      color: rgb(73, 80, 87);
-    }
-    
-    
-    .iconParent {
-      display: flex;
-      padding: 5px;
-      margin: 5px;
-      
-      font-size: 40px;
-      cursor: pointer;
-    }
-    
-    .iconParent:hover {
-      padding: 4px;
-      
-      border: 1px solid rgb(224, 224, 224);
-    }
-  
-    .last-body-element+div{
-      margin-left: -14px;
+      color: #f3b32a;
     }
   </style>
 
@@ -102,11 +87,18 @@
   <div class="header">
     <div class="left-label">
       <label for="color-picker">Color:</label>
-      <input id="color-picker" type="text" class="jscolor" onchange="updateColor(this.jscolor)" value="rgb(73, 80, 87)">
+      <input id="color-picker" type="text" class="jscolor">
     </div>
     <div class="left-label">
       <label for="filter">Search:</label>
-      <input id="filter" type="text" onkeyup="filterList()" placeholder="Search by icon name...">
+      <input id="filter" type="text" placeholder="Search by icon name...">
+    </div>
+    <div class="left-label">
+      <label for="icon-set">Icon set:</label>
+      <select id="icon-set">
+        <option value="fa">Font Awesome</option>
+        <option value="md">Material Design</option>
+      </select>
     </div>
   </div>
   
@@ -115,94 +107,265 @@
   <div id="footer" class="footer">Adding icon to current slide...</div>
   
   <script>
-    var domList = document.getElementById('icon-list'),
-      domFooter = document.getElementById('footer'),
-      iconList = JSON.parse('<?= iconList ?>');
+    var self = {
+      dom: {
+        list: document.getElementById('icon-list'),
+        colorPicker: document.getElementById('color-picker'),
+        filter: document.getElementById('filter'),
+        iconSet: document.getElementById('icon-set'),
+        footer: document.getElementById('footer')
+      },
+      
+      color: 'F3B32A',
+      filter: ''
+    };
     
     /**
-     * Insert Font Awesome icons
+     * Init and customize color picker
      */
-    function insertIcon_FA(){
-      var html = '';
+    self.initColorPicker = function () {
+      // Disable automatic lookup
+      jscolor.lookupClass = null;
       
-      for (var i = 0; i < iconList.length; i++) {
-        var id = 'fa'+ iconList[i].t +'-'+ iconList[i].n;
-        
-        html += '<div id="'+ id +'" class="iconParent text-tooltip" onclick="addToSlide(this)" title="'+ iconList[i].n +'">';
-        html += '<i class="fa'+ iconList[i].t +' fa-'+ iconList[i].n +'"></i></div>';
-      }
+      // Set color
+      this.dom.colorPicker.value = this.color;
       
-      domList.innerHTML = html;
-    }
+      // Install now
+      jscolor.installByClassName('jscolor');
+  
+      this.dom.colorPicker.jscolor.padding = 8;
+      this.dom.colorPicker.jscolor.sliderSize = 8;
+    };
     
     /**
      * Update display with new selected color
-     *
-     * @param {string} jsColor
      */
-    function updateColor(jsColor) {
-      // 'jscolor' instance can be used as a string
-      domList.style.color = '#' + jsColor
-    }
+    self.onColorChange = function () {
+      this.color = this.dom.colorPicker.jscolor.toString();
+      
+      // Apply color to the icon list
+      this.dom.list.style.color = '#'+ this.color;
+    };
     
     /**
-     * Filter the displayed icon list
+     * On filter input key-up event, filter display if no input for 300ms
      */
-    function filterList() {
-      // Declare variables
-      var filter = document.getElementById('filter').value.toLowerCase();
+    self.onFilterKeyUP = function () {
+      // Fire filter if 300ms pass without input
+      clearTimeout(this._filterDebouncer);
+      this._filterDebouncer = setTimeout(this._onFilter, 300);
+    };
+    
+    /**
+     * Change displayed icon set
+     */
+    self.onIconSetChange = function () {
+      var set = this.dom.iconSet.value;
       
-      // Loop through all list items, and hide those who don't match the search query
-      for (var i = 0; i < iconList.length; i++) {
-        if (iconList[i].n.toLowerCase().indexOf(filter) > -1 || iconList[i].a.toLowerCase().indexOf(filter) > -1) {
-          document.getElementById("fa" + iconList[i].t + "-" + iconList[i].n).style.display = "";
-        }
-        else {
-          document.getElementById("fa" + iconList[i].t + "-" + iconList[i].n).style.display = "none";
-        }
+      this.display.showList(set);
+      this.display.filter(this.filter);
+    };
+    
+    /**
+     * Filter the display
+     */
+    self._onFilter = function () {
+      this.filter = this.dom.filter.value;
+      
+      this.display.filter(this.filter);
+    };
+    
+    
+    /**
+     * Insert Font Awesome icons
+     *
+     * @param {IconList} iconList
+     */
+    self.FA_insertIcon = function (iconList){
+      /**
+       * @type {Array.<{
+       *   n: string,
+       *   t: string,
+       *   a: string
+       * }>}
+       */
+      var list = JSON.parse('<?= iconList_FA ?>');
+      
+      for (var i = 0; i < list.length; i++) {
+        var iconName = 'fa'+ list[i].t +'-'+ list[i].n;
+        var html = '<i class="fa'+ list[i].t +' fa-'+ list[i].n +'"></i>';
+        
+        iconList.insertIcon(html, iconName, list[i].n, [list[i].n, list[i].a].join(','), list[i]);
       }
-    }
+    };
+    
+    /**
+     * Insert Material Design Icon
+     *
+     * @param {IconList} iconList
+     */
+    self.MD_insertIcon= function (iconList){
+      /**
+       * @type {{
+       *   groups: Array.<{
+       *     length: number,
+       *     data: {
+       *       id: string,
+       *       name: string
+       *     }
+       *   }>,
+       *   icons: Array.<{
+       *     id: string,
+       *     name: string,
+       *     group_id: string,
+       *     keywords: Array.<string>,
+       *     ligature: string,
+       *     codepoint: string,
+       *     is_new: boolean,
+       *   }
+       * }}
+       */
+      var md = JSON.parse('<?= iconList_MD ?>');
+      var list = md.icons;
+      
+      for (var i = 0; i < list.length; i++) {
+        var html = '<i class="material-icons">'+ list[i].ligature +'</i>';
+        
+        iconList.insertIcon(html, list[i].ligature, list[i].name, list[i].keywords.join(','), list[i]);
+      }
+    };
+    
+    /**
+     * Retrieve SVG for this icon
+     * 
+     * @param {IconItem} iconItem
+     */
+    self.MD_getSVG = function (iconItem) {
+      var key = iconItem.info.group_id +'/svg/production/'+ iconItem.info.id;
+      var promise;
+      
+      // Cache every SVG fetched
+      self._MD_SVG_CACHE = self._MD_SVG_CACHE || {};
+      if (self._MD_SVG_CACHE[key]){
+        promise = Promise.resolve(self._MD_SVG_CACHE[key]);
+      }
+      else{
+        var url = 'https://raw.githubusercontent.com/google/material-design-icons/master/'+ key +'_48px.svg';
+        
+        promise = new Promise(function (resolve, reject) {
+          var httpReq = new XMLHttpRequest();
+  
+          httpReq.open('GET', url);
+          httpReq.onreadystatechange = function(){
+            if (httpReq.readyState !== XMLHttpRequest.DONE) return;
+    
+            if (httpReq.responseText){
+              self._MD_SVG_CACHE[key] = httpReq.responseText;
+              
+              resolve(httpReq.responseText);
+            }
+            else {
+              reject();
+            }
+          };
+  
+          // do request
+          httpReq.send();
+        });
+      }
+      
+      return promise
+        .then(function (htmlSVG) {
+          // Clean some SVG that got the 'fill' attribute inline
+          htmlSVG = htmlSVG.replace(/fill="[^"]*?"/gm, '');
+          
+          var tmp = document.createElement('div');
+          tmp.innerHTML = htmlSVG;
+          
+          // get SVG element
+          var domSVG = tmp.querySelector('svg');
+          domSVG.style.fill = 'currentColor';
+          
+          return domSVG;
+        });
+    };
+    
+    /**
+     * Init the icon display
+     * Loads all icons lists
+     */
+    self.initIconDisplay = function () {
+      this.display = new IconDisplay(self.dom.list, self.addIconToSlide);
+      
+      this.display.addList('fa', this.FA_insertIcon);
+      this.display.addList('md', this.MD_insertIcon, this.MD_getSVG, {scale: 10.5});
+      
+      // Set initial displayed Set
+      this.display.showList('fa');
+      this.dom.iconSet.value = 'fa';
+    };
     
     /**
      * Convert the chosen SVG icon,
      * then send it to the server to insert it in the slide
      *
-     * @param {HTMLDivElement} el
+     * @param domSVG
+     * @param options
      */
-    function addToSlide(el) {
+    self.addIconToSlide = function (domSVG, options) {
       // Add proper color to icon
-      var color = domList.style.color;
-      var icon = el.childNodes[0];
+      domSVG.style.color = '#'+ this.color;
       
-      icon.style.color = color;
-      svgAsPngUri(icon, {}, function(uri) {
-        google.script.run.withSuccessHandler(onSuccess).addImageInCurrentPage(uri);
+      // Show footer
+      this.dom.footer.style.display = 'block';
+      
+      svgAsPngUri(domSVG, options || {}, function(uri) {
+        google.script.run
+          .withSuccessHandler(self.onIconAddSuccess)
+          .addImageInCurrentPage(uri);
       });
       
-      icon.style.color = "";
-      document.getElementById("footer").style.display = "block";
-    }
+      // reset as SVG could still be in real DOM
+      domSVG.style.color = '';
+    };
     
     /**
      * Upon icon insertion success, hide the footer
      */
-    function onSuccess() {
-      domFooter.style.display = "none";
-    }
+    self.onIconAddSuccess = function () {
+      this.dom.footer.style.display = 'none';
+    };
     
     
+    /**
+     * Start the app
+     */
+    self.init = function () {
+      // Bind function that will be used in different context
+      this.addIconToSlide = this.addIconToSlide.bind(this);
+      this.onIconAddSuccess = this.onIconAddSuccess.bind(this);
+      this._onFilter = this._onFilter.bind(this);
+      
+      // Add control event listeners
+      this.dom.colorPicker.addEventListener('change', this.onColorChange.bind(this));
+      this.dom.filter.addEventListener('keyup', this.onFilterKeyUP.bind(this));
+      this.dom.iconSet.addEventListener('change', this.onIconSetChange.bind(this));
+      
+      // Init
+      this.initColorPicker();
+      this.initIconDisplay();
+      
+      // Add tooltip display to show the icon's name
+      tippy('.text-tooltip', {
+        arrow: true,
+        size: 'small'
+      });
+    };
     
-    insertIcon_FA();
     
-    // Add tooltip display to show the icon's name
-    tippy('.text-tooltip', {
-      arrow: true,
-      size: 'small'
-    });
+    /* Start */
+    self.init();
     
   </script>
-  
-  <!-- Don't remove this div, it serve to apply CSS on the color picker -->
-  <div class="last-body-element"></div>
 </body>
 </html>

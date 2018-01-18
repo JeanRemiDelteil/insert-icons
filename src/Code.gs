@@ -68,7 +68,8 @@ function showSidebar() {
   
   // Retrieve list of icons from Material Design website
   // template.iconList = UrlFetchApp.fetch("https://material.io/icons/data/grid.json").getContentText();
-  template.iconList = JSON.stringify(fa_icon_list);
+  template.iconList_FA = JSON.stringify(icon_list_fa);
+  template.iconList_MD = JSON.stringify(icon_list_md);
   
   var ui = template.evaluate().setTitle('Insert icons');
   SlidesApp.getUi().showSidebar(ui);
