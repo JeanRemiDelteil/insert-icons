@@ -64,6 +64,9 @@
     .left-label>input, .left-label>select {
       flex: auto;
     }
+    .left-label>select>option{
+      font-size: 13px;
+    }
     
     /*</editor-fold>*/
     
@@ -136,8 +139,6 @@
     
     /**
      * Update display with new selected color
-     *
-     * @param {string} jsColor
      */
     self.onColorChange = function () {
       this.color = this.dom.colorPicker.jscolor.toString();
@@ -181,11 +182,11 @@
      */
     self.FA_insertIcon = function (iconList){
       /**
-       * @type {{
+       * @type {Array.<{
        *   n: string,
        *   t: string,
        *   a: string
-       * }}
+       * }>}
        */
       var list = JSON.parse('<?= iconList_FA ?>');
       
