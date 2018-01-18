@@ -28,6 +28,9 @@
   .icon-parent>* {
     margin: auto;
   }
+  .icon-parent>.material-icons {
+    font-size: 40px;
+  }
   
 </style>
 <script>
@@ -58,9 +61,20 @@
    *
    * @param {string} name
    * @param {function} fillList
+   * @param {function} [getSVG]
+   * @param {{
+   *   scale: number
+   * }} [SVG_options]
    */
-  IconDisplay.prototype.addList = function (name, fillList) {
+  IconDisplay.prototype.addList = function (name, fillList, getSVG, SVG_options) {
     var iconList = new IconList(name);
+    
+    // Use custom function if provided
+    if (getSVG){
+      iconList.getSVG = getSVG.bind(iconList);
+    }
+    iconList.SVG_options = SVG_options || {};
+    
     fillList(iconList);
     
     this.lists[name] = iconList;
@@ -109,11 +123,16 @@
     var iconItem = list.iconMap[target._iconName];
     if (!iconItem) return;
     
-    var domSVG = list.getSVG(iconItem);
-    if (!domSVG) return;
-    
-    // Send SVG to be inserted in the SLIDE
-    this._onSelectIconCallback(domSVG);
+    Promise.resolve()
+      .then(function() {
+        return list.getSVG(iconItem)
+      })
+      .then(function(domSVG){
+        if (!domSVG) return;
+        
+        // Send SVG to be inserted in the SLIDE
+        this._onSelectIconCallback(domSVG, list.SVG_options);
+      }.bind(this));
   };
   
   //</editor-fold>
@@ -140,6 +159,8 @@
     
     /** @type {Object.<IconItem>} */
     this.iconMap = {};
+    
+    this.SVG_options = {};
     
     this.name = name;
     

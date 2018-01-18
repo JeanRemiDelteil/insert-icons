@@ -1,7 +1,7 @@
 // https://docs.google.com/spreadsheets/d/1Pt8bcsMLK2zlW-pxVpchNtwo2CJ46ZapZCuqYkRJt00/edit#gid=2091947411
 // https://www.browserling.com/tools/remove-all-whitespace
 // http://jsbeautifier.org/
-var fa_icon_list = [{
+var icon_list_fa = [{
   n: "500px",
   t: "b",
   a: ""
