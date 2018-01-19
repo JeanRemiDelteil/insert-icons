@@ -18,7 +18,7 @@
  * @param event
  */
 function onOpen(event) {
-  SlidesApp.getUi().createAddonMenu()
+  getUi().createAddonMenu()
     .addItem('Open sidebar to select icons', 'showSidebar')
     .addToUi();
 }
@@ -45,7 +45,7 @@ function showSidebar() {
   template.iconList_MD = JSON.stringify(icon_list_md);
   
   var ui = template.evaluate().setTitle('Insert icons');
-  SlidesApp.getUi().showSidebar(ui);
+  getUi().showSidebar(ui);
 }
 
 
@@ -70,9 +70,76 @@ function addImageInCurrentPage(blob) {
     imageBlob = Utilities.newBlob(decodedBlob, "image/png");
   }
   
+  switch (getDocType()){
+    case 'slide':
+      addImageToSlide(imageBlob);
+      break;
+      
+    case 'doc':
+      addImageToDoc(imageBlob);
+      break;
+  }
+}
+
+/**
+ * Insert the image in Slide
+ * 
+ * @param {Blob} imageBlob
+ */
+function addImageToSlide(imageBlob) {
   var presentation = SlidesApp.getActivePresentation();
   var currentPage = presentation.getSelection().getCurrentPage();
   
   currentPage.insertImage(imageBlob);
   presentation.saveAndClose();
+}
+
+/**
+ * Insert the image in Doc
+ * 
+ * @param {Blob | BlobSource} imageBlob
+ */
+function addImageToDoc(imageBlob) {
+  var doc = DocumentApp.getActiveDocument();
+  
+  doc.getCursor().insertInlineImage(imageBlob);
+}
+
+
+
+/**
+ * Get Ui independent of container being a Slide or a Doc
+ * 
+ * @return {Ui}
+ */
+function getUi(){
+  var ui;
+  
+  // Are we on Slide?
+  try{ ui = SlidesApp.getUi() }
+  catch(e){}
+  
+  if (!ui){
+    // Are we on Doc?
+    try{ ui = DocumentApp.getUi() }
+    catch(e){}
+  }
+  
+  return ui;
+}
+
+function getDocType(){
+  // Are we on Slide?
+  try{
+    if (SlidesApp.getActivePresentation()) return 'slide';
+  }
+  catch(e){}
+  
+  // Are we on Doc?
+  try{
+    if (DocumentApp.getActiveDocument()) return 'doc';
+  }
+  catch(e){}
+  
+  return '';
 }
