@@ -32,6 +32,23 @@ function onInstall(event) {
   onOpen(event);
 }
 
+
+/**
+ * Opens a sidebar in the document containing the add-on's user interface.
+ */
+function showSidebar() {
+  var template = HtmlService.createTemplateFromFile("Sidebar");
+  
+  // Retrieve list of icons from Material Design website
+  // template.iconList = UrlFetchApp.fetch("https://material.io/icons/data/grid.json").getContentText();
+  template.iconList_FA = JSON.stringify(icon_list_fa);
+  template.iconList_MD = JSON.stringify(icon_list_md);
+  
+  var ui = template.evaluate().setTitle('Insert icons');
+  SlidesApp.getUi().showSidebar(ui);
+}
+
+
 /**
  * Insert png image in slide
  *
@@ -59,20 +76,3 @@ function addImageInCurrentPage(blob) {
   currentPage.insertImage(imageBlob);
   presentation.saveAndClose();
 }
-
-/**
- * Opens a sidebar in the document containing the add-on's user interface.
- */
-function showSidebar() {
-  var template = HtmlService.createTemplateFromFile("Sidebar");
-  
-  // Retrieve list of icons from Material Design website
-  // template.iconList = UrlFetchApp.fetch("https://material.io/icons/data/grid.json").getContentText();
-  template.iconList_FA = JSON.stringify(icon_list_fa);
-  template.iconList_MD = JSON.stringify(icon_list_md);
-  
-  var ui = template.evaluate().setTitle('Insert icons');
-  SlidesApp.getUi().showSidebar(ui);
-}
-
-
