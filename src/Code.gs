@@ -9,7 +9,7 @@
  */
 
 /**
- * @OnlyCurrentDoc Limits the script to only accessing the current presentation.
+ * @OnlyCurrentDoc Limits the script to only accessing the current Presentation or Document.
  */
 
 /**

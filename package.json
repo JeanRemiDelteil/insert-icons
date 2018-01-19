@@ -12,7 +12,6 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "jszip": "^3.1.5",
-    "node-google-apps-script": "^1.1.5",
     "webstore-upload": "0.0.7"
   }
 }

@@ -23,13 +23,14 @@ module.exports = function(grunt) {
 	 *   clasp: {
 	 *     scriptId: string
 	 *   },
+	 *   script_manifest: {},
 	 *   publishing: {
 	 *     version: number,
 	 *     versionOffset: number,
 	 *     account: string,
-	 *     appID: string
-	 *   },
-	 *   manifest: Object
+	 *     appID: string,
+	 *     manifest: Object
+	 *   }
 	 * }}
 	 */
 	const CONFIG = grunt.file.readJSON(`./build/config/${TARGET}_config.json`);
@@ -94,7 +95,12 @@ module.exports = function(grunt) {
 				src: "build/src/.clasp.json",
 				dest: "build/src/.clasp.json",
 				configuration: CONFIG.clasp
-			}
+			},
+			'scriptManifest': {
+				src: "build/src/appsscript.json",
+				dest: "build/src/appsscript.json",
+				configuration: CONFIG.script_manifest || {},
+			},
 		},
 		clasp: {
 			'newVersion': {
@@ -384,7 +390,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'clean:build',
 		'copy:build',
-		'config:clasp'
+		'config:clasp',
+		'config:scriptManifest',
 	]);
 	
 	grunt.registerTask('push', [

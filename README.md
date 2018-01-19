@@ -8,7 +8,7 @@
 2. Clone the Git repository
 3. Run npm install in project root to install **_node_modules_** necessary to run grunt and build the project
 4. Create a _**/build/config/dev_config.json**_ file
-It will contain the built target, and must be of the following form:
+It will contain the built target, and must be of the following form: (see below < config file format >)
 ```
 {
 	"clasp": {"scriptId": "AppsScript file drive ID"},
@@ -21,7 +21,7 @@ Find the setup for clasp on this page: https://www.npmjs.com/package/@google/cla
 
 #### Build command
 
-1. Renaming and copy files: Execute ``grunt build --target=dev`` inside the main working directory
+1. Renaming and copy files: Execute ``grunt build --target=$CONFiG_NAME$`` inside the main working directory ($CONFiG_NAME$ = dev, prod, whatever name you choose: it will use the config file named "/build/config/$CONFiG_NAME$_config.json")
 2. Update the script: Execute ``grunt push --target=dev``
 3. Both can be executed with: ``grunt build_push --target=dev``
 4. To publish an addon (JUST FOR TEST): ``grunt build_publish --target=testAddon``
@@ -41,6 +41,7 @@ When not publishing as an Addon:
 	"clasp": {
 		"scriptId": "$TARGET_SCRIPT_ID$"
 	},
+	"script_manifest": {},
 	"publishing": {}
 }
 ```
@@ -53,6 +54,7 @@ When publishing as an Addon with the command:
 	"clasp": {
 		"scriptId": "$TARGET_SCRIPT_ID$"
 	},
+	"script_manifest": {},
 	"publishing": {
 		"version": null,
 		"versionOffset": 0,
@@ -87,6 +89,8 @@ When publishing as an Addon with the command:
 NOTE: The "manifest" key can be copied from the chrome webstore item, all field will already be correctly filled.
 
 NOTE: The first publishing must be done manually.
+
+NOTE: fill the "script_manifest" key with this format: https://developers.google.com/apps-script/concepts/manifests#manifest_structure
 
 #### Credential file format:
 
