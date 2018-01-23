@@ -143,6 +143,13 @@ function addImageToDoc(imageBlob, title) {
     insertedImage = doc.getBody().appendImage(imageBlob);
   }
   
+  var width = insertedImage.getWidth();
+  var height = insertedImage.getHeight();
+  var ratio = width / height;
+  var newWidth = 100;
+  insertedImage.setWidth(newWidth);
+  insertedImage.setHeight(newWidth * ratio);
+  
   // Set title if provided
   title && insertedImage.setAltTitle(title);
 }
