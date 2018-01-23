@@ -44,6 +44,24 @@ function showSidebar() {
   template.iconList_FA = JSON.stringify(icon_list_fa);
   template.iconList_MD = JSON.stringify(icon_list_md);
   
+  // Configuration depending on doc type
+  var config = ({
+    slide: {
+      themeColor: '#f3b32a',
+      maximumInsertSize: 512
+    },
+    doc: {
+      themeColor: '#4285f4',
+      maximumInsertSize: 256
+    }
+  })[getDocType()];
+  
+  // Apply config to template
+  for (var key in config){
+    template[key] = config[key];
+  }
+  
+  // Display sidebar
   var ui = template.evaluate().setTitle('Insert icons');
   getUi().showSidebar(ui);
 }
@@ -128,6 +146,11 @@ function getUi(){
   return ui;
 }
 
+/**
+ * Get the current Google Document type ('doc' or 'slide')
+ * 
+ * @return {'doc' | 'slide'}
+ */
 function getDocType(){
   // Are we on Slide?
   try{
