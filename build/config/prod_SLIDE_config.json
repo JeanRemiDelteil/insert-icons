@@ -1,0 +1,13 @@
+{
+	"clasp": {
+		"scriptId": "1Syx3bA-2FTn7bGjnWbnedVBjaOtv8DZBmqs53Zi83-sAwrGzXJoaJAR1"
+	},
+	"script_manifest": {
+		"oauthScopes": [
+			"https://www.googleapis.com/auth/presentations.currentonly",
+			"https://www.googleapis.com/auth/script.container.ui",
+			"https://www.googleapis.com/auth/script.external_request"
+		]
+	},
+	"publishing": {}
+}
