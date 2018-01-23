@@ -120,7 +120,18 @@ function addImageToSlide(imageBlob) {
 function addImageToDoc(imageBlob) {
   var doc = DocumentApp.getActiveDocument();
   
-  doc.getCursor().insertInlineImage(imageBlob);
+  var cursor = doc.getCursor();
+  
+  // Maybe user is currently selecting another images, and there is no valid cursor
+  if (cursor){
+    var res = cursor.insertInlineImage(imageBlob);
+    
+    // res === null if we don't have insertion right here
+    if (res) return;
+  }
+  
+  // Fallback to append to the body
+  doc.getBody().appendImage(imageBlob);
 }
 
 
