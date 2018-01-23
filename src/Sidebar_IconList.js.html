@@ -131,7 +131,7 @@
         if (!domSVG) return;
         
         // Send SVG to be inserted in the SLIDE
-        this._onSelectIconCallback(domSVG, list.SVG_options);
+        this._onSelectIconCallback(domSVG, list.SVG_options, iconItem.title || '');
       }.bind(this));
   };
   
@@ -146,7 +146,8 @@
    *     _iconName: string,
    *   },
    *   search: string,
-   *   info: Object
+   *   info: Object,
+   *   title: Object
    * }} IconItem
    */
   
@@ -201,7 +202,8 @@
     this.iconMap[name] = {
       dom: domIconContainer,
       search: search.toLowerCase(),
-      info: info
+      info: info,
+      title: toolTip
     };
   };
 

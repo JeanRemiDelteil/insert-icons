@@ -77,8 +77,6 @@
       flex-wrap: wrap;
       
       margin-top: 106px;
-      
-      color: #f3b32a;
     }
   </style>
 
@@ -107,7 +105,7 @@
   <div id="footer" class="footer">Adding icon to current slide...</div>
   
   <script>
-    var self = {
+    var _self = {
       dom: {
         list: document.getElementById('icon-list'),
         colorPicker: document.getElementById('color-picker'),
@@ -116,14 +114,15 @@
         footer: document.getElementById('footer')
       },
       
-      color: 'F3B32A',
+      color: '<?= themeColor ?>',
+      _maxInsertSize: +'<?= maximumInsertSize ?>',
       filter: ''
     };
     
     /**
      * Init and customize color picker
      */
-    self.initColorPicker = function () {
+    _self.initColorPicker = function () {
       // Disable automatic lookup
       jscolor.lookupClass = null;
       
@@ -135,12 +134,15 @@
   
       this.dom.colorPicker.jscolor.padding = 8;
       this.dom.colorPicker.jscolor.sliderSize = 8;
+      
+      // Update color
+      _self.onColorChange();
     };
     
     /**
      * Update display with new selected color
      */
-    self.onColorChange = function () {
+    _self.onColorChange = function () {
       this.color = this.dom.colorPicker.jscolor.toString();
       
       // Apply color to the icon list
@@ -150,7 +152,7 @@
     /**
      * On filter input key-up event, filter display if no input for 300ms
      */
-    self.onFilterKeyUP = function () {
+    _self.onFilterKeyUP = function () {
       // Fire filter if 300ms pass without input
       clearTimeout(this._filterDebouncer);
       this._filterDebouncer = setTimeout(this._onFilter, 300);
@@ -159,7 +161,7 @@
     /**
      * Change displayed icon set
      */
-    self.onIconSetChange = function () {
+    _self.onIconSetChange = function () {
       var set = this.dom.iconSet.value;
       
       this.display.showList(set);
@@ -180,7 +182,7 @@
     /**
      * Filter the display
      */
-    self._onFilter = function () {
+    _self._onFilter = function () {
       this.filter = this.dom.filter.value;
       
       this.display.filter(this.filter);
@@ -192,7 +194,7 @@
      *
      * @param {IconList} iconList
      */
-    self.FA_insertIcon = function (iconList){
+    _self.FA_insertIcon = function (iconList){
       /**
        * @type {Array.<{
        *   n: string,
@@ -215,7 +217,7 @@
      *
      * @param {IconList} iconList
      */
-    self.MD_insertIcon= function (iconList){
+    _self.MD_insertIcon= function (iconList){
       /**
        * @type {{
        *   groups: Array.<{
@@ -251,14 +253,14 @@
      * 
      * @param {IconItem} iconItem
      */
-    self.MD_getSVG = function (iconItem) {
+    _self.MD_getSVG = function (iconItem) {
       var key = iconItem.info.group_id +'/svg/production/'+ iconItem.info.id;
       var promise;
       
       // Cache every SVG fetched
-      self._MD_SVG_CACHE = self._MD_SVG_CACHE || {};
-      if (self._MD_SVG_CACHE[key]){
-        promise = Promise.resolve(self._MD_SVG_CACHE[key]);
+      _self._MD_SVG_CACHE = _self._MD_SVG_CACHE || {};
+      if (_self._MD_SVG_CACHE[key]){
+        promise = Promise.resolve(_self._MD_SVG_CACHE[key]);
       }
       else{
         var url = 'https://raw.githubusercontent.com/google/material-design-icons/master/'+ key +'_48px.svg';
@@ -271,7 +273,7 @@
             if (httpReq.readyState !== XMLHttpRequest.DONE) return;
     
             if (httpReq.responseText){
-              self._MD_SVG_CACHE[key] = httpReq.responseText;
+              _self._MD_SVG_CACHE[key] = httpReq.responseText;
               
               resolve(httpReq.responseText);
             }
@@ -305,11 +307,11 @@
      * Init the icon display
      * Loads all icons lists
      */
-    self.initIconDisplay = function () {
-      this.display = new IconDisplay(self.dom.list, self.addIconToSlide);
+    _self.initIconDisplay = function () {
+      this.display = new IconDisplay(_self.dom.list, _self.addIconToSlide);
       
-      this.display.addList('fa', this.FA_insertIcon);
-      this.display.addList('md', this.MD_insertIcon, this.MD_getSVG, {scale: 10.5});
+      this.display.addList('fa', this.FA_insertIcon, null, {scale: _self._maxInsertSize / 512});
+      this.display.addList('md', this.MD_insertIcon, this.MD_getSVG, {scale: 10.5 * _self._maxInsertSize / 512});
       
       // Set initial displayed Set
       this.dom.iconSet.value = 'fa';
@@ -322,8 +324,9 @@
      *
      * @param domSVG
      * @param options
+     * @param {string} title
      */
-    self.addIconToSlide = function (domSVG, options) {
+    _self.addIconToSlide = function (domSVG, options, title) {
       // Add proper color to icon
       domSVG.style.color = '#'+ this.color;
       
@@ -332,8 +335,8 @@
       
       svgAsPngUri(domSVG, options || {}, function(uri) {
         google.script.run
-          .withSuccessHandler(self.onIconAddSuccess)
-          .addImageInCurrentPage(uri);
+          .withSuccessHandler(_self.onIconAddSuccess)
+          .addImageInCurrentPage(uri, title);
       });
       
       // reset as SVG could still be in real DOM
@@ -343,7 +346,7 @@
     /**
      * Upon icon insertion success, hide the footer
      */
-    self.onIconAddSuccess = function () {
+    _self.onIconAddSuccess = function () {
       this.dom.footer.style.display = 'none';
     };
     
@@ -351,7 +354,7 @@
     /**
      * Start the app
      */
-    self.init = function () {
+    _self.init = function () {
       // Bind function that will be used in different context
       this.addIconToSlide = this.addIconToSlide.bind(this);
       this.onIconAddSuccess = this.onIconAddSuccess.bind(this);
@@ -369,7 +372,7 @@
     
     
     /* Start */
-    self.init();
+    _self.init();
     
   </script>
 </body>

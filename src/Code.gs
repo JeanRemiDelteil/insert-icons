@@ -44,6 +44,24 @@ function showSidebar() {
   template.iconList_FA = JSON.stringify(icon_list_fa);
   template.iconList_MD = JSON.stringify(icon_list_md);
   
+  // Configuration depending on doc type
+  var config = ({
+    slide: {
+      themeColor: '#f3b32a',
+      maximumInsertSize: 512
+    },
+    doc: {
+      themeColor: '#4285f4',
+      maximumInsertSize: 256
+    }
+  })[getDocType()];
+  
+  // Apply config to template
+  for (var key in config){
+    template[key] = config[key];
+  }
+  
+  // Display sidebar
   var ui = template.evaluate().setTitle('Insert icons');
   getUi().showSidebar(ui);
 }
@@ -53,8 +71,9 @@ function showSidebar() {
  * Insert png image in slide
  *
  * @param {string} blob
+ * @param {string} [title]
  */
-function addImageInCurrentPage(blob) {
+function addImageInCurrentPage(blob, title) {
   /**
    * @type {Blob}
    */
@@ -72,11 +91,11 @@ function addImageInCurrentPage(blob) {
   
   switch (getDocType()){
     case 'slide':
-      addImageToSlide(imageBlob);
+      addImageToSlide(imageBlob, title);
       break;
       
     case 'doc':
-      addImageToDoc(imageBlob);
+      addImageToDoc(imageBlob, title);
       break;
   }
 }
@@ -85,24 +104,47 @@ function addImageInCurrentPage(blob) {
  * Insert the image in Slide
  * 
  * @param {Blob} imageBlob
+ * @param {string} [title]
  */
-function addImageToSlide(imageBlob) {
+function addImageToSlide(imageBlob, title) {
   var presentation = SlidesApp.getActivePresentation();
   var currentPage = presentation.getSelection().getCurrentPage();
   
   currentPage.insertImage(imageBlob);
+  // No option to set a title on an Image in Slide
+  
   presentation.saveAndClose();
 }
 
 /**
  * Insert the image in Doc
- * 
+ *
  * @param {Blob | BlobSource} imageBlob
+ * @param {string} [title]
  */
-function addImageToDoc(imageBlob) {
+function addImageToDoc(imageBlob, title) {
   var doc = DocumentApp.getActiveDocument();
   
-  doc.getCursor().insertInlineImage(imageBlob);
+  var cursor = doc.getCursor();
+  
+  /**
+   * @type {DocumentApp.InlineImage}
+   */
+  var insertedImage;
+  
+  // Maybe user is currently selecting another images, and there is no valid cursor
+  if (cursor){
+    insertedImage = cursor.insertInlineImage(imageBlob);
+  }
+  
+  // insertedImage === null if we don't have insertion right here
+  if (!insertedImage){
+    // Fallback to append to the body
+    insertedImage = doc.getBody().appendImage(imageBlob);
+  }
+  
+  // Set title if provided
+  title && insertedImage.setAltTitle(title);
 }
 
 
@@ -128,6 +170,11 @@ function getUi(){
   return ui;
 }
 
+/**
+ * Get the current Google Document type ('doc' or 'slide')
+ * 
+ * @return {'doc' | 'slide'}
+ */
 function getDocType(){
   // Are we on Slide?
   try{
