@@ -324,8 +324,9 @@
      *
      * @param domSVG
      * @param options
+     * @param {string} title
      */
-    _self.addIconToSlide = function (domSVG, options) {
+    _self.addIconToSlide = function (domSVG, options, title) {
       // Add proper color to icon
       domSVG.style.color = '#'+ this.color;
       
@@ -335,7 +336,7 @@
       svgAsPngUri(domSVG, options || {}, function(uri) {
         google.script.run
           .withSuccessHandler(_self.onIconAddSuccess)
-          .addImageInCurrentPage(uri);
+          .addImageInCurrentPage(uri, title);
       });
       
       // reset as SVG could still be in real DOM
