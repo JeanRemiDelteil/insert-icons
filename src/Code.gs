@@ -110,8 +110,26 @@ function addImageToSlide(imageBlob, title) {
   var presentation = SlidesApp.getActivePresentation();
   var currentPage = presentation.getSelection().getCurrentPage();
   
-  currentPage.insertImage(imageBlob);
+  var insertedImage = currentPage.insertImage(imageBlob);
   // No option to set a title on an Image in Slide
+  
+  // Limit inserted image size to 300px max at insertion time
+  var maxSize = 300,
+    width = insertedImage.getWidth(),
+    height = insertedImage.getHeight(),
+    ratio = width / height;
+  
+  if (ratio > 1) {
+    width = maxSize;
+    height = maxSize / ratio;
+  }
+  else {
+    width = maxSize * ratio;
+    height = maxSize;
+  }
+  
+  insertedImage.setWidth(width);
+  insertedImage.setHeight(height);
   
   presentation.saveAndClose();
 }
@@ -142,6 +160,24 @@ function addImageToDoc(imageBlob, title) {
     // Fallback to append to the body
     insertedImage = doc.getBody().appendImage(imageBlob);
   }
+  
+  // Limit inserted image size to 100px max at insertion time
+  var maxSize = 100,
+    width = insertedImage.getWidth(),
+    height = insertedImage.getHeight(),
+    ratio = width / height;
+  
+  if (ratio > 1) {
+    width = maxSize;
+    height = maxSize / ratio;
+  }
+  else {
+    width = maxSize * ratio;
+    height = maxSize;
+  }
+  
+  insertedImage.setWidth(width);
+  insertedImage.setHeight(height);
   
   // Set title if provided
   title && insertedImage.setAltTitle(title);
