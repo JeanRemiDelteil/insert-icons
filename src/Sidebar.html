@@ -32,9 +32,17 @@
       background-color: white;
       border-bottom: 1px solid rgb(224, 224, 224)
     }
-    .footer {
+    .footer-overlay{
       display: none;
-      position:fixed;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #61616138;
+    }
+    .footer {
+      position: absolute;
       
       bottom:0;
       width:100%;
@@ -46,7 +54,6 @@
       color: white;
       font-weight: bold;
     }
-    
     
     /*<editor-fold desc="# HEADER content">*/
     
@@ -102,7 +109,9 @@
   
   <div id="icon-list"></div>
   
-  <div id="footer" class="footer">Adding icon to current slide...</div>
+  <div id="footer" class="footer-overlay">
+    <div class="footer">Adding icon to current slide...</div>
+  </div>
   
   <script>
     var _self = {
