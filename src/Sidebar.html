@@ -32,9 +32,17 @@
       background-color: white;
       border-bottom: 1px solid rgb(224, 224, 224)
     }
-    .footer {
+    .footer-overlay{
       display: none;
-      position:fixed;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #61616138;
+    }
+    .footer {
+      position: absolute;
       
       bottom:0;
       width:100%;
@@ -46,10 +54,34 @@
       color: white;
       font-weight: bold;
     }
+    .error-message{
+      position: fixed;
+      background-color: #ff2929;
+      transform: translateY(100%);
+    }
+    
+    /*noinspection CssUnusedSymbol*/
+    .show-message{
+      -webkit-animation: showError 4s;
+      -o-animation: showError 4s;
+      animation: showError 4s;
+    }
+    
+    @keyframes showError {
+      0% {
+        transform: translateY(0%);
+      }
+      82.5% {
+        transform: translateY(0%);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
     
     
     /*<editor-fold desc="# HEADER content">*/
-    
+
     .left-label {
       display: flex;
       align-items: baseline;
@@ -67,7 +99,7 @@
     .left-label>select>option{
       font-size: 13px;
     }
-    
+
     /*</editor-fold>*/
     
     
@@ -102,7 +134,10 @@
   
   <div id="icon-list"></div>
   
-  <div id="footer" class="footer">Adding icon to current slide...</div>
+  <div id="footer" class="footer-overlay">
+    <div class="footer">Adding icon to current slide...</div>
+  </div>
+  <div id="errorMessage" class="footer error-message">An error prevented the icon to be inserted...</div>
   
   <script>
     var _self = {
@@ -111,7 +146,8 @@
         colorPicker: document.getElementById('color-picker'),
         filter: document.getElementById('filter'),
         iconSet: document.getElementById('icon-set'),
-        footer: document.getElementById('footer')
+        footer: document.getElementById('footer'),
+        errorMessage: document.getElementById('errorMessage')
       },
       
       color: '<?= themeColor ?>',
@@ -335,6 +371,7 @@
       
       svgAsPngUri(domSVG, options || {}, function(uri) {
         google.script.run
+          .withFailureHandler(_self.onIconAddFailure)
           .withSuccessHandler(_self.onIconAddSuccess)
           .addImageInCurrentPage(uri, title);
       });
@@ -348,6 +385,22 @@
      */
     _self.onIconAddSuccess = function () {
       this.dom.footer.style.display = 'none';
+    };
+    
+    /**
+     * Upon icon insertion failure, hide the footer, and show error message
+     */
+    _self.onIconAddFailure = function () {
+      this.dom.footer.style.display = 'none';
+      
+      //<editor-fold desc="# Show error message">
+      this.dom.errorMessage.classList.remove('show-message');
+  
+      // trigger re-flow to restart animation (https://css-tricks.com/restart-css-animation/#article-header-id-0) 
+      void this.dom.errorMessage.offsetWidth;
+  
+      this.dom.errorMessage.classList.add('show-message');
+      //</editor-fold>
     };
     
     
