@@ -1,5 +1,7 @@
 <html>
 <head>
+  <!-- Include & init Stackdriver error reporting -->
+  <?!= HtmlService.createHtmlOutputFromFile('Sidebar_ErrorReporting.js').getContent(); ?>
   
   <script src="//use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/saveSvgAsPng.js"></script>
@@ -12,6 +14,7 @@
   <!-- To use Material Design icons, we need a way to convert web font / <i> to png -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
+  <!-- Include IconList builder -->
   <?!= HtmlService.createHtmlOutputFromFile('Sidebar_IconList.js').getContent(); ?>
   
   <style>
