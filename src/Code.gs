@@ -112,7 +112,11 @@ function addImageInCurrentPage(blob, title) {
  */
 function addImageToSlide(imageBlob, title) {
   var presentation = SlidesApp.getActivePresentation();
-  var currentPage = presentation.getSelection().getCurrentPage();
+  var currentPage = presentation.getSelection().getCurrentPage()
+                    || presentation.getSlides()[0]
+                    || presentation.appendSlide();
+  
+  if (!currentPage) throw "No pages in current presentation";
   
   var insertedImage = currentPage.insertImage(imageBlob);
   // No option to set a title on an Image in Slide
