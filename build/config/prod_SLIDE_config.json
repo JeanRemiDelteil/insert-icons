@@ -9,5 +9,11 @@
 			"https://www.googleapis.com/auth/script.external_request"
 		]
 	},
-	"publishing": {}
+	"publishing": {},
+	"context": {
+		"configError": {
+			"key": "AIzaSyApI6zYaRZQIiG0n4cj6fyTUb3Hax2aL00",
+			"projectId": "project-id-6700333340009154779"
+		}
+	}
 }
