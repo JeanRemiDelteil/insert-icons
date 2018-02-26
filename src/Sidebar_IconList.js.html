@@ -112,10 +112,10 @@
   IconDisplay.prototype._onClick = function (event) {
     // Find clicked icon
     var target = event.target;
-    while (!target._listName && target !== this.dom){
+    while (target && !target._listName && target !== this.dom){
       target = target.parentElement;
     }
-    if (target === this.dom) return;
+    if (!target || target === this.dom) return;
     
     var list = this.lists[target._listName];
     if (!list) return;
