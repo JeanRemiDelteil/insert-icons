@@ -37,7 +37,7 @@ function onInstall(event) {
  * Opens a sidebar in the document containing the add-on's user interface.
  */
 function showSidebar() {
-  var template = HtmlService.createTemplateFromFile("Sidebar");
+  var template = HtmlService.createTemplateFromFile('sidebar/index');
   
   // Retrieve list of icons
   template.iconList_FA = JSON.stringify(icon_list_fa);

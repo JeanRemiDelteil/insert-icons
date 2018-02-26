@@ -84,38 +84,14 @@ module.exports = function(grunt) {
 		},
 		copy:{
 			'build': {
-				files: [
-					{
-						expand: true,
-						cwd: 'src/',
-						src: '**/*.gs.js',
-						dest: 'build/src/',
-						flatten: true,
-						filter: 'isFile',
-						rename: function (dest, src) {
-							return dest + src.replace(/\.gs\.js$/, '.gs');
-						}
-					},
-					{
-						expand: true,
-						cwd: 'src/',
-						src: '**/*.js',
-						dest: 'build/src/',
-						flatten: true,
-						filter: 'isFile',
-						rename: function (dest, src) {
-							return dest + src.replace(/\.js$/, '.gs');
-						}
-					},
-					{
-						expand: true,
-						cwd: 'src/',
-						src: ['**/*.html', '**/*.json', '**/*.gs'],
-						dest: 'build/src/',
-						flatten: true,
-						filter: 'isFile'
-					}
-				]
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: ['**/*.html', '**/*.json', '**/*.gs'],
+          dest: 'build/src/',
+          flatten: false,
+          filter: 'isFile'
+        }],
 			}
 		},
     jsonPatch: {
