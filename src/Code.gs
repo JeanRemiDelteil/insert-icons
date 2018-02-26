@@ -39,12 +39,11 @@ function onInstall(event) {
 function showSidebar() {
   var template = HtmlService.createTemplateFromFile("Sidebar");
   
-  // Retrieve list of icons from Material Design website
-  // template.iconList = UrlFetchApp.fetch("https://material.io/icons/data/grid.json").getContentText();
+  // Retrieve list of icons
   template.iconList_FA = JSON.stringify(icon_list_fa);
   template.iconList_MD = JSON.stringify(icon_list_md);
   
-  // Configuration depending on doc type
+  // Configuration depending on doc type, default to 'slide', in case document type determination failed (maybe when just created ?)
   var config = ({
     slide: {
       themeColor: '#f3b32a',
@@ -54,7 +53,7 @@ function showSidebar() {
       themeColor: '#4285f4',
       maximumInsertSize: 256
     }
-  })[getDocType()];
+  })[getDocType() || 'slide'];
   
   // Apply config to template
   for (var key in config){
@@ -97,6 +96,11 @@ function addImageInCurrentPage(blob, title) {
     case 'doc':
       addImageToDoc(imageBlob, title);
       break;
+      
+    default:
+      // Document type can not be determined for whatever reasons, for now the error text is not displayed to the users
+      throw 'A server error occured, please reload the sidebar and try again.'
+      
   }
 }
 
