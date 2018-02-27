@@ -122,6 +122,8 @@
         return typeof callback === 'function' && callback(e);
       };
       xhr.send(JSON.stringify(payload));
+  
+      console.error(payload.message);
     };
   })(this);
   

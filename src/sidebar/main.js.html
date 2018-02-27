@@ -1,0 +1,287 @@
+<script>
+  
+  /**
+   * Init and customize color picker
+   */
+  _self.initColorPicker = function () {
+    if ('jscolor' in window) {
+      // Disable automatic lookup
+      jscolor.lookupClass = null;
+      
+      // Set color
+      this.dom.colorPicker.value = this.color;
+      
+      // Install now
+      jscolor.installByClassName('jscolor');
+    }
+    else{
+      // jscolor library did not load, it should not break the sidebar, but no color selection will be possible
+      
+      console.log('jscolor NOT loaded');
+    }
+    
+    !this.dom.colorPicker.jscolor && (this.dom.colorPicker.jscolor = {});
+    this.dom.colorPicker.jscolor.padding = 8;
+    this.dom.colorPicker.jscolor.sliderSize = 8;
+    
+    // Update color
+    this.onColorChange();
+  };
+  
+  /**
+   * Update display with new selected color
+   */
+  _self.onColorChange = function () {
+    console.log('on color change');
+    
+    this.color = this.dom.colorPicker.jscolor.toString();
+    
+    // Apply color to the icon list
+    this.dom.list.style.color = '#'+ this.color;
+  };
+  
+  /**
+   * On filter input key-up event, filter display if no input for 300ms
+   */
+  _self.onFilterKeyUP = function () {
+    // Fire filter if 300ms pass without input
+    clearTimeout(this._filterDebouncer);
+    this._filterDebouncer = setTimeout(this._onFilter, 300);
+  };
+  
+  /**
+   * Change displayed icon set
+   */
+  _self.onIconSetChange = function () {
+    var set = this.dom.iconSet.value;
+    
+    this.display.showList(set);
+    this.display.filter(this.filter);
+    
+    // Add tooltip on first display
+    if (!this.display.current._toolTipDone){
+      this.display.current._toolTipDone = true;
+      
+      // add tooltip display to show the icon's name
+      tippy('.text-tooltip', {
+        arrow: true,
+        size: 'small'
+      });
+    }
+  };
+  
+  /**
+   * Filter the display
+   */
+  _self._onFilter = function () {
+    this.filter = this.dom.filter.value;
+    
+    this.display.filter(this.filter);
+  };
+  
+  
+  /**
+   * Insert Font Awesome icons
+   *
+   * @param {IconList} iconList
+   */
+  _self.FA_insertIcon = function (iconList){
+    /**
+     * @type {Array.<{
+       *   n: string,
+       *   t: string,
+       *   a: string
+       * }>}
+     */
+    var list = this._iconList.FA;
+    
+    for (var i = 0; i < list.length; i++) {
+      var iconName = 'fa'+ list[i].t +'-'+ list[i].n;
+      var html = '<i class="fa'+ list[i].t +' fa-'+ list[i].n +'"></i>';
+      
+      iconList.insertIcon(html, iconName, list[i].n, [list[i].n, list[i].a].join(','), list[i]);
+    }
+  };
+  
+  /**
+   * Insert Material Design Icon
+   *
+   * @param {IconList} iconList
+   */
+  _self.MD_insertIcon= function (iconList){
+    /**
+     * @type {{
+       *   groups: Array.<{
+       *     length: number,
+       *     data: {
+       *       id: string,
+       *       name: string
+       *     }
+       *   }>,
+       *   icons: Array.<{
+       *     id: string,
+       *     name: string,
+       *     group_id: string,
+       *     keywords: Array.<string>,
+       *     ligature: string,
+       *     codepoint: string,
+       *     is_new: boolean,
+       *   }
+       * }}
+     */
+    var md = this._iconList.MD;
+    var list = md.icons;
+    
+    for (var i = 0; i < list.length; i++) {
+      var html = '<i class="material-icons">'+ list[i].ligature +'</i>';
+      
+      iconList.insertIcon(html, list[i].ligature, list[i].name, list[i].keywords.join(','), list[i]);
+    }
+  };
+  
+  /**
+   * Retrieve SVG for this icon
+   *
+   * @param {IconItem} iconItem
+   */
+  _self.MD_getSVG = function (iconItem) {
+    var key = iconItem.info.group_id +'/svg/production/'+ iconItem.info.id;
+    var promise;
+    
+    // Cache every SVG fetched
+    _self._MD_SVG_CACHE = _self._MD_SVG_CACHE || {};
+    if (_self._MD_SVG_CACHE[key]){
+      promise = Promise.resolve(_self._MD_SVG_CACHE[key]);
+    }
+    else{
+      var url = 'https://raw.githubusercontent.com/google/material-design-icons/master/'+ key +'_48px.svg';
+      
+      promise = new Promise(function (resolve, reject) {
+        var httpReq = new XMLHttpRequest();
+        
+        httpReq.open('GET', url);
+        httpReq.onreadystatechange = function(){
+          if (httpReq.readyState !== XMLHttpRequest.DONE) return;
+          
+          if (httpReq.responseText){
+            _self._MD_SVG_CACHE[key] = httpReq.responseText;
+            
+            resolve(httpReq.responseText);
+          }
+          else {
+            reject();
+          }
+        };
+        
+        // do request
+        httpReq.send();
+      });
+    }
+    
+    return promise
+      .then(function (htmlSVG) {
+        // Clean some SVG that got the 'fill' attribute inline
+        htmlSVG = htmlSVG.replace(/fill="[^"]*?"/gm, '');
+        
+        var tmp = document.createElement('div');
+        tmp.innerHTML = htmlSVG;
+        
+        // get SVG element
+        var domSVG = tmp.querySelector('svg');
+        domSVG.style.fill = 'currentColor';
+        
+        return domSVG;
+      });
+  };
+  
+  /**
+   * Init the icon display
+   * Loads all icons lists
+   */
+  _self.initIconDisplay = function () {
+    this.display = new IconDisplay(this.dom.list, this.addIconToSlide);
+    
+    this.display.addList('fa', this.FA_insertIcon, null, {scale: this._maxInsertSize / 512});
+    this.display.addList('md', this.MD_insertIcon, this.MD_getSVG, {scale: 10.5 * this._maxInsertSize / 512});
+    
+    // Set initial displayed Set
+    this.dom.iconSet.value = 'fa';
+    this.onIconSetChange();
+  };
+  
+  /**
+   * Convert the chosen SVG icon,
+   * then send it to the server to insert it in the slide
+   *
+   * @param domSVG
+   * @param options
+   * @param {string} title
+   */
+  _self.addIconToSlide = function (domSVG, options, title) {
+    // Add proper color to icon
+    domSVG.style.color = '#'+ this.color;
+    
+    // Show footer
+    this.dom.footer.style.display = 'block';
+    
+    svgAsPngUri(domSVG, options || {}, function(uri) {
+      google.script.run
+        .withFailureHandler(_self.onIconAddFailure)
+        .withSuccessHandler(_self.onIconAddSuccess)
+        .addImageInCurrentPage(uri, title);
+    });
+    
+    // reset as SVG could still be in real DOM
+    domSVG.style.color = '';
+  };
+  
+  /**
+   * Upon icon insertion success, hide the footer
+   */
+  _self.onIconAddSuccess = function () {
+    this.dom.footer.style.display = 'none';
+  };
+  
+  /**
+   * Upon icon insertion failure, hide the footer, and show error message
+   */
+  _self.onIconAddFailure = function () {
+    this.dom.footer.style.display = 'none';
+    
+    //<editor-fold desc="# Show error message">
+    this.dom.errorMessage.classList.remove('show-message');
+    
+    // trigger re-flow to restart animation (https://css-tricks.com/restart-css-animation/#article-header-id-0) 
+    void this.dom.errorMessage.offsetWidth;
+    
+    this.dom.errorMessage.classList.add('show-message');
+    //</editor-fold>
+  };
+  
+  
+  /**
+   * Start the app
+   */
+  _self.init = function () {
+    // Bind function that will be used in different context
+    for (var propName in this){
+      if (!this.hasOwnProperty(propName) || typeof this[propName] !== 'function') continue;
+      
+      this[propName] = this[propName].bind(this);
+    }
+    
+    // Add control event listeners
+    this.dom.colorPicker.addEventListener('change', this.onColorChange);
+    this.dom.filter.addEventListener('keyup', this.onFilterKeyUP);
+    this.dom.iconSet.addEventListener('change', this.onIconSetChange);
+    
+    // Init
+    this.initColorPicker();
+    this.initIconDisplay();
+  };
+  _self.init = _self.init.bind(_self);
+  
+  /* Start */
+  _self.init();
+
+</script>
