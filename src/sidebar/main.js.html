@@ -4,12 +4,12 @@
    * Init and customize color picker
    */
   _self.initColorPicker = function () {
+    // Set color
+    this.dom.colorPicker.value = this.color;
+    
     if ('jscolor' in window) {
       // Disable automatic lookup
       jscolor.lookupClass = null;
-      
-      // Set color
-      this.dom.colorPicker.value = this.color;
       
       // Install now
       jscolor.installByClassName('jscolor');
@@ -17,7 +17,11 @@
     else{
       // jscolor library did not load, it should not break the sidebar, but no color selection will be possible
       
-      console.log('jscolor NOT loaded');
+      // Fill in with text color selection
+      this.dom.colorPicker.jscolor = {};
+      this.dom.colorPicker.jscolor.toString = function () {
+        return (''+ this.dom.colorPicker.value).replace('#', '');
+      }.bind(this);
     }
     
     !this.dom.colorPicker.jscolor && (this.dom.colorPicker.jscolor = {});
@@ -32,8 +36,6 @@
    * Update display with new selected color
    */
   _self.onColorChange = function () {
-    console.log('on color change');
-    
     this.color = this.dom.colorPicker.jscolor.toString();
     
     // Apply color to the icon list
