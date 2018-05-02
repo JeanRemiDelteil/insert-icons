@@ -2,12 +2,13 @@
   "name": "insert-icons_slide-addon",
   "version": "0.0.1",
   "description": "Insert icons by ScriptAddict, Add-on for Google Slide",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "https://github.com/JeanRemiDelteil/insert-icons.git"
   },
   "devDependencies": {
-    "gas-lib": "^1.1.0",
+    "gas-lib": "latest",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^1.0.0",
