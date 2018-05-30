@@ -217,7 +217,7 @@ function getUi(){
 /**
  * Get the current Google Document type ('doc' or 'slide')
  * 
- * @return {'doc' | 'slide'}
+ * @return {'doc' | 'slide' | ''}
  */
 function getDocType(){
   // Are we on Slide?

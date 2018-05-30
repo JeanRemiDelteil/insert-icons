@@ -1,7 +1,7 @@
 <html>
 <head>
   <!-- Include & init Stackdriver error reporting -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/ErrorReporting.js').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/ErrorReporting.js').getContent(); ?>
   
   <script src="//use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/saveSvgAsPng.js"></script>
@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
   <!-- Include IconList builder -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/IconList.js').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/IconList.js').getContent(); ?>
   
   <style>
     html{
@@ -167,6 +167,6 @@
   </script>
   
   <!-- Include main code -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/main.js').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/main.js').getContent(); ?>
 </body>
 </html>
