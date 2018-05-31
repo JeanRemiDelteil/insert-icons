@@ -1,0 +1,142 @@
+<script>
+  
+  /*<editor-fold desc="Polling helper">*/
+  
+  
+  /**
+   * Create polling instance
+   * 
+   * @param {function(result, error)} callback
+   * 
+   * @constructor
+   */
+  var Polling = function (callback) {
+    this._callback = callback;
+    
+    this._running = false;
+  };
+  
+  
+  /**
+   * Start polling
+   */
+  Polling.prototype.start = function() {
+    // Run only once
+    if (this._running) return;
+    this._running = true;
+    
+    this._run();
+  };
+  
+  /**
+   * Stop polling
+   * 
+   * This will immediately block all pending polling:
+   * Neither onSuccess not onFailure will be called again
+   */
+  Polling.prototype.stop = function() {
+    if (!this._running) return;
+    
+    this._running = false;
+  };
+  
+  
+  /*<editor-fold desc="Private functions">*/
+  
+  /**
+   * run one poll,
+   * prepare the next one
+   */
+  Polling.prototype._run = function () {
+    if (!this._running) return;
+    
+    this._runPollingWithTimeOut()
+      .then(function(res) {
+        if (!this._running) return;
+        
+        this._onSuccess(res);
+      }.bind(this))
+      
+      .catch(function(err) {
+        if (!this._running) return;
+        
+        this._onFailure(err);
+      }.bind(this))
+    
+      // Prepare next call
+      .then(function() {
+        if (!this._running) return;
+        
+        setTimeout(this._run.bind(this), Polling.POLLING_DELAY);
+      }.bind(this))
+  };
+  
+  /**
+   * Run server script polling function with a timeout,
+   * use promise to ensure unity of answer
+   * 
+   * @return {Promise<*>}
+   * @private
+   */
+  Polling.prototype._runPollingWithTimeOut = function () {
+    return new Promise(function (resolve, reject) {
+      
+      setTimeout(function(){
+        reject(Polling.ERROR.TIMEOUT);
+      }, Polling.TIMEOUT_DELAY);
+      
+      google.script.run
+        .withSuccessHandler(resolve)
+        .withFailureHandler(reject)
+        .onPollSidebar();
+      
+    });
+  };
+  
+  /**
+   * Server script on Success handler
+   *
+   * @param {Object} res
+   */
+  Polling.prototype._onSuccess = function (res) {
+    this._callback(res, undefined);
+  };
+  
+  /**
+   * Server script on Failure handler
+   * 
+   * @param {Object} err
+   */
+  Polling.prototype._onFailure = function (err) {
+    this._callback(undefined, err);
+  };
+  
+  /*</editor-fold>*/
+  
+  
+  /**
+   * Polling errors
+   * 
+   * @enum {string}
+   */
+  Polling.ERROR = {
+    TIMEOUT: 'Server timeout'
+  };
+  
+  Polling.TIMEOUT_DELAY = 10 * 1000; //ms
+  Polling.POLLING_DELAY = 1000; //ms
+  
+  /*</editor-fold>*/
+  
+  function sidebarPoll(res, err) {
+    console.log({
+      res: res,
+      err: err
+    });
+  } 
+  
+  var poll = new Polling(sidebarPoll);
+  
+  poll.start();
+  
+</script>

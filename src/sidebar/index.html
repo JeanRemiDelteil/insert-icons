@@ -14,8 +14,9 @@
   <!-- To use Material Design icons, we need a way to convert web font / <i> to png -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
-  <!-- Include IconList builder -->
+  <!-- Include Libs -->
   <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/IconList.js').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('sidebar/polling/client.js').getContent(); ?>
   
   <style>
     html{
