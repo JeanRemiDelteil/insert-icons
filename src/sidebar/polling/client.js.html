@@ -5,15 +5,17 @@
   
   /**
    * Create polling instance
-   * 
+   *
    * @param {function(result, error)} callback
-   * 
+   *
    * @constructor
    */
   var Polling = function (callback) {
     this._callback = callback;
     
     this._running = false;
+    this._runTimeout = null;
+    this._runningPromise = null;
   };
   
   
@@ -25,12 +27,13 @@
     if (this._running) return;
     this._running = true;
     
-    this._run();
+    clearTimeout(this._runTimeout);
+    !this._runningPromise && this._run();
   };
   
   /**
    * Stop polling
-   * 
+   *
    * This will immediately block all pending polling:
    * Neither onSuccess not onFailure will be called again
    */
@@ -38,6 +41,7 @@
     if (!this._running) return;
     
     this._running = false;
+    clearTimeout(this._runTimeout);
   };
   
   
@@ -50,31 +54,31 @@
   Polling.prototype._run = function () {
     if (!this._running) return;
     
-    this._runPollingWithTimeOut()
+    this._runningPromise = this._runPollingWithTimeOut()
       .then(function(res) {
         if (!this._running) return;
         
-        this._onSuccess(res);
+        return this._onSuccess(res);
       }.bind(this))
-      
       .catch(function(err) {
         if (!this._running) return;
         
-        this._onFailure(err);
+        return this._onFailure(err);
       }.bind(this))
-    
+      
       // Prepare next call
       .then(function() {
+        this._runningPromise = null;
         if (!this._running) return;
         
-        setTimeout(this._run.bind(this), Polling.POLLING_DELAY);
+        this._runTimeout = setTimeout(this._run.bind(this), Polling.POLLING_DELAY);
       }.bind(this))
   };
   
   /**
    * Run server script polling function with a timeout,
    * use promise to ensure unity of answer
-   * 
+   *
    * @return {Promise<*>}
    * @private
    */
@@ -104,7 +108,7 @@
   
   /**
    * Server script on Failure handler
-   * 
+   *
    * @param {Object} err
    */
   Polling.prototype._onFailure = function (err) {
@@ -116,7 +120,7 @@
   
   /**
    * Polling errors
-   * 
+   *
    * @enum {string}
    */
   Polling.ERROR = {
@@ -128,15 +132,16 @@
   
   /*</editor-fold>*/
   
+  
   function sidebarPoll(res, err) {
     console.log({
       res: res,
       err: err
     });
-  } 
+  }
   
   var poll = new Polling(sidebarPoll);
   
   poll.start();
-  
+
 </script>
