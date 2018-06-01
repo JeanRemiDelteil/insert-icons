@@ -1,5 +1,7 @@
 <script>
   
+  /*<editor-fold desc="Manage Colors">*/
+  
   /**
    * Init and customize color picker
    */
@@ -84,7 +86,7 @@
    * @return {number}
    */
   function getLuminance(hexColor) {
-    var reg = /#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/;
+    var reg = /#?([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/;
     
     var res = reg.exec(hexColor);
     var r = parseInt(res[1], 16);
@@ -94,18 +96,33 @@
     return rgbToHsl(r, g, b)[2];
   }
   
+  /**
+   * Set the background color, or update it depending on foreground color
+   * 
+   * @param {string} [backgroundColor] - background color
+   */
+  _self.setBackgroundColor = function(backgroundColor) {
+    var updateBG = backgroundColor === undefined || this.backgroundColor !== backgroundColor;
+    
+    backgroundColor !== undefined && (this.backgroundColor = backgroundColor);
+    if (!updateBG) return;
+    
+    this.dom.list.style.backgroundColor = this.backgroundColor || (getLuminance(this.color) > 0.63 ? 'black' : 'white');
+  };
   
+  /*</editor-fold>*/
+  
+  /*<editor-fold desc="Event handlers">*/
+
   /**
    * Update display with new selected color
    */
   _self.onColorChange = function () {
     this.color = this.dom.colorPicker.jscolor.toString();
     
-    var color = '#'+ this.color;
-    
     // Apply color to the icon list
-    this.dom.list.style.color = color;
-    this.dom.list.style.backgroundColor = getLuminance(color) > 0.63 ? 'black' : 'white';
+    this.dom.list.style.color = '#'+ this.color;
+    this.setBackgroundColor();
   };
   
   /**
@@ -147,6 +164,9 @@
     this.display.filter(this.filter);
   };
   
+  /*</editor-fold>*/
+  
+  /*<editor-fold desc="Manage Icons insertion">*/
   
   /**
    * Insert Font Awesome icons
@@ -326,6 +346,28 @@
     //</editor-fold>
   };
   
+  /*</editor-fold>*/
+  
+  
+  /**
+   * Called on polling response
+   * 
+   * @param {ServerValue.PollRes} res - Successful return value from polling
+   */
+  _self.pollingCallback = function(res) {
+    // Update backgroundColor to match Slide backgroundColor
+    this.setBackgroundColor(res.backgroundColor);
+  };
+  
+  /**
+   * Called on polling error
+   *
+   * @param {Object} err - Error return value from polling
+   */
+  _self.pollingErrorHandler = function(err) {
+    console.error(err);
+  };
+  
   
   /**
    * Start the app
@@ -346,6 +388,11 @@
     // Init
     this.initColorPicker();
     this.initIconDisplay();
+    
+    // Start polling
+    var polling = new Polling(_self.pollingCallback, _self.pollingErrorHandler);
+    
+    polling.start();
   };
   _self.init = _self.init.bind(_self);
   

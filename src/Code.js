@@ -234,3 +234,11 @@ function getDocType(){
   
   return '';
 }
+
+
+/**
+ * @namespace ServerValue
+ * 
+ * Define namespace for all server returned values
+ */
+

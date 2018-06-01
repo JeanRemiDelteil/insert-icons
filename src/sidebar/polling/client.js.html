@@ -2,16 +2,17 @@
   
   /*<editor-fold desc="Polling helper">*/
   
-  
   /**
    * Create polling instance
    *
-   * @param {function(result, error)} callback
+   * @param {function(result)} callback
+   * @param {function(error)} errorHandler
    *
    * @constructor
    */
-  var Polling = function (callback) {
+  var Polling = function (callback, errorHandler) {
     this._callback = callback;
+    this._callbackError = errorHandler;
     
     this._running = false;
     this._runTimeout = null;
@@ -58,12 +59,12 @@
       .then(function(res) {
         if (!this._running) return;
         
-        return this._onSuccess(res);
+        return this._callback(res);
       }.bind(this))
       .catch(function(err) {
         if (!this._running) return;
         
-        return this._onFailure(err);
+        return this._callbackError(err);
       }.bind(this))
       
       // Prepare next call
@@ -97,24 +98,6 @@
     });
   };
   
-  /**
-   * Server script on Success handler
-   *
-   * @param {Object} res
-   */
-  Polling.prototype._onSuccess = function (res) {
-    this._callback(res, undefined);
-  };
-  
-  /**
-   * Server script on Failure handler
-   *
-   * @param {Object} err
-   */
-  Polling.prototype._onFailure = function (err) {
-    this._callback(undefined, err);
-  };
-  
   /*</editor-fold>*/
   
   
@@ -132,16 +115,4 @@
   
   /*</editor-fold>*/
   
-  
-  function sidebarPoll(res, err) {
-    console.log({
-      res: res,
-      err: err
-    });
-  }
-  
-  var poll = new Polling(sidebarPoll);
-  
-  poll.start();
-
 </script>

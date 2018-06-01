@@ -5,25 +5,30 @@
 
 /**
  * Called on sidebar polling
+ * 
+ * @return {ServerValue.PollRes}
  */
 function onPollSidebar() {
+  // Init App state
+  var app = {};
   
-  var delay = 15 * Math.random() * 1000;
-  
-  Utilities.sleep(delay);
-  
-  
-  var presentation = SlidesApp.getActivePresentation();
-  var currentSlide = presentation.getSelection().getCurrentPage()
-                    || presentation.getSlides()[0]
+  app.presentation = SlidesApp.getActivePresentation();
+  app.currentSlide = app.presentation.getSelection().getCurrentPage()
+                    || app.presentation.getSlides()[0]
                     || null;
   
   
+  // Poll results
   return {
-    delayUsed: delay,
-    slideBackgroundColor: getSlideBackgroundColor(currentSlide)
+    backgroundColor: getSlideBackgroundColor(app.currentSlide)
   }
 }
+
+/**
+ * @typedef {{}} ServerValue.PollRes
+ * 
+ * @property {string} backgroundColor
+ */
 
 
 
@@ -36,7 +41,18 @@ function onPollSidebar() {
  * @return {string} color
  */
 function getSlideBackgroundColor(slide) {
-  return slide.getBackground().getSolidFill().getColor().asRgbColor().asHexString();
+  var background = slide.getBackground();
+  
+  // Can we get a color ?
+  if (background.getType() !== SlidesApp.PageBackgroundType.SOLID) return '';
+  
+  var color = background.getSolidFill().getColor();
+  if (color.getColorType() === SlidesApp.ColorType.UNSUPPORTED) return '';
+  
+  // If it's a theme color, retrieve the color used
+  color.getColorType() === SlidesApp.ColorType.THEME && (color = slide.getColorScheme().getConcreteColor(color.asThemeColor().getThemeColorType()));
+  
+  return color.asRgbColor().asHexString();
 }
 
 
