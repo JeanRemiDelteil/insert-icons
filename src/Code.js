@@ -14,7 +14,7 @@
 
 /**
  * Globally define 'app' to be able to use it everywhere once populated
- * 
+ *
  * @type {App}
  */
 var app;
@@ -52,9 +52,8 @@ function showSidebar() {
   
   var template = HtmlService.createTemplateFromFile('sidebar/index');
   
-  // Retrieve list of icons
-  template.iconList_FA = JSON.stringify(icon_list_fa);
-  template.iconList_MD = JSON.stringify(icon_list_md);
+  // Print list of icons
+  template.iconList = JSON.stringify(IconLists);
   
   // Apply config to template
   for (var key in app.sidebarConfig){
@@ -96,7 +95,7 @@ function addImageInCurrentPage(blob, title) {
 
 /**
  * @namespace ServerValue
- * 
+ *
  * Define namespace for all server returned values
  */
 

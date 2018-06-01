@@ -1,4 +1,11 @@
-var icon_list_md = {
+
+// noinspection ThisExpressionReferencesGlobalObjectJS
+var IconLists = this.IconLists || {};
+
+/**
+ * Material Design icons
+ */
+IconLists.MD = {
   "groups": [
     {
       "length": 216,
