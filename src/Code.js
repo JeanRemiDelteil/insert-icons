@@ -13,12 +13,23 @@
  */
 
 /**
+ * Globally define 'app' to be able to use it everywhere once populated
+ * 
+ * @type {App}
+ */
+var app;
+
+
+/**
  * Create menu item.
  *
  * @param event
  */
 function onOpen(event) {
-  getUi().createAddonMenu()
+  app = Plugins.get();
+  
+  app.getUi()
+    .createAddonMenu()
     .addItem('Open sidebar to select icons', 'showSidebar')
     .addToUi();
 }
@@ -37,32 +48,22 @@ function onInstall(event) {
  * Opens a sidebar in the document containing the add-on's user interface.
  */
 function showSidebar() {
+  app = Plugins.get();
+  
   var template = HtmlService.createTemplateFromFile('sidebar/index');
   
   // Retrieve list of icons
   template.iconList_FA = JSON.stringify(icon_list_fa);
   template.iconList_MD = JSON.stringify(icon_list_md);
   
-  // Configuration depending on doc type, default to 'slide', in case document type determination failed (maybe when just created ?)
-  var config = ({
-    slide: {
-      themeColor: '#f3b32a',
-      maximumInsertSize: 512
-    },
-    doc: {
-      themeColor: '#4285f4',
-      maximumInsertSize: 256
-    }
-  })[getDocType() || 'slide'];
-  
   // Apply config to template
-  for (var key in config){
-    template[key] = config[key];
+  for (var key in app.sidebarConfig){
+    template[key] = app.sidebarConfig[key];
   }
   
   // Display sidebar
-  var ui = template.evaluate().setTitle('Insert icons');
-  getUi().showSidebar(ui);
+  var sidebarUi = template.evaluate().setTitle('Insert icons');
+  app.getUi().showSidebar(sidebarUi);
 }
 
 
@@ -73,6 +74,8 @@ function showSidebar() {
  * @param {string} [title]
  */
 function addImageInCurrentPage(blob, title) {
+  app = Plugins.get();
+  
   /**
    * @type {Blob}
    */
@@ -88,153 +91,8 @@ function addImageInCurrentPage(blob, title) {
     imageBlob = Utilities.newBlob(decodedBlob, "image/png");
   }
   
-  switch (getDocType()){
-    case 'slide':
-      addImageToSlide(imageBlob, title);
-      break;
-      
-    case 'doc':
-      addImageToDoc(imageBlob, title);
-      break;
-      
-    default:
-      // Document type can not be determined for whatever reasons, for now the error text is not displayed to the users
-      throw 'A server error occured, please reload the sidebar and try again.'
-      
-  }
+  app.addImageToFile(imageBlob, title);
 }
-
-/**
- * Insert the image in Slide
- * 
- * @param {Blob} imageBlob
- * @param {string} [title]
- */
-function addImageToSlide(imageBlob, title) {
-  var presentation = SlidesApp.getActivePresentation();
-  var currentPage = presentation.getSelection().getCurrentPage()
-                    || presentation.getSlides()[0]
-                    || presentation.appendSlide();
-  
-  if (!currentPage) throw "No pages in current presentation";
-  
-  var insertedImage = currentPage.insertImage(imageBlob);
-  // No option to set a title on an Image in Slide
-  
-  // Limit inserted image size to 300px max at insertion time
-  var maxSize = 300,
-    width = insertedImage.getWidth(),
-    height = insertedImage.getHeight(),
-    ratio = width / height;
-  
-  if (ratio > 1) {
-    width = maxSize;
-    height = maxSize / ratio;
-  }
-  else {
-    width = maxSize * ratio;
-    height = maxSize;
-  }
-  
-  insertedImage.setWidth(width);
-  insertedImage.setHeight(height);
-  
-  presentation.saveAndClose();
-}
-
-/**
- * Insert the image in Doc
- *
- * @param {Blob | BlobSource} imageBlob
- * @param {string} [title]
- */
-function addImageToDoc(imageBlob, title) {
-  var doc = DocumentApp.getActiveDocument();
-  
-  var cursor = doc.getCursor();
-  
-  /**
-   * @type {DocumentApp.InlineImage}
-   */
-  var insertedImage;
-  
-  // Maybe user is currently selecting another images, and there is no valid cursor
-  if (cursor){
-    insertedImage = cursor.insertInlineImage(imageBlob);
-  }
-  
-  // insertedImage === null if we don't have insertion right here
-  if (!insertedImage){
-    // Fallback to append to the body
-    insertedImage = doc.getBody().appendImage(imageBlob);
-  }
-  
-  // Limit inserted image size to 100px max at insertion time
-  var maxSize = 100,
-    width = insertedImage.getWidth(),
-    height = insertedImage.getHeight(),
-    ratio = width / height;
-  
-  if (ratio > 1) {
-    width = maxSize;
-    height = maxSize / ratio;
-  }
-  else {
-    width = maxSize * ratio;
-    height = maxSize;
-  }
-  
-  insertedImage.setWidth(width);
-  insertedImage.setHeight(height);
-  
-  // Set title if provided
-  title && insertedImage.setAltTitle(title);
-}
-
-
-
-/**
- * Get Ui independent of container being a Slide or a Doc
- * 
- * @return {Ui}
- */
-function getUi(){
-  var ui;
-  
-  // Are we on Slide?
-  try{ ui = SlidesApp.getUi() }
-  catch(e){}
-  
-  if (!ui){
-    // Are we on Doc?
-    try{ ui = DocumentApp.getUi() }
-    catch(e){}
-  }
-  
-  return ui;
-}
-
-/**
- * Get the current Google Document type ('doc' or 'slide')
- * 
- * @return {'doc' | 'slide' | ''}
- */
-function getDocType(){
-  // Are we on Slide?
-  try{
-    if (SlidesApp.getActivePresentation()) return 'slide';
-  }
-  catch(e){}
-  
-  // Are we on Doc?
-  try{
-    if (DocumentApp.getActiveDocument()) return 'doc';
-  }
-  catch(e){}
-  
-  return '';
-}
-
 
 /**
  * @namespace ServerValue

@@ -123,7 +123,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'build/src/',
           src: [
-          	'**/*.gs',
+          	'**/*.js',
             '**/*.js.html',
           ],
           dest: 'build/src/',
