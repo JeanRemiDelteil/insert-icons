@@ -5,14 +5,21 @@
   /**
    * Create polling instance
    *
-   * @param {function(result)} callback
-   * @param {function(error)} errorHandler
+   * @param {{}} config
+   * @param {function(result)} config.callback
+   * @param {function(error)} config.errorCallback
+   * 
+   * @param {number} [config.timeOut]
+   * @param {number} [config.pollingDelay]
    *
    * @constructor
    */
-  var Polling = function (callback, errorHandler) {
-    this._callback = callback;
-    this._callbackError = errorHandler;
+  var Polling = function (config) {
+    this._callback = config.callback || function() {};
+    this._callbackError = config.errorCallback || function() {};
+    
+    this._timeOut = config.timeOut || Polling.TIMEOUT_DELAY;
+    this._pollingDelay = config.pollingDelay || Polling.POLLING_DELAY;
     
     this._running = false;
     this._runTimeout = null;
@@ -46,6 +53,21 @@
   };
   
   
+  /**
+   * get the server timeout used
+   */
+  Polling.prototype.getTimeout = function() {
+    return this._timeOut;
+  };
+  
+  /**
+   * get the delay between polling calls used
+   */
+  Polling.prototype.getPollingDelay = function() {
+    return this._pollingDelay;
+  };
+  
+  
   /*<editor-fold desc="Private functions">*/
   
   /**
@@ -72,7 +94,7 @@
         this._runningPromise = null;
         if (!this._running) return;
         
-        this._runTimeout = setTimeout(this._run.bind(this), Polling.POLLING_DELAY);
+        this._runTimeout = setTimeout(this._run.bind(this), this._pollingDelay);
       }.bind(this))
   };
   
@@ -88,14 +110,14 @@
       
       setTimeout(function(){
         reject(Polling.ERROR.TIMEOUT);
-      }, Polling.TIMEOUT_DELAY);
+      }, this._timeOut);
       
       google.script.run
         .withSuccessHandler(resolve)
         .withFailureHandler(reject)
         .onPollSidebar();
       
-    });
+    }.bind(this));
   };
   
   /*</editor-fold>*/

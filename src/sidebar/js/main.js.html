@@ -365,7 +365,8 @@
    * @param {Object} err - Error return value from polling
    */
   _self.pollingErrorHandler = function(err) {
-    console.error(err);
+    // noinspection NodeModulesDependencies
+    errorHandler.report(err);
   };
   
   
@@ -390,9 +391,12 @@
     this.initIconDisplay();
     
     // Start polling
-    var polling = new Polling(_self.pollingCallback, _self.pollingErrorHandler);
+    _self.polling = new Polling({
+      callback: _self.pollingCallback,
+      errorCallback: _self.pollingErrorHandler
+    });
     
-    polling.start();
+    _self.polling.start();
   };
   _self.init = _self.init.bind(_self);
   
