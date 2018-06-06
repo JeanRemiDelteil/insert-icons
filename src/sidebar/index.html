@@ -1,7 +1,7 @@
 <html>
 <head>
   <!-- Include & init Stackdriver error reporting -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/ErrorReporting.js').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/ErrorReporting.js').getContent(); ?>
   
   <script src="//use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/saveSvgAsPng.js"></script>
@@ -14,8 +14,9 @@
   <!-- To use Material Design icons, we need a way to convert web font / <i> to png -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
-  <!-- Include IconList builder -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/IconList.js').getContent(); ?>
+  <!-- Include Libs -->
+  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/IconList.js').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('sidebar/polling/client.js').getContent(); ?>
   
   <style>
     html{
@@ -112,6 +113,8 @@
       flex-wrap: wrap;
       
       margin-top: 106px;
+      
+      transition: background-color 250ms;
     }
   </style>
 
@@ -156,17 +159,15 @@
       },
       
       color: '<?= themeColor ?>',
+      backgroundColor: 'white',
       _maxInsertSize: +'<?= maximumInsertSize ?>',
       filter: '',
       
-      _iconList: {
-        FA: JSON.parse('<?= iconList_FA ?>'),
-        MD: JSON.parse('<?= iconList_MD ?>')
-      }
+      _iconList: JSON.parse('<?= iconList ?>')
     };
   </script>
   
   <!-- Include main code -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/main.js').getContent(); ?>
+  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/main.js').getContent(); ?>
 </body>
 </html>

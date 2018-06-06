@@ -87,7 +87,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'src/',
-          src: ['**/*.html', '**/*.json', '**/*.gs'],
+          src: ['**/*.html', '**/*.json', '**/*.gs', '**/*.js'],
           dest: 'build/src/',
           flatten: false,
           filter: 'isFile'
@@ -123,7 +123,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'build/src/',
           src: [
-          	'**/*.gs',
+          	'**/*.js',
             '**/*.js.html',
           ],
           dest: 'build/src/',

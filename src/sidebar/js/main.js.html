@@ -1,5 +1,7 @@
 <script>
   
+  /*<editor-fold desc="Manage Colors">*/
+  
   /**
    * Init and customize color picker
    */
@@ -13,6 +15,9 @@
       
       // Install now
       jscolor.installByClassName('jscolor');
+      
+      // Add fine change callback
+      this.dom.colorPicker.jscolor.onFineChange = this.onColorChange.bind(this);
     }
     else{
       // jscolor library did not load, it should not break the sidebar, but no color selection will be possible
@@ -24,6 +29,7 @@
       }.bind(this);
     }
     
+    
     !this.dom.colorPicker.jscolor && (this.dom.colorPicker.jscolor = {});
     this.dom.colorPicker.jscolor.padding = 8;
     this.dom.colorPicker.jscolor.sliderSize = 8;
@@ -32,6 +38,82 @@
     this.onColorChange();
   };
   
+  
+  /**
+   * Converts an RGB color value to HSL. Conversion formula
+   * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
+   * Assumes r, g, and b are contained in the set [0, 255] and
+   * returns h, s, and l in the set [0, 1].
+   *
+   * @param   {number}  r       The red color value
+   * @param   {number}  g       The green color value
+   * @param   {number}  b       The blue color value
+   *
+   * @return  {Array}           The HSL representation
+   */
+  function rgbToHsl(r, g, b){
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+    
+    if(max === min){
+      h = s = 0; // achromatic
+    }
+    else{
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      
+      switch(max){
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        case b: h = (r - g) / d + 4; break;
+      }
+      
+      h /= 6;
+    }
+    
+    return [h, s, l];
+  }
+  
+  /**
+   * get Luminance of a rgb color
+   *
+   * @param {string} hexColor - The color value in hexadecimal
+   *
+   * @return {number}
+   */
+  function getLuminance(hexColor) {
+    var reg = /#?([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/;
+    
+    var res = reg.exec(hexColor);
+    var r = parseInt(res[1], 16);
+    var g = parseInt(res[2], 16);
+    var b = parseInt(res[3], 16);
+    
+    return rgbToHsl(r, g, b)[2];
+  }
+  
+  /**
+   * Set the background color, or update it depending on foreground color
+   * 
+   * @param {string} [backgroundColor] - background color
+   */
+  _self.setBackgroundColor = function(backgroundColor) {
+    var updateBG = backgroundColor === undefined || this.backgroundColor !== backgroundColor;
+    
+    backgroundColor !== undefined && (this.backgroundColor = backgroundColor);
+    if (!updateBG) return;
+    
+    this.dom.list.style.backgroundColor = this.backgroundColor || (getLuminance(this.color) > 0.63 ? 'black' : 'white');
+  };
+  
+  /*</editor-fold>*/
+  
+  /*<editor-fold desc="Event handlers">*/
+
   /**
    * Update display with new selected color
    */
@@ -40,6 +122,7 @@
     
     // Apply color to the icon list
     this.dom.list.style.color = '#'+ this.color;
+    this.setBackgroundColor();
   };
   
   /**
@@ -81,6 +164,9 @@
     this.display.filter(this.filter);
   };
   
+  /*</editor-fold>*/
+  
+  /*<editor-fold desc="Manage Icons insertion">*/
   
   /**
    * Insert Font Awesome icons
@@ -260,6 +346,29 @@
     //</editor-fold>
   };
   
+  /*</editor-fold>*/
+  
+  
+  /**
+   * Called on polling response
+   * 
+   * @param {ServerValue.PollRes} res - Successful return value from polling
+   */
+  _self.pollingCallback = function(res) {
+    // Update backgroundColor to match Slide backgroundColor
+    this.setBackgroundColor(res.backgroundColor);
+  };
+  
+  /**
+   * Called on polling error
+   *
+   * @param {Object} err - Error return value from polling
+   */
+  _self.pollingErrorHandler = function(err) {
+    // noinspection NodeModulesDependencies
+    errorHandler.report(err);
+  };
+  
   
   /**
    * Start the app
@@ -280,6 +389,15 @@
     // Init
     this.initColorPicker();
     this.initIconDisplay();
+    
+    // Start polling
+    _self.polling = new Polling({
+      serverFunction: google.script.run.onPollSidebar,
+      callback: _self.pollingCallback,
+      errorCallback: _self.pollingErrorHandler
+    });
+    
+    _self.polling.start();
   };
   _self.init = _self.init.bind(_self);
   

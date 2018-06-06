@@ -1,0 +1,153 @@
+<script>
+  
+  /*<editor-fold desc="Polling helper">*/
+  
+  /**
+   * Create polling instance
+   *
+   * @param {{}} config
+   * @param {function} config.serverFunction
+   * @param {function(result)} config.callback
+   * @param {function(error)} config.errorCallback
+   * 
+   * @param {number} [config.timeOut]
+   * @param {number} [config.pollingDelay]
+   *
+   * @constructor
+   */
+  var Polling = function (config) {
+    if (!config.serverFunction) throw Polling.ERROR.NO_SERVER_FUNCTION;
+    
+    // Find server function name
+    for (var functName in google.script.run) {
+      if (google.script.run[functName] === config.serverFunction){
+        this._serverFunctionName = functName;
+        break;
+      }
+    }
+    if (!this._serverFunctionName) throw Polling.ERROR.NO_SERVER_FUNCTION;
+    
+    
+    this._callback = config.callback || function() {};
+    this._callbackError = config.errorCallback || function() {};
+    
+    this._timeOut = config.timeOut || Polling.TIMEOUT_DELAY;
+    this._pollingDelay = config.pollingDelay || Polling.POLLING_DELAY;
+    
+    this._running = false;
+    this._runTimeout = null;
+    this._runningPromise = null;
+  };
+  
+  
+  /**
+   * Start polling
+   */
+  Polling.prototype.start = function() {
+    // Run only once
+    if (this._running) return;
+    this._running = true;
+    
+    clearTimeout(this._runTimeout);
+    !this._runningPromise && this._run();
+  };
+  
+  /**
+   * Stop polling
+   *
+   * This will immediately block all pending polling:
+   * Neither onSuccess not onFailure will be called again
+   */
+  Polling.prototype.stop = function() {
+    if (!this._running) return;
+    
+    this._running = false;
+    clearTimeout(this._runTimeout);
+  };
+  
+  
+  /**
+   * get the server timeout used
+   */
+  Polling.prototype.getTimeout = function() {
+    return this._timeOut;
+  };
+  
+  /**
+   * get the delay between polling calls used
+   */
+  Polling.prototype.getPollingDelay = function() {
+    return this._pollingDelay;
+  };
+  
+  
+  /*<editor-fold desc="Private functions">*/
+  
+  /**
+   * run one poll,
+   * prepare the next one
+   */
+  Polling.prototype._run = function () {
+    if (!this._running) return;
+    
+    this._runningPromise = this._runPollingWithTimeOut()
+      .then(function(res) {
+        if (!this._running) return;
+        
+        return this._callback(res);
+      }.bind(this))
+      .catch(function(err) {
+        if (!this._running) return;
+        
+        return this._callbackError(err);
+      }.bind(this))
+      
+      // Prepare next call
+      .then(function() {
+        this._runningPromise = null;
+        if (!this._running) return;
+        
+        this._runTimeout = setTimeout(this._run.bind(this), this._pollingDelay);
+      }.bind(this))
+  };
+  
+  /**
+   * Run server script polling function with a timeout,
+   * use promise to ensure unity of answer
+   *
+   * @return {Promise<*>}
+   * @private
+   */
+  Polling.prototype._runPollingWithTimeOut = function () {
+    return new Promise(function (resolve, reject) {
+      
+      setTimeout(function(){
+        reject(Polling.ERROR.TIMEOUT);
+      }, this._timeOut);
+      
+      google.script.run
+        .withSuccessHandler(resolve)
+        .withFailureHandler(reject)[this._serverFunctionName]();
+      
+    }.bind(this));
+  };
+  
+  /*</editor-fold>*/
+  
+  
+  /**
+   * Polling errors
+   *
+   * @enum {string}
+   */
+  Polling.ERROR = {
+    TIMEOUT: 'Server timeout',
+    NO_SERVER_FUNCTION: 'No server function provided',
+  };
+  
+  Polling.TIMEOUT_DELAY = 10 * 1000; //ms
+  Polling.POLLING_DELAY = 1000; //ms
+  
+  /*</editor-fold>*/
+  
+</script>
