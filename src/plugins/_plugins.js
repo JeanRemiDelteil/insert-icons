@@ -14,7 +14,7 @@ Plugins.get = function (env) {
   if (!this._current){
     var info = this.getFileType(true);
     
-    this._current = new Plugins._list[info.type || Plugins.FileType.SLIDE](info.activeFile);
+    this._current = new Plugins._list[info.type || Plugins.FileType.current](info.activeFile);
   }
   
   this._current.env = env;
@@ -38,18 +38,22 @@ Plugins.getFileType = function(getActiveFile){
   var filesDetection = [
     {
       type: Plugins.FileType.SLIDE,
+      fileApp: SlidesApp,
       getActive: SlidesApp.getActivePresentation
     },
     {
       type: Plugins.FileType.DOC,
+      fileApp: DocumentApp,
       getActive: DocumentApp.getActiveDocument
     },
     {
       type: Plugins.FileType.SHEET,
+      fileApp: SpreadsheetApp,
       getActive: SpreadsheetApp.getActiveSpreadsheet
     },
     {
       type: Plugins.FileType.FORM,
+      fileApp: FormApp,
       getActive: FormApp.getActiveForm
     }
   ];
@@ -58,7 +62,7 @@ Plugins.getFileType = function(getActiveFile){
     if (filesDetection[i].type !== Plugins.FileType.current) continue;
     
     try {
-      var file = filesDetection[i].getActive();
+      var file = filesDetection[i].getActive.call(filesDetection[i].fileApp);
       if (!file) continue;
       
       return getActiveFile
