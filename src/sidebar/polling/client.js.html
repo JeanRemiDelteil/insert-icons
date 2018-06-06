@@ -6,6 +6,7 @@
    * Create polling instance
    *
    * @param {{}} config
+   * @param {function} config.serverFunction
    * @param {function(result)} config.callback
    * @param {function(error)} config.errorCallback
    * 
@@ -15,6 +16,18 @@
    * @constructor
    */
   var Polling = function (config) {
+    if (!config.serverFunction) throw Polling.ERROR.NO_SERVER_FUNCTION;
+    
+    // Find server function name
+    for (var functName in google.script.run) {
+      if (google.script.run[functName] === config.serverFunction){
+        this._serverFunctionName = functName;
+        break;
+      }
+    }
+    if (!this._serverFunctionName) throw Polling.ERROR.NO_SERVER_FUNCTION;
+    
+    
     this._callback = config.callback || function() {};
     this._callbackError = config.errorCallback || function() {};
     
@@ -114,8 +127,7 @@
       
       google.script.run
         .withSuccessHandler(resolve)
-        .withFailureHandler(reject)
-        .onPollSidebar();
+        .withFailureHandler(reject)[this._serverFunctionName]();
       
     }.bind(this));
   };
@@ -129,7 +141,8 @@
    * @enum {string}
    */
   Polling.ERROR = {
-    TIMEOUT: 'Server timeout'
+    TIMEOUT: 'Server timeout',
+    NO_SERVER_FUNCTION: 'No server function provided',
   };
   
   Polling.TIMEOUT_DELAY = 10 * 1000; //ms

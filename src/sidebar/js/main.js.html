@@ -392,6 +392,7 @@
     
     // Start polling
     _self.polling = new Polling({
+      serverFunction: google.script.run.onPollSidebar,
       callback: _self.pollingCallback,
       errorCallback: _self.pollingErrorHandler
     });
