@@ -7,6 +7,7 @@
  * Called on sidebar polling
  * 
  * @return {ServerValue.PollRes}
+ * @entryPoint
  */
 function onPollSidebar() {
   // Init App state

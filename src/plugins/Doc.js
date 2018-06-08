@@ -19,10 +19,10 @@ var Plugins = this.Plugins || {_list: {}};
   var Doc = function (file) {
     // noinspection JSUnusedGlobalSymbols
     this.env = {};
-  
+    
     this._activeFile = file || null;
     this.type = Plugins.FileType.DOC;
-  
+    
     // noinspection JSUnusedGlobalSymbols
     this.sidebarConfig = {
       themeColor: '#4285f4',

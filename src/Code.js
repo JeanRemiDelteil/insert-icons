@@ -24,6 +24,8 @@ var app;
  * Create menu item.
  *
  * @param event
+ *
+ * @entryPoint
  */
 function onOpen(event) {
   app = Plugins.get();
@@ -38,6 +40,8 @@ function onOpen(event) {
  * Open the Add-on upon install.
  *
  * @param event
+ *
+ * @entryPoint
  */
 function onInstall(event) {
   onOpen(event);
@@ -46,6 +50,8 @@ function onInstall(event) {
 
 /**
  * Opens a sidebar in the document containing the add-on's user interface.
+ * 
+ * @entryPoint
  */
 function showSidebar() {
   app = Plugins.get();
@@ -71,24 +77,23 @@ function showSidebar() {
  *
  * @param {string} blob
  * @param {string} [title]
+ * 
+ * @entryPoint
  */
 function addImageInCurrentPage(blob, title) {
   app = Plugins.get();
   
+  
+  blob = blob.replace('data:image/png;base64,', '');
+  var decodedBlob = Utilities.base64Decode(blob);
+  
   /**
    * @type {Blob}
+   * 
+   * Note: Spreadsheet insert image fails if there are no title in the blob
    */
-  var imageBlob;
+  var imageBlob = Utilities.newBlob(decodedBlob, 'image/png', title);
   
-  if (!blob){
-    imageBlob = UrlFetchApp.fetch("http://fa2png.io/media/icons/font-awesome/4-7-0/rocket/256/0/007dff_none.png").getBlob();
-  }
-  else {
-    blob = blob.replace('data:image/png;base64,', '');
-    
-    var decodedBlob = Utilities.base64Decode(blob);
-    imageBlob = Utilities.newBlob(decodedBlob, "image/png");
-  }
   
   app.addImageToFile(imageBlob, title);
 }
