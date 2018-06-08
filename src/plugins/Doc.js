@@ -83,15 +83,21 @@ var Plugins = this.Plugins || {_list: {}};
     title && insertedImage.setAltTitle(title);
   };
   
-  //TODO: Doc.prototype.getBackgroundColor
   // noinspection JSUnusedGlobalSymbols
   /**
-   * Return the color of the current Doc page
+   * Return the color of the current Doc surrounding text
+   * TODO: improve color detection by taking table cells in account
    *
    * @return {string} color
    */
   Doc.prototype.getBackgroundColor = function() {
-    return '';
+    var cursor = this.getActiveFile()
+      .getCursor();
+    
+    var color = cursor.getSurroundingText().getBackgroundColor();
+    if (color === '#ffffff') color = '';
+    
+    return color || '';
   };
   
   
