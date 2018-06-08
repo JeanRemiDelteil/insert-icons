@@ -9,7 +9,9 @@
    * @param {function} config.serverFunction
    * @param {function(result)} config.callback
    * @param {function(error)} config.errorCallback
-   * 
+   * @param {{}} [config.serverFunctionParameters]
+   *
+   * @param {boolean} [config.stopOnFailure]
    * @param {number} [config.timeOut]
    * @param {number} [config.pollingDelay]
    *
@@ -26,12 +28,13 @@
       }
     }
     if (!this._serverFunctionName) throw Polling.ERROR.NO_SERVER_FUNCTION;
-    this._serverFunctionParameters = config.serverFunctionParameters;
     
+    // Init server parameters
+    this._serverFunctionParameters = config.serverFunctionParameters || {};
     
     this._callback = config.callback || function() {};
     this._callbackError = config.errorCallback || function() {};
-    this._stopPollingOnFailure = config.stopPollingOnFailure;
+    this._stopOnFailure = config.stopOnFailure;
     
     this._timeOut = config.timeOut || Polling.TIMEOUT_DELAY;
     this._pollingDelay = config.pollingDelay || Polling.POLLING_DELAY;
@@ -68,6 +71,7 @@
   };
   
   
+  // noinspection JSUnusedGlobalSymbols
   /**
    * get the server timeout used
    */
@@ -75,11 +79,20 @@
     return this._timeOut;
   };
   
+  // noinspection JSUnusedGlobalSymbols
   /**
    * get the delay between polling calls used
    */
   Polling.prototype.getPollingDelay = function() {
     return this._pollingDelay;
+  };
+  
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * get the server parameters passed at each polling call
+   */
+  Polling.prototype.getServerParameter = function() {
+    return this._serverFunctionParameters;
   };
   
   
@@ -93,26 +106,11 @@
     if (!this._running) return;
     
     this._runningPromise = this._runPollingWithTimeOut()
-      .then(function(res) {
-        if (!this._running) return;
-        
-        if (res && res.serverSideError) {
-          if (this._stopPollingOnFailure) this.stop();
-          return this._callbackError(JSON.parse(res.serverSideError));
-        }
-        
-        if (res && res.updatedFunctionParameters) {
-          for (var i in res.updatedFunctionParameters) {
-            this._serverFunctionParameters[i] = res.updatedFunctionParameters[i];
-          }
-        }
-                
-        return this._callback(res);
-      }.bind(this))
+      .then(this._onSuccess.bind(this))
       .catch(function(err) {
         if (!this._running) return;
         
-        if (this._stopPollingOnFailure) this.stop();
+        this._stopOnFailure && this.stop();
         return this._callbackError(err);
       }.bind(this))
       
@@ -123,6 +121,30 @@
         
         this._runTimeout = setTimeout(this._run.bind(this), this._pollingDelay);
       }.bind(this))
+  };
+  
+  /**
+   * on server call success
+   *
+   * @param {Polling.Response} res
+   */
+  Polling.prototype._onSuccess = function(res) {
+    
+    if (!this._running) return;
+    
+    // Server returned cleanly an error
+    if (res && res.serverSideError) throw JSON.parse(res.serverSideError);
+    
+    // Update server values if necessary
+    if (res && typeof res.updatedFunctionParameters === 'object') {
+      for (var i in res.updatedFunctionParameters) {
+        this._serverFunctionParameters[i] = res.updatedFunctionParameters[i];
+      }
+      
+      delete res.updatedFunctionParameters;
+    }
+    
+    return this._callback(res);
   };
   
   /**
@@ -139,9 +161,12 @@
         reject(Polling.ERROR.TIMEOUT);
       }, this._timeOut);
       
-      google.script.run
+      var runner = google.script.run
         .withSuccessHandler(resolve)
-        .withFailureHandler(reject)[this._serverFunctionName](this._serverFunctionParameters);
+        .withFailureHandler(reject)[this._serverFunctionName];
+      
+      if ('_serverFunctionParameters' in this) runner(this._serverFunctionParameters);
+      else runner();
       
     }.bind(this));
   };
@@ -156,12 +181,19 @@
    */
   Polling.ERROR = {
     TIMEOUT: 'Server timeout',
-    NO_SERVER_FUNCTION: 'No server function provided',
+    NO_SERVER_FUNCTION: 'No server function provided'
   };
   
   Polling.TIMEOUT_DELAY = 10 * 1000; //ms
   Polling.POLLING_DELAY = 1000; //ms
   
-  /*</editor-fold>*/
+  /**
+   * @typedef {{}} Polling.Response
+   *
+   * @property {string} serverSideError - Stringified error
+   * @property {{}} updatedFunctionParameters
+   */
   
+  /*</editor-fold>*/
+
 </script>
