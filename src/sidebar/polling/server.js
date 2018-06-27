@@ -10,10 +10,6 @@
  * @entryPoint
  */
 function onPollSidebar() {
-  // Init App state
-  app = Plugins.get();
-  
-  
   // Poll results
   return {
     backgroundColor: app.getBackgroundColor()

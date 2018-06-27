@@ -17,7 +17,7 @@
  *
  * @type {App}
  */
-var app;
+var app = Plugins.get();
 
 
 /**
@@ -28,8 +28,6 @@ var app;
  * @entryPoint
  */
 function onOpen(event) {
-  app = Plugins.get();
-  
   app.getUi()
     .createAddonMenu()
     .addItem('Open sidebar to select icons', 'showSidebar')
@@ -54,8 +52,6 @@ function onInstall(event) {
  * @entryPoint
  */
 function showSidebar() {
-  app = Plugins.get();
-  
   var template = HtmlService.createTemplateFromFile('sidebar/index');
   
   // Print list of icons
@@ -81,8 +77,6 @@ function showSidebar() {
  * @entryPoint
  */
 function addImageInCurrentPage(blob, title) {
-  app = Plugins.get();
-  
   
   blob = blob.replace('data:image/png;base64,', '');
   var decodedBlob = Utilities.base64Decode(blob);
