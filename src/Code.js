@@ -48,8 +48,6 @@ function onInstall(event) {
 
 /**
  * Opens a sidebar in the document containing the add-on's user interface.
- * 
- * @entryPoint
  */
 function showSidebar() {
   var template = HtmlService.createTemplateFromFile('sidebar/index');
@@ -73,8 +71,6 @@ function showSidebar() {
  *
  * @param {string} blob
  * @param {string} [title]
- * 
- * @entryPoint
  */
 function addImageInCurrentPage(blob, title) {
   

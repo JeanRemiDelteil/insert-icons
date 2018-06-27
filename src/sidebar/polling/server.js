@@ -7,7 +7,6 @@
  * Called on sidebar polling
  * 
  * @return {ServerValue.PollRes}
- * @entryPoint
  */
 function onPollSidebar() {
   // Poll results
