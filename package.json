@@ -7,6 +7,10 @@
     "type": "git",
     "url": "https://github.com/JeanRemiDelteil/insert-icons.git"
   },
+  "scripts": {
+    "buildPushDEV": "grunt --target=dev_SLIDE build_push && grunt --target=dev_SHEET build_push && grunt --target=dev_DOC build_push",
+    "buildPushPROD": "grunt --target=prod_SLIDE build_push && grunt --target=prod_SHEET build_push && grunt --target=prod_DOC build_push"
+  },
   "devDependencies": {
     "gas-lib": "latest",
     "grunt": "^1.0.1",

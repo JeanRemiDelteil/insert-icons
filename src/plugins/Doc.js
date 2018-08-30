@@ -1,11 +1,12 @@
 /**
  * Created by JeanRemiDelteil on 01/06/2018.
- *//**/
+ */
+/**/
 
 // noinspection ThisExpressionReferencesGlobalObjectJS
 var Plugins = this.Plugins || {_list: {}};
 
-(function() {
+(function () {
   
   // noinspection JSClosureCompilerSyntax
   /**
@@ -40,7 +41,7 @@ var Plugins = this.Plugins || {_list: {}};
    * @param {Blob | BlobSource} imageBlob
    * @param {string} [title]
    */
-  Doc.prototype.addImageToFile = function(imageBlob, title) {
+  Doc.prototype.addImageToFile = function (imageBlob, title) {
     var doc = this.getActiveFile();
     
     var cursor = doc.getCursor();
@@ -51,12 +52,12 @@ var Plugins = this.Plugins || {_list: {}};
     var insertedImage;
     
     // Maybe user is currently selecting another images, and there is no valid cursor
-    if (cursor){
+    if (cursor) {
       insertedImage = cursor.insertInlineImage(imageBlob);
     }
     
     // insertedImage === null if we don't have insertion right here
-    if (!insertedImage){
+    if (!insertedImage) {
       // Fallback to append to the body
       insertedImage = doc.getBody().appendImage(imageBlob);
     }
@@ -90,7 +91,7 @@ var Plugins = this.Plugins || {_list: {}};
    *
    * @return {string} color
    */
-  Doc.prototype.getBackgroundColor = function() {
+  Doc.prototype.getBackgroundColor = function () {
     var cursor = this.getActiveFile().getCursor();
     if (cursor) {
       var color = cursor.getSurroundingText().getBackgroundColor();
@@ -107,7 +108,7 @@ var Plugins = this.Plugins || {_list: {}};
    *
    * @return {Ui}
    */
-  Doc.prototype.getUi = function() {
+  Doc.prototype.getUi = function () {
     return DocumentApp.getUi();
   };
   
@@ -121,7 +122,7 @@ var Plugins = this.Plugins || {_list: {}};
    *
    * @return {DocumentApp.Document}
    */
-  Doc.prototype.getActiveFile = function() {
+  Doc.prototype.getActiveFile = function () {
     var activeFile = this._activeFile || DocumentApp.getActiveDocument();
     this._activeFile = activeFile;
     
@@ -129,7 +130,6 @@ var Plugins = this.Plugins || {_list: {}};
   };
   
   //</editor-fold>
-  
   
   
   // Export plugin

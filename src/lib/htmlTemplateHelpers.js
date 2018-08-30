@@ -1,4 +1,3 @@
-
 // noinspection JSUnusedGlobalSymbols
 /**
  * Insert the given client script in the HTML template
@@ -13,7 +12,7 @@ function _insertScript_(fileName) {
     .replace(/^\/\/<script>/, '');
   
   return HtmlService
-    .createTemplate('<script>'+ content +'</script>')
+    .createTemplate('<script>' + content + '</script>')
     .evaluate()
     .getContent();
 }
@@ -32,7 +31,7 @@ function _insertStyle_(fileName) {
     .replace(/^\/\*<style>\*\/\/\*\*\//, '');
   
   return HtmlService
-    .createTemplate('<style>'+ content +'</style>')
+    .createTemplate('<style>' + content + '</style>')
     .evaluate()
     .getContent();
 }

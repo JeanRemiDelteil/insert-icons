@@ -1,11 +1,12 @@
 /**
  * Created by JeanRemiDelteil on 01/06/2018.
- *//**/
+ */
+/**/
 
 // noinspection ThisExpressionReferencesGlobalObjectJS
 var Plugins = this.Plugins || {_list: {}};
 
-(function() {
+(function () {
   
   // noinspection JSClosureCompilerSyntax
   /**
@@ -40,7 +41,7 @@ var Plugins = this.Plugins || {_list: {}};
    * @param {Blob} imageBlob
    * @param {string} [title]
    */
-  Slide.prototype.addImageToFile = function(imageBlob, title) {
+  Slide.prototype.addImageToFile = function (imageBlob, title) {
     var presentation = this.getActiveFile();
     var currentPage = presentation.getSelection().getCurrentPage()
                       || presentation.getSlides()[0]
@@ -78,7 +79,7 @@ var Plugins = this.Plugins || {_list: {}};
    *
    * @return {string} color
    */
-  Slide.prototype.getBackgroundColor = function() {
+  Slide.prototype.getBackgroundColor = function () {
     var presentation = this.getActiveFile();
     
     var currentSlide = presentation.getSelection().getCurrentPage()
@@ -95,7 +96,7 @@ var Plugins = this.Plugins || {_list: {}};
    *
    * @return {Ui}
    */
-  Slide.prototype.getUi = function() {
+  Slide.prototype.getUi = function () {
     this._ui = this._ui || SlidesApp.getUi();
     
     return this._ui;
@@ -111,7 +112,7 @@ var Plugins = this.Plugins || {_list: {}};
    *
    * @return {SlidesApp.Presentation}
    */
-  Slide.prototype.getActiveFile = function() {
+  Slide.prototype.getActiveFile = function () {
     var activeFile = this._activeFile || SlidesApp.getActivePresentation();
     this._activeFile = activeFile;
     

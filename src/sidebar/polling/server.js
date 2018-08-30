@@ -5,10 +5,12 @@
 
 /**
  * Called on sidebar polling
- * 
+ *
  * @return {ServerValue.PollRes}
  */
 function onPollSidebar() {
+  Plugins.init();
+  
   // Poll results
   return {
     backgroundColor: app.getBackgroundColor()
@@ -17,6 +19,6 @@ function onPollSidebar() {
 
 /**
  * @typedef {{}} ServerValue.PollRes
- * 
+ *
  * @property {string} backgroundColor
  */

@@ -1,4 +1,3 @@
-
 // noinspection ThisExpressionReferencesGlobalObjectJS
 var Plugins = this.Plugins || {_list: {}};
 
@@ -11,7 +10,7 @@ var Plugins = this.Plugins || {_list: {}};
  * @return {App}
  */
 Plugins.get = function (env) {
-  if (!this._current){
+  if (!this._current) {
     var info = this.getFileType(true);
     
     this._current = new Plugins._list[info.type || Plugins.FileType.current](info.activeFile);
@@ -28,10 +27,10 @@ Plugins.get = function (env) {
  *
  * @return {Plugins.FileType || {type: Plugins.FileType, activeFile: *}}
  */
-Plugins.getFileType = function(getActiveFile){
+Plugins.getFileType = function (getActiveFile) {
   if (this._current) {
     return getActiveFile
-           ? { type: this._current.type, activeFile: this._current.getActiveFile()}
+           ? {type: this._current.type, activeFile: this._current.getActiveFile()}
            : this._current.type
   }
   
@@ -66,14 +65,14 @@ Plugins.getFileType = function(getActiveFile){
       if (!file) continue;
       
       return getActiveFile
-             ? { type: filesDetection[i].type, activeFile: file}
+             ? {type: filesDetection[i].type, activeFile: file}
              : filesDetection[i].type
     }
     catch (e) {}
   }
   
   return getActiveFile
-         ? { type: Plugins.FileType.UNKNOWN, activeFile: null}
+         ? {type: Plugins.FileType.UNKNOWN, activeFile: null}
          : Plugins.FileType.UNKNOWN;
 };
 
@@ -89,6 +88,21 @@ Plugins.FileType = {
   
   UNKNOWN: '',
   current: '/* @echo fileType */'
+};
+
+
+/**
+ * Globally define 'app' to be able to use it everywhere once populated
+ *
+ * @type {App}
+ */
+var app;
+
+/**
+ * Call at each entryPoint to init the App
+ */
+Plugins.init = function () {
+  app = Plugins.get();
 };
 
 
@@ -115,7 +129,7 @@ Plugins.FileType = {
  */
 /**
  * @function App#getBackgroundColor
- * 
+ *
  * Return a background color relevant to currently selected element in file
  *
  * @return {string} color
