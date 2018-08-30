@@ -91,11 +91,11 @@ var Plugins = this.Plugins || {_list: {}};
    * @return {string} color
    */
   Doc.prototype.getBackgroundColor = function() {
-    var cursor = this.getActiveFile()
-      .getCursor();
-    
-    var color = cursor.getSurroundingText().getBackgroundColor();
-    if (color === '#ffffff') color = '';
+    var cursor = this.getActiveFile().getCursor();
+    if (cursor) {
+      var color = cursor.getSurroundingText().getBackgroundColor();
+      if (color === '#ffffff') color = '';
+    }
     
     return color || '';
   };
