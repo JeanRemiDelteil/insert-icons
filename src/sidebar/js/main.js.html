@@ -1,449 +1,453 @@
-<script>
-  
-  /*<editor-fold desc="Manage Colors">*/
-  
-  /**
-   * Init and customize color picker
-   */
-  _self.initColorPicker = function () {
-    // Set color
-    this.dom.colorPicker.value = this.color;
-    
-    if ('jscolor' in window) {
-      // Disable automatic lookup
-      jscolor.lookupClass = null;
-      
-      // Install now
-      jscolor.installByClassName('jscolor');
-      
-      // Add fine change callback
-      this.dom.colorPicker.jscolor.onFineChange = this.onColorChange.bind(this);
-    }
-    else{
-      // jscolor library did not load, it should not break the sidebar, but no color selection will be possible
-      
-      // Fill in with text color selection
-      this.dom.colorPicker.jscolor = {};
-      this.dom.colorPicker.jscolor.toString = function () {
-        return (''+ this.dom.colorPicker.value).replace('#', '');
-      }.bind(this);
-    }
-    
-    
-    !this.dom.colorPicker.jscolor && (this.dom.colorPicker.jscolor = {});
-    this.dom.colorPicker.jscolor.padding = 8;
-    this.dom.colorPicker.jscolor.sliderSize = 8;
-    
-    // Update color
-    this.onColorChange();
-  };
-  
-  
-  /**
-   * Converts an RGB color value to HSL. Conversion formula
-   * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
-   * Assumes r, g, and b are contained in the set [0, 255] and
-   * returns h, s, and l in the set [0, 1].
-   *
-   * @param   {number}  r       The red color value
-   * @param   {number}  g       The green color value
-   * @param   {number}  b       The blue color value
-   *
-   * @return  {Array}           The HSL representation
-   */
-  function rgbToHsl(r, g, b){
-    r /= 255;
-    g /= 255;
-    b /= 255;
-    
-    var max = Math.max(r, g, b), min = Math.min(r, g, b);
-    var h, s, l = (max + min) / 2;
-    
-    if(max === min){
-      h = s = 0; // achromatic
-    }
-    else{
-      var d = max - min;
-      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-      
-      switch(max){
-        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-        case g: h = (b - r) / d + 2; break;
-        case b: h = (r - g) / d + 4; break;
-      }
-      
-      h /= 6;
-    }
-    
-    return [h, s, l];
-  }
-  
-  /**
-   * get Luminance of a rgb color
-   *
-   * @param {string} hexColor - The color value in hexadecimal
-   *
-   * @return {number}
-   */
-  function getLuminance(hexColor) {
-    var reg = /#?([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/;
-    
-    var res = reg.exec(hexColor);
-    var r = parseInt(res[1], 16);
-    var g = parseInt(res[2], 16);
-    var b = parseInt(res[3], 16);
-    
-    return rgbToHsl(r, g, b)[2];
-  }
-  
-  /**
-   * Set the background color, or update it depending on foreground color
-   * 
-   * @param {string} [backgroundColor] - background color
-   */
-  _self.setBackgroundColor = function(backgroundColor) {
-    var updateBG = backgroundColor === undefined || this.backgroundColor !== backgroundColor;
-    
-    backgroundColor !== undefined && (this.backgroundColor = backgroundColor);
-    if (!updateBG) return;
-    
-    this.dom.list.style.backgroundColor = this.backgroundColor || (getLuminance(this.color) > 0.63 ? 'black' : 'white');
-  };
-  
-  /*</editor-fold>*/
-  
-  /*<editor-fold desc="Event handlers">*/
+//<script>
 
-  /**
-   * Update display with new selected color
-   */
-  _self.onColorChange = function () {
-    this.color = this.dom.colorPicker.jscolor.toString();
-    
-    // Apply color to the icon list
-    this.dom.list.style.color = '#'+ this.color;
-    this.setBackgroundColor();
-  };
+/*<editor-fold desc="Manage Colors">*/
+
+/**
+ * Init and customize color picker
+ */
+_self.initColorPicker = function () {
+  // Set color
+  this.dom.colorPicker.value = this.color;
   
-  /**
-   * On filter input key-up event, filter display if no input for 300ms
-   */
-  _self.onFilterKeyUP = function () {
-    // Fire filter if 300ms pass without input
-    clearTimeout(this._filterDebouncer);
-    this._filterDebouncer = setTimeout(this._onFilter, 300);
-  };
+  if ('jscolor' in window) {
+    // Disable automatic lookup
+    jscolor.lookupClass = null;
+    
+    // Install now
+    jscolor.installByClassName('jscolor');
+    
+    // Add fine change callback
+    this.dom.colorPicker.jscolor.onFineChange = this.onColorChange.bind(this);
+  }
+  else {
+    // jscolor library did not load, it should not break the sidebar, but no color selection will be possible
+    
+    // Fill in with text color selection
+    this.dom.colorPicker.jscolor = {};
+    this.dom.colorPicker.jscolor.toString = function () {
+      return ('' + this.dom.colorPicker.value).replace('#', '');
+    }.bind(this);
+  }
   
-  /**
-   * Change displayed icon set
-   */
-  _self.onIconSetChange = function () {
-    var set = this.dom.iconSet.value;
+  
+  !this.dom.colorPicker.jscolor && (this.dom.colorPicker.jscolor = {});
+  this.dom.colorPicker.jscolor.padding = 8;
+  this.dom.colorPicker.jscolor.sliderSize = 8;
+  
+  // Update color
+  this.onColorChange();
+};
+
+
+/**
+ * Converts an RGB color value to HSL. Conversion formula
+ * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
+ * Assumes r, g, and b are contained in the set [0, 255] and
+ * returns h, s, and l in the set [0, 1].
+ *
+ * @param   {number}  r       The red color value
+ * @param   {number}  g       The green color value
+ * @param   {number}  b       The blue color value
+ *
+ * @return  {Array}           The HSL representation
+ */
+function rgbToHsl(r, g, b) {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  
+  var max = Math.max(r, g, b), min = Math.min(r, g, b);
+  var h, s, l = (max + min) / 2;
+  
+  if (max === min) {
+    h = s = 0; // achromatic
+  }
+  else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
     
-    this.display.showList(set);
-    this.display.filter(this.filter);
-    
-    // Add tooltip on first display
-    if (!this.display.current._toolTipDone){
-      this.display.current._toolTipDone = true;
-      
-      // add tooltip display to show the icon's name
-      tippy('.text-tooltip', {
-        arrow: true,
-        size: 'small'
-      });
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
     }
-  };
-  
-  /**
-   * Filter the display
-   */
-  _self._onFilter = function () {
-    this.filter = this.dom.filter.value;
     
-    this.display.filter(this.filter);
-  };
+    h /= 6;
+  }
   
-  /*</editor-fold>*/
+  return [h, s, l];
+}
+
+/**
+ * get Luminance of a rgb color
+ *
+ * @param {string} hexColor - The color value in hexadecimal
+ *
+ * @return {number}
+ */
+function getLuminance(hexColor) {
+  var reg = /#?([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/;
   
-  /*<editor-fold desc="Manage Icons insertion">*/
+  var res = reg.exec(hexColor);
+  var r = parseInt(res[1], 16);
+  var g = parseInt(res[2], 16);
+  var b = parseInt(res[3], 16);
   
-  /**
-   * Insert Font Awesome icons
-   *
-   * @param {IconList} iconList
-   */
-  _self.FA_insertIcon = function (iconList){
-    /**
-     * @type {Array.<{
-       *   n: string,
-       *   t: string,
-       *   a: string
-       * }>}
-     */
-    var list = this._iconList.FA;
+  return rgbToHsl(r, g, b)[2];
+}
+
+/**
+ * Set the background color, or update it depending on foreground color
+ *
+ * @param {string} [backgroundColor] - background color
+ */
+_self.setBackgroundColor = function (backgroundColor) {
+  var updateBG = backgroundColor === undefined || this.backgroundColor !== backgroundColor;
+  
+  backgroundColor !== undefined && (this.backgroundColor = backgroundColor);
+  if (!updateBG) return;
+  
+  this.dom.list.style.backgroundColor = this.backgroundColor || (getLuminance(this.color) > 0.63 ? 'black' : 'white');
+};
+
+/*</editor-fold>*/
+
+/*<editor-fold desc="Event handlers">*/
+
+/**
+ * Update display with new selected color
+ */
+_self.onColorChange = function () {
+  this.color = this.dom.colorPicker.jscolor.toString();
+  
+  // Apply color to the icon list
+  this.dom.list.style.color = '#' + this.color;
+  this.setBackgroundColor();
+};
+
+/**
+ * On filter input key-up event, filter display if no input for 300ms
+ */
+_self.onFilterKeyUP = function () {
+  // Fire filter if 300ms pass without input
+  clearTimeout(this._filterDebouncer);
+  this._filterDebouncer = setTimeout(this._onFilter, 300);
+};
+
+/**
+ * Change displayed icon set
+ */
+_self.onIconSetChange = function () {
+  var set = this.dom.iconSet.value;
+  
+  this.display.showList(set);
+  this.display.filter(this.filter);
+  
+  // Add tooltip on first display
+  if (!this.display.current._toolTipDone) {
+    this.display.current._toolTipDone = true;
     
-    for (var i = 0; i < list.length; i++) {
-      var iconName = 'fa'+ list[i].t +'-'+ list[i].n;
-      var html = '<i class="fa'+ list[i].t +' fa-'+ list[i].n +'"></i>';
+    // add tooltip display to show the icon's name
+    tippy('.text-tooltip', {
+      arrow: true,
+      size: 'small'
+    });
+  }
+};
+
+/**
+ * Filter the display
+ */
+_self._onFilter = function () {
+  this.filter = this.dom.filter.value;
+  
+  this.display.filter(this.filter);
+};
+
+/*</editor-fold>*/
+
+/*<editor-fold desc="Manage Icons insertion">*/
+
+/**
+ * Insert Font Awesome icons
+ *
+ * @param {IconList} iconList
+ */
+_self.FA_insertIcon = function (iconList) {
+  /**
+   * @type {Array.<{
+   *   n: string,
+   *   t: string,
+   *   a: string
+   * }>}
+   */
+  var list = this._iconList.FA;
+  
+  for (var i = 0; i < list.length; i++) {
+    var iconName = 'fa' + list[i].t + '-' + list[i].n;
+    var html = '<i class="fa' + list[i].t + ' fa-' + list[i].n + '"></i>';
+    
+    iconList.insertIcon(html, iconName, list[i].n, [list[i].n, list[i].a].join(','), list[i]);
+  }
+};
+
+/**
+ * Insert Material Design Icon
+ *
+ * @param {IconList} iconList
+ */
+_self.MD_insertIcon = function (iconList) {
+  /**
+   * @type {{
+   *   groups: Array.<{
+   *     length: number,
+   *     data: {
+   *       id: string,
+   *       name: string
+   *     }
+   *   }>,
+   *   icons: Array.<{
+   *     id: string,
+   *     name: string,
+   *     group_id: string,
+   *     keywords: Array.<string>,
+   *     ligature: string,
+   *     codepoint: string,
+   *     is_new: boolean,
+   *   }
+   * }}
+   */
+  var md = this._iconList.MD;
+  var list = md.icons;
+  
+  for (var i = 0; i < list.length; i++) {
+    var html = '<i class="material-icons">' + list[i].ligature + '</i>';
+    
+    iconList.insertIcon(html, list[i].ligature, list[i].name, list[i].keywords.join(','), list[i]);
+  }
+};
+
+/**
+ * Retrieve SVG for this icon
+ *
+ * @param {IconItem} iconItem
+ */
+_self.MD_getSVG = function (iconItem) {
+  var key = iconItem.info.group_id + '/svg/production/' + iconItem.info.id;
+  var promise;
+  
+  // Cache every SVG fetched
+  _self._MD_SVG_CACHE = _self._MD_SVG_CACHE || {};
+  if (_self._MD_SVG_CACHE[key]) {
+    promise = Promise.resolve(_self._MD_SVG_CACHE[key]);
+  }
+  else {
+    var url = 'https://raw.githubusercontent.com/google/material-design-icons/master/' + key + '_48px.svg';
+    
+    promise = new Promise(function (resolve, reject) {
+      var httpReq = new XMLHttpRequest();
       
-      iconList.insertIcon(html, iconName, list[i].n, [list[i].n, list[i].a].join(','), list[i]);
-    }
-  };
-  
-  /**
-   * Insert Material Design Icon
-   *
-   * @param {IconList} iconList
-   */
-  _self.MD_insertIcon= function (iconList){
-    /**
-     * @type {{
-       *   groups: Array.<{
-       *     length: number,
-       *     data: {
-       *       id: string,
-       *       name: string
-       *     }
-       *   }>,
-       *   icons: Array.<{
-       *     id: string,
-       *     name: string,
-       *     group_id: string,
-       *     keywords: Array.<string>,
-       *     ligature: string,
-       *     codepoint: string,
-       *     is_new: boolean,
-       *   }
-       * }}
-     */
-    var md = this._iconList.MD;
-    var list = md.icons;
-    
-    for (var i = 0; i < list.length; i++) {
-      var html = '<i class="material-icons">'+ list[i].ligature +'</i>';
-      
-      iconList.insertIcon(html, list[i].ligature, list[i].name, list[i].keywords.join(','), list[i]);
-    }
-  };
-  
-  /**
-   * Retrieve SVG for this icon
-   *
-   * @param {IconItem} iconItem
-   */
-  _self.MD_getSVG = function (iconItem) {
-    var key = iconItem.info.group_id +'/svg/production/'+ iconItem.info.id;
-    var promise;
-    
-    // Cache every SVG fetched
-    _self._MD_SVG_CACHE = _self._MD_SVG_CACHE || {};
-    if (_self._MD_SVG_CACHE[key]){
-      promise = Promise.resolve(_self._MD_SVG_CACHE[key]);
-    }
-    else{
-      var url = 'https://raw.githubusercontent.com/google/material-design-icons/master/'+ key +'_48px.svg';
-      
-      promise = new Promise(function (resolve, reject) {
-        var httpReq = new XMLHttpRequest();
+      httpReq.open('GET', url);
+      httpReq.onreadystatechange = function () {
+        if (httpReq.readyState !== XMLHttpRequest.DONE) return;
         
-        httpReq.open('GET', url);
-        httpReq.onreadystatechange = function(){
-          if (httpReq.readyState !== XMLHttpRequest.DONE) return;
+        if (httpReq.responseText) {
+          _self._MD_SVG_CACHE[key] = httpReq.responseText;
           
-          if (httpReq.responseText){
-            _self._MD_SVG_CACHE[key] = httpReq.responseText;
-            
-            resolve(httpReq.responseText);
-          }
-          else {
-            reject();
-          }
-        };
-        
-        // do request
-        httpReq.send();
-      });
-    }
-    
-    return promise
-      .then(function (htmlSVG) {
-        // Clean some SVG that got the 'fill' attribute inline
-        htmlSVG = htmlSVG.replace(/fill="[^"]*?"/gm, '');
-        
-        var tmp = document.createElement('div');
-        tmp.innerHTML = htmlSVG;
-        
-        // get SVG element
-        var domSVG = tmp.querySelector('svg');
-        domSVG.style.fill = 'currentColor';
-        
-        return domSVG;
-      });
-  };
-  
-  /**
-   * Init the icon display
-   * Loads all icons lists
-   */
-  _self.initIconDisplay = function () {
-    this.display = new IconDisplay(this.dom.list, this.addIconToSlide);
-    
-    this.display.addList('fa', this.FA_insertIcon, null, {scale: this._maxInsertSize / 512});
-    this.display.addList('md', this.MD_insertIcon, this.MD_getSVG, {scale: 10.5 * this._maxInsertSize / 512});
-    
-    // Set initial displayed Set
-    this.dom.iconSet.value = 'fa';
-    this.onIconSetChange();
-  };
-  
-  /**
-   * Convert the chosen SVG icon,
-   * then send it to the server to insert it in the slide
-   *
-   * @param domSVG
-   * @param options
-   * @param {string} title
-   */
-  _self.addIconToSlide = function (domSVG, options, title) {
-    // Add proper color to icon
-    domSVG.style.color = '#'+ this.color;
-    
-    // Show footer
-    this.dom.footer.style.display = 'block';
-    
-    svgAsPngUri(domSVG, options || {}, function(uri) {
-      google.script.run
-        .withFailureHandler(_self.onIconAddFailure)
-        .withSuccessHandler(_self.onIconAddSuccess)
-        .addImageInCurrentPage(uri, title);
-    });
-    
-    // reset as SVG could still be in real DOM
-    domSVG.style.color = '';
-  };
-  
-  /**
-   * Upon icon insertion success, hide the footer
-   */
-  _self.onIconAddSuccess = function () {
-    this.dom.footer.style.display = 'none';
-  };
-  
-  /**
-   * Upon icon insertion failure, hide the footer, and show error message
-   */
-  _self.onIconAddFailure = function (error) {
-    if (!error) error = {};
-    this.dom.footer.style.display = 'none';
-    
-    if (error.message === "Action not allowed"
-            || error.message.indexOf('required to perform that action') != -1
-            || error.message.indexOf('Se necesita autorización para realizar esta acción.') != -1
-            || error.message.indexOf('Se requiere autorización para realizar esa acción.') != -1
-            || error.message.indexOf('Cal tenir autorització per efectuar aquesta acció.') != -1
-            || error.message.indexOf('Este necesară autorizarea pentru a efectua acțiunea respectivă.') != -1
-            || error.message.indexOf('autorização para efetuar') != -1
-            || error.message.indexOf('autorização para executar') != -1
-            || error.message.indexOf("Kailangan ng awtorisasyon upang maisagawa ang aksyon na iyan.") != -1
-            || error.message.indexOf("A művelet végrehajtásához engedély szükséges.") != -1
-            || error.message.indexOf("Da biste izvršili tu akciju, potrebna je autorizacija.") != -1
-            || error.message.indexOf('वह कार्यवाही करने के लिए अधिकार की आवश्यकता है.') != -1
-            || error.message.indexOf('ती क्रिया करण्यासाठी अधिकृतता आवश्यक आहे.') != -1
-            || error.message.indexOf('এই ক্রিয়াটি সম্পাদনা করার জন্য অনুমোদন প্রয়োজন৷') != -1
-            || error.message.indexOf('அந்தச் செயலைச் செய்ய அங்கீகரிப்பு தேவைப்படுகிறது.') != -1
-            || error.message.indexOf('එම ක්‍රියාව කිරීමට අනුමැතිය අවශ්‍ය වේ.') != -1
-            || error.message.indexOf('Godkännande krävs för att utföra denna åtgärd.') != -1
-            || error.message.indexOf('Do wykonania tej czynności wymagana jest autoryzacja.') != -1            
-            || error.message.indexOf('Vous devez disposer des autorisations requises pour pouvoir effectuer cette action.') != -1
-            || error.message.indexOf('Autorisation requise pour exécuter cette action. Exécutez à nouveau le script pour autoriser cette action.') != -1
-            || error.message.indexOf('Für die Ausführung dieser Aktion ist eine Berechtigung erforderlich.') != -1
-            || error.message.indexOf('K provedení dané akce je vyžadována autorizace.') != -1
-            || error.message.indexOf('Perlu otorisasi untuk melakukan tindakan itu.') != -1
-            || error.message.indexOf('За да извършите това действие, ви е необходимо разрешение.') != -1
-            || error.message.indexOf('Для виконання цієї дії потрібно здійснити авторизацію.') != -1
-            || error.message.indexOf('Для выполнения этого действия необходима авторизация.') != -1
-            || error.message.indexOf('Для выканання гэтага дзеяння патрэбна аўтарызацыя.') != -1
-            || error.message.indexOf('Autorisation er påkrævet') != -1
-            || error.message.indexOf("richiesta l'autorizzazione") != -1
-            || error.message.indexOf('toestemming nodig') != -1
-            || error.message.indexOf('Bu eylemi gerçekleştirmek için yetki gerekiyor') != -1
-            || error.message.indexOf('需要授權才能執行此動作。') != -1
-            || error.message.indexOf('その操作を実行するには承認が必要です。') != -1
-            || error.message.indexOf('Toiminnon tekemiseen vaaditaan lupa.') != -1
-            || error.message.indexOf('Cần được cho phép để thực hiện') != -1) {
-      var message = "Failed to insert. This usually happens when logged in with multiple Google Accounts.";
-      message+= " Please try from a private browsing / incognito session.";
-      this.dom.errorMessage.innerHTML = message;
-      // make sure the error message remains visible
-      this.dom.errorMessage.style.transform = "none";
-    }
-    else {
-      this.dom.errorMessage.classList.remove('show-message');
-    
-      // trigger re-flow to restart animation (https://css-tricks.com/restart-css-animation/#article-header-id-0) 
-      void this.dom.errorMessage.offsetWidth;
-    
-      this.dom.errorMessage.classList.add('show-message');
-    }
-  };
-  
-  /*</editor-fold>*/
-  
-  
-  /**
-   * Called on polling response
-   * 
-   * @param {ServerValue.PollRes} res - Successful return value from polling
-   */
-  _self.pollingCallback = function(res) {
-    // Update backgroundColor to match Slide backgroundColor
-    this.setBackgroundColor(res.backgroundColor);
-  };
-  
-  /**
-   * Called on polling error
-   *
-   * @param {Object} err - Error return value from polling
-   */
-  _self.pollingErrorHandler = function(err) {
-    // noinspection NodeModulesDependencies
-    errorHandler.report(err);
-  };
-  
-  
-  /**
-   * Start the app
-   */
-  _self.init = function () {
-    // Bind function that will be used in different context
-    for (var propName in this){
-      if (!this.hasOwnProperty(propName) || typeof this[propName] !== 'function') continue;
+          resolve(httpReq.responseText);
+        }
+        else {
+          reject();
+        }
+      };
       
-      this[propName] = this[propName].bind(this);
-    }
-    
-    // Add control event listeners
-    this.dom.colorPicker.addEventListener('change', this.onColorChange);
-    this.dom.filter.addEventListener('keyup', this.onFilterKeyUP);
-    this.dom.iconSet.addEventListener('change', this.onIconSetChange);
-    
-    // Init
-    this.initColorPicker();
-    this.initIconDisplay();
-    
-    // Start polling
-    _self.polling = new Polling({
-      serverFunction: google.script.run.onPollSidebar,
-      callback: _self.pollingCallback,
-      errorCallback: _self.pollingErrorHandler
+      // do request
+      httpReq.send();
     });
-    
-    _self.polling.start();
-  };
-  _self.init = _self.init.bind(_self);
+  }
   
-  /* Start */
-  _self.init();
+  return promise
+    .then(function (htmlSVG) {
+      // Clean some SVG that got the 'fill' attribute inline
+      htmlSVG = htmlSVG.replace(/fill="[^"]*?"/gm, '');
+      
+      var tmp = document.createElement('div');
+      tmp.innerHTML = htmlSVG;
+      
+      // get SVG element
+      var domSVG = tmp.querySelector('svg');
+      domSVG.style.fill = 'currentColor';
+      
+      return domSVG;
+    });
+};
 
-</script>
+/**
+ * Init the icon display
+ * Loads all icons lists
+ */
+_self.initIconDisplay = function () {
+  this.display = new IconDisplay(this.dom.list, this.addIconToSlide);
+  
+  this.display.addList('fa', this.FA_insertIcon, null, {scale: this._maxInsertSize / 512});
+  this.display.addList('md', this.MD_insertIcon, this.MD_getSVG, {scale: 10.5 * this._maxInsertSize / 512});
+  
+  // Set initial displayed Set
+  this.dom.iconSet.value = 'fa';
+  this.onIconSetChange();
+};
+
+/**
+ * Convert the chosen SVG icon,
+ * then send it to the server to insert it in the slide
+ *
+ * @param domSVG
+ * @param options
+ * @param {string} title
+ */
+_self.addIconToSlide = function (domSVG, options, title) {
+  // Add proper color to icon
+  domSVG.style.color = '#' + this.color;
+  
+  // Show footer
+  this.dom.footer.style.display = 'block';
+  
+  svgAsPngUri(domSVG, options || {}, function (uri) {
+    google.script.run
+      .withFailureHandler(_self.onIconAddFailure)
+      .withSuccessHandler(_self.onIconAddSuccess)
+      .addImageInCurrentPage(uri, title);
+  });
+  
+  // reset as SVG could still be in real DOM
+  domSVG.style.color = '';
+};
+
+/**
+ * Upon icon insertion success, hide the footer
+ */
+_self.onIconAddSuccess = function () {
+  this.dom.footer.style.display = 'none';
+};
+
+/**
+ * Upon icon insertion failure, hide the footer, and show error message
+ */
+_self.onIconAddFailure = function (error) {
+  if (!error) error = {};
+  this.dom.footer.style.display = 'none';
+  
+  if (error.message === "Action not allowed"
+      || error.message.indexOf('required to perform that action') != -1
+      || error.message.indexOf('Se necesita autorización para realizar esta acción.') != -1
+      || error.message.indexOf('Se requiere autorización para realizar esa acción.') != -1
+      || error.message.indexOf('Cal tenir autorització per efectuar aquesta acció.') != -1
+      || error.message.indexOf('Este necesară autorizarea pentru a efectua acțiunea respectivă.') != -1
+      || error.message.indexOf('autorização para efetuar') != -1
+      || error.message.indexOf('autorização para executar') != -1
+      || error.message.indexOf("Kailangan ng awtorisasyon upang maisagawa ang aksyon na iyan.") != -1
+      || error.message.indexOf("A művelet végrehajtásához engedély szükséges.") != -1
+      || error.message.indexOf("Da biste izvršili tu akciju, potrebna je autorizacija.") != -1
+      || error.message.indexOf('वह कार्यवाही करने के लिए अधिकार की आवश्यकता है.') != -1
+      || error.message.indexOf('ती क्रिया करण्यासाठी अधिकृतता आवश्यक आहे.') != -1
+      || error.message.indexOf('এই ক্রিয়াটি সম্পাদনা করার জন্য অনুমোদন প্রয়োজন৷') != -1
+      || error.message.indexOf('அந்தச் செயலைச் செய்ய அங்கீகரிப்பு தேவைப்படுகிறது.') != -1
+      || error.message.indexOf('එම ක්‍රියාව කිරීමට අනුමැතිය අවශ්‍ය වේ.') != -1
+      || error.message.indexOf('Godkännande krävs för att utföra denna åtgärd.') != -1
+      || error.message.indexOf('Do wykonania tej czynności wymagana jest autoryzacja.') != -1
+      || error.message.indexOf('Vous devez disposer des autorisations requises pour pouvoir effectuer cette action.') != -1
+      || error.message.indexOf('Autorisation requise pour exécuter cette action. Exécutez à nouveau le script pour autoriser cette action.') != -1
+      || error.message.indexOf('Für die Ausführung dieser Aktion ist eine Berechtigung erforderlich.') != -1
+      || error.message.indexOf('K provedení dané akce je vyžadována autorizace.') != -1
+      || error.message.indexOf('Perlu otorisasi untuk melakukan tindakan itu.') != -1
+      || error.message.indexOf('За да извършите това действие, ви е необходимо разрешение.') != -1
+      || error.message.indexOf('Для виконання цієї дії потрібно здійснити авторизацію.') != -1
+      || error.message.indexOf('Для выполнения этого действия необходима авторизация.') != -1
+      || error.message.indexOf('Для выканання гэтага дзеяння патрэбна аўтарызацыя.') != -1
+      || error.message.indexOf('Autorisation er påkrævet') != -1
+      || error.message.indexOf("richiesta l'autorizzazione") != -1
+      || error.message.indexOf('toestemming nodig') != -1
+      || error.message.indexOf('Bu eylemi gerçekleştirmek için yetki gerekiyor') != -1
+      || error.message.indexOf('需要授權才能執行此動作。') != -1
+      || error.message.indexOf('その操作を実行するには承認が必要です。') != -1
+      || error.message.indexOf('Toiminnon tekemiseen vaaditaan lupa.') != -1
+      || error.message.indexOf('Cần được cho phép để thực hiện') != -1) {
+    var message = "Failed to insert. This usually happens when logged in with multiple Google Accounts.";
+    message += " Please try from a private browsing / incognito session.";
+    this.dom.errorMessage.innerHTML = message;
+    // make sure the error message remains visible
+    this.dom.errorMessage.style.transform = "none";
+  }
+  else {
+    this.dom.errorMessage.classList.remove('show-message');
+    
+    // trigger re-flow to restart animation (https://css-tricks.com/restart-css-animation/#article-header-id-0) 
+    void this.dom.errorMessage.offsetWidth;
+    
+    this.dom.errorMessage.classList.add('show-message');
+  }
+};
+
+/*</editor-fold>*/
+
+
+/**
+ * Called on polling response
+ *
+ * @param {ServerValue.PollRes} res - Successful return value from polling
+ */
+_self.pollingCallback = function (res) {
+  // Update backgroundColor to match Slide backgroundColor
+  this.setBackgroundColor(res.backgroundColor);
+};
+
+/**
+ * Called on polling error
+ *
+ * @param {Object} err - Error return value from polling
+ */
+_self.pollingErrorHandler = function (err) {
+  // noinspection NodeModulesDependencies
+  errorHandler.report(err);
+};
+
+
+/**
+ * Start the app
+ */
+_self.init = function () {
+  // Bind function that will be used in different context
+  for (var propName in this) {
+    if (!this.hasOwnProperty(propName) || typeof this[propName] !== 'function') continue;
+    
+    this[propName] = this[propName].bind(this);
+  }
+  
+  // Add control event listeners
+  this.dom.colorPicker.addEventListener('change', this.onColorChange);
+  this.dom.filter.addEventListener('keyup', this.onFilterKeyUP);
+  this.dom.iconSet.addEventListener('change', this.onIconSetChange);
+  
+  // Init
+  this.initColorPicker();
+  this.initIconDisplay();
+  
+  // Start polling
+  _self.polling = new Polling({
+    serverFunction: google.script.run.onPollSidebar,
+    callback: _self.pollingCallback,
+    errorCallback: _self.pollingErrorHandler
+  });
+  
+  _self.polling.start();
+};
+_self.init = _self.init.bind(_self);
+
+/* Start */
+_self.init();

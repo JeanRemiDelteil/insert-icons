@@ -1,7 +1,7 @@
 <html>
 <head>
   <!-- Include & init Stackdriver error reporting -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/ErrorReporting.js').getContent(); ?>
+  <?!= _insertScript_('sidebar/js/ErrorReporting.js') ?>
   
   <script src="//use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   <script src="//storage.googleapis.com/yamm-ressources/JS/saveSvgAsPng.js"></script>
@@ -15,109 +15,13 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
   <!-- Include Libs -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/IconList.js').getContent(); ?>
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/polling/client.js').getContent(); ?>
   
-  <style>
-    html{
-      overflow-y: scroll;
-      overflow-x: hidden;
-    }
-    .header {
-      position:fixed;
-      top:0;
-      
-      width:100%;
-      padding: 10px;
-      box-sizing: border-box;
-      
-      z-index:100;
-      
-      background-color: white;
-      border-bottom: 1px solid rgb(224, 224, 224)
-    }
-    .footer-overlay{
-      display: none;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: #61616138;
-    }
-    .footer {
-      position: absolute;
-      
-      bottom:0;
-      width:100%;
-      padding: 10px;
-      
-      z-index:100;
-      
-      background-color: rgb(97, 97, 97);
-      color: white;
-      font-weight: bold;
-    }
-    .error-message{
-      position: fixed;
-      background-color: #ff2929;
-      transform: translateY(100%);
-    }
-    
-    /*noinspection CssUnusedSymbol*/
-    .show-message{
-      -webkit-animation: showError 4s;
-      -o-animation: showError 4s;
-      animation: showError 4s;
-    }
-    
-    @keyframes showError {
-      0% {
-        transform: translateY(0%);
-      }
-      82.5% {
-        transform: translateY(0%);
-      }
-      100% {
-        transform: translateY(100%);
-      }
-    }
-    
-    
-    /*<editor-fold desc="# HEADER content">*/
-    
-    .left-label {
-      display: flex;
-      align-items: baseline;
-    }
-    .left-label:not(:last-child){
-      margin-bottom: 3px
-    }
-    .left-label>label{
-      display: inline-block;
-      width: 53px;
-    }
-    .left-label>input, .left-label>select {
-      flex: auto;
-    }
-    .left-label>select>option{
-      font-size: 13px;
-    }
-    
-    /*</editor-fold>*/
-    
-    
-    #icon-list{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      
-      margin-top: 106px;
-      
-      transition: background-color 250ms;
-    }
-  </style>
-
+  <?!= _insertStyle_('sidebar/js/IconList.css') ?>
+  <?!= _insertScript_('sidebar/js/IconList.js') ?>
+  <?!= _insertScript_('sidebar/polling/client.js') ?>
+  
+  <?!= _insertStyle_('sidebar/style.css') ?>
+  
 </head>
 <body>
   <div class="header">
@@ -168,6 +72,6 @@
   </script>
   
   <!-- Include main code -->
-  <?!= HtmlService.createHtmlOutputFromFile('sidebar/js/main.js').getContent(); ?>
+  <?!= _insertScript_('sidebar/js/main.js') ?>
 </body>
 </html>

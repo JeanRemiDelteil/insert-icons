@@ -53,7 +53,7 @@ function showSidebar() {
   var template = HtmlService.createTemplateFromFile('sidebar/index');
   
   // Print list of icons
-  template.iconList = JSON.stringify(IconLists);
+  template['iconList'] = JSON.stringify(IconLists);
   
   // Apply config to template
   for (var key in app.sidebarConfig){

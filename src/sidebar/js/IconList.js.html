@@ -1,237 +1,202 @@
-<style>
-  
-  .icon-list-content{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  
-    width: 100%;
-  }
-  
-  .icon-parent {
-    display: flex;
-    width: calc(25% - 10px);
-    
-    padding: 5px;
-    margin: 5px;
-    box-sizing: border-box;
-    
-    font-size: 40px;
-    cursor: pointer;
-  }
-  
-  .icon-parent:hover {
-    padding: 4px;
-    
-    border: 1px solid rgb(224, 224, 224);
-  }
-  .icon-parent>* {
-    margin: auto;
-  }
-  .icon-parent>.material-icons {
-    font-size: 40px;
-  }
-  
-</style>
-<script>
-  //<editor-fold desc="# IconDisplay">
-  
-  /**
-   * Initialize a new icon list
-   *
-   * @param {HTMLElement} container
-   * @param {function} onSelectIconCallback
-   */
-  var IconDisplay = function (container, onSelectIconCallback) {
-    this.dom = container;
-    this._onSelectIconCallback = onSelectIconCallback;
-    
-    /** @type {Object.<IconList>} */
-    this.lists = {};
-  
-    /** @type {IconList} */
-    this.current = null;
-    
-    // Install click listener
-    this.dom.addEventListener('click', this._onClick.bind(this));
-  };
-  
-  /**
-   * Add new IconList to the display
-   *
-   * @param {string} name
-   * @param {function} fillList
-   * @param {function} [getSVG]
-   * @param {{
-   *   scale: number
-   * }} [SVG_options]
-   */
-  IconDisplay.prototype.addList = function (name, fillList, getSVG, SVG_options) {
-    var iconList = new IconList(name);
-    
-    // Use custom function if provided
-    if (getSVG){
-      iconList.getSVG = getSVG.bind(iconList);
-    }
-    iconList.SVG_options = SVG_options || {};
-    
-    fillList(iconList);
-    
-    this.lists[name] = iconList;
-  };
-  
-  /**
-   * Change displayed list
-   */
-  IconDisplay.prototype.showList = function (name) {
-    var list = this.lists[name];
-    if (!list) return;
-    
-    // Show selected list
-    this.dom.innerHTML = '';
-    this.dom.appendChild(list.dom);
-    
-    this.current = list;
-  };
-  
-  /**
-   * Filter displayed list
-   */
-  IconDisplay.prototype.filter = function (filter) {
-    if (!this.current) return;
-    
-    this.current.filterList(filter.toLowerCase());
-  };
-  
-  
-  /**
-   * Global listener on all the icon display
-   * 
-   * @param {MouseEvent} event
-   */
-  IconDisplay.prototype._onClick = function (event) {
-    // Find clicked icon
-    var target = event.target;
-    while (target && !target._listName && target !== this.dom){
-      target = target.parentElement;
-    }
-    if (!target || target === this.dom) return;
-    
-    var list = this.lists[target._listName];
-    if (!list) return;
-    
-    var iconItem = list.iconMap[target._iconName];
-    if (!iconItem) return;
-    
-    Promise.resolve()
-      .then(function() {
-        return list.getSVG(iconItem)
-      })
-      .then(function(domSVG){
-        if (!domSVG) return;
-        
-        // Send SVG to be inserted in the SLIDE
-        this._onSelectIconCallback(domSVG, list.SVG_options, iconItem.title || '');
-      }.bind(this));
-  };
-  
-  //</editor-fold>
+//<script>
 
-  //<editor-fold desc="# IconList">
+//<editor-fold desc="# IconDisplay">
 
-  /**
-   * @typedef {{
-   *   dom: HTMLElement | {
-   *     _listName: string,
-   *     _iconName: string,
-   *   },
-   *   search: string,
-   *   info: Object,
-   *   title: Object
-   * }} IconItem
-   */
+/**
+ * Initialize a new icon list
+ *
+ * @param {HTMLElement} container
+ * @param {function} onSelectIconCallback
+ */
+var IconDisplay = function (container, onSelectIconCallback) {
+  this.dom = container;
+  this._onSelectIconCallback = onSelectIconCallback;
   
-  /**
-   * Initialize a new icon list
-   * 
-   * @param {string} name
-   */
-  var IconList = function (name) {
-    
-    /** @type {Object.<IconItem>} */
-    this.iconMap = {};
-    
-    this.SVG_options = {};
-    
-    this.name = name;
-    
-    this.dom = document.createElement('div');
-    this.dom.classList.add('icon-list-content');
-  };
+  /** @type {Object.<IconList>} */
+  this.lists = {};
+  
+  /** @type {IconList} */
+  this.current = null;
+  
+  // Install click listener
+  this.dom.addEventListener('click', this._onClick.bind(this));
+};
 
-  /**
-   * Add a icon in the list
-   *
-   * @param {string} htmlIcon
-   * @param {string} name
-   * @param {string} toolTip
-   * @param {string} search
-   * @param {Object} info
-   */
-  IconList.prototype.insertIcon = function (htmlIcon, name, toolTip, search, info) {
-    if (this.iconMap[name]) {
-      console.log('ICON already exist', name);
+/**
+ * Add new IconList to the display
+ *
+ * @param {string} name
+ * @param {function} fillList
+ * @param {function} [getSVG]
+ * @param {{
+ *   scale: number
+ * }} [SVG_options]
+ */
+IconDisplay.prototype.addList = function (name, fillList, getSVG, SVG_options) {
+  var iconList = new IconList(name);
+  
+  // Use custom function if provided
+  if (getSVG) {
+    iconList.getSVG = getSVG.bind(iconList);
+  }
+  iconList.SVG_options = SVG_options || {};
+  
+  fillList(iconList);
+  
+  this.lists[name] = iconList;
+};
+
+/**
+ * Change displayed list
+ */
+IconDisplay.prototype.showList = function (name) {
+  var list = this.lists[name];
+  if (!list) return;
+  
+  // Show selected list
+  this.dom.innerHTML = '';
+  this.dom.appendChild(list.dom);
+  
+  this.current = list;
+};
+
+/**
+ * Filter displayed list
+ */
+IconDisplay.prototype.filter = function (filter) {
+  if (!this.current) return;
+  
+  this.current.filterList(filter.toLowerCase());
+};
+
+
+/**
+ * Global listener on all the icon display
+ *
+ * @param {MouseEvent} event
+ */
+IconDisplay.prototype._onClick = function (event) {
+  // Find clicked icon
+  var target = event.target;
+  while (target && !target._listName && target !== this.dom) {
+    target = target.parentElement;
+  }
+  if (!target || target === this.dom) return;
+  
+  var list = this.lists[target._listName];
+  if (!list) return;
+  
+  var iconItem = list.iconMap[target._iconName];
+  if (!iconItem) return;
+  
+  Promise.resolve()
+    .then(function () {
+      return list.getSVG(iconItem)
+    })
+    .then(function (domSVG) {
+      if (!domSVG) return;
       
-      return;
-    }
-    
-    var domIconContainer = document.createElement('div');
-    domIconContainer.classList.add('icon-parent', 'text-tooltip');
-    
-    // For global event listener
-    domIconContainer._listName = this.name;
-    domIconContainer._iconName = name;
-    domIconContainer.setAttribute('title', toolTip);
-    
-    domIconContainer.innerHTML = htmlIcon;
-    
-    // Add icon in the list
-    this.dom.appendChild(domIconContainer);
-    
-    // Save info
-    this.iconMap[name] = {
-      dom: domIconContainer,
-      search: search.toLowerCase(),
-      info: info,
-      title: toolTip
-    };
-  };
+      // Send SVG to be inserted in the SLIDE
+      this._onSelectIconCallback(domSVG, list.SVG_options, iconItem.title || '');
+    }.bind(this));
+};
 
-  /**
-   * Only display icons matching <filter>
-   * 
-   * @param filter
-   */
-  IconList.prototype.filterList = function (filter) {
-    // Loop through all list items, and hide those who don't match the search query
-    for (var name in this.iconMap){
-      var iconItem = this.iconMap[name];
-      
-      // Hide / Show item
-      iconItem.dom.style.display = !filter || iconItem.search.indexOf(filter) !== -1
-        ? ''
-        : 'none';
-    }
-  };
+//</editor-fold>
 
-  /**
-   * Retrieve SVG dom for this icon
-   *
-   * @param {IconItem} iconItem
-   */
-  IconList.prototype.getSVG = function (iconItem) {
-    return iconItem.dom.querySelector('svg');
-  };
+//<editor-fold desc="# IconList">
 
-  //</editor-fold>
-</script>
+/**
+ * @typedef {{
+ *   dom: HTMLElement | {
+ *     _listName: string,
+ *     _iconName: string,
+ *   },
+ *   search: string,
+ *   info: Object,
+ *   title: Object
+ * }} IconItem
+ */
+
+/**
+ * Initialize a new icon list
+ *
+ * @param {string} name
+ */
+var IconList = function (name) {
+  
+  /** @type {Object.<IconItem>} */
+  this.iconMap = {};
+  
+  this.SVG_options = {};
+  
+  this.name = name;
+  
+  this.dom = document.createElement('div');
+  this.dom.classList.add('icon-list-content');
+};
+
+/**
+ * Add a icon in the list
+ *
+ * @param {string} htmlIcon
+ * @param {string} name
+ * @param {string} toolTip
+ * @param {string} search
+ * @param {Object} info
+ */
+IconList.prototype.insertIcon = function (htmlIcon, name, toolTip, search, info) {
+  if (this.iconMap[name]) {
+    console.log('ICON already exist', name);
+    
+    return;
+  }
+  
+  var domIconContainer = document.createElement('div');
+  domIconContainer.classList.add('icon-parent', 'text-tooltip');
+  
+  // For global event listener
+  domIconContainer._listName = this.name;
+  domIconContainer._iconName = name;
+  domIconContainer.setAttribute('title', toolTip);
+  
+  domIconContainer.innerHTML = htmlIcon;
+  
+  // Add icon in the list
+  this.dom.appendChild(domIconContainer);
+  
+  // Save info
+  this.iconMap[name] = {
+    dom: domIconContainer,
+    search: search.toLowerCase(),
+    info: info,
+    title: toolTip
+  };
+};
+
+/**
+ * Only display icons matching <filter>
+ *
+ * @param filter
+ */
+IconList.prototype.filterList = function (filter) {
+  // Loop through all list items, and hide those who don't match the search query
+  for (var name in this.iconMap) {
+    var iconItem = this.iconMap[name];
+    
+    // Hide / Show item
+    iconItem.dom.style.display = !filter || iconItem.search.indexOf(filter) !== -1
+                                 ? ''
+                                 : 'none';
+  }
+};
+
+/**
+ * Retrieve SVG dom for this icon
+ *
+ * @param {IconItem} iconItem
+ */
+IconList.prototype.getSVG = function (iconItem) {
+  return iconItem.dom.querySelector('svg');
+};
+
+//</editor-fold>

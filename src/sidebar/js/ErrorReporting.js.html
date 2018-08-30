@@ -1,143 +1,146 @@
-<script>
-  // noinspection ThisExpressionReferencesGlobalObjectJS
+//<script>
+
+// noinspection ThisExpressionReferencesGlobalObjectJS
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+(function (exports) {
+  "use strict";
+  
   /**
-   * Copyright 2016 Google Inc. All Rights Reserved.
-   *
-   * Licensed under the Apache License, Version 2.0 (the "License");
-   * you may not use this file except in compliance with the License.
-   * You may obtain a copy of the License at
-   *
-   *      http://www.apache.org/licenses/LICENSE-2.0
-   *
-   * Unless required by applicable law or agreed to in writing, software
-   * distributed under the License is distributed on an "AS IS" BASIS,
-   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   * See the License for the specific language governing permissions and
-   * limitations under the License.
+   * URL endpoint of the Stackdriver Error Reporting report API.
    */
-  (function(exports) {
-    "use strict";
-    
-    /**
-     * URL endpoint of the Stackdriver Error Reporting report API.
-     */
-    var baseAPIUrl = "https://clouderrorreporting.googleapis.com/v1beta1/projects/";
-    
-    /**
-     * An Error handler that sends errors to the Stackdriver Error Reporting API.
-     */
-    var StackdriverErrorReporter = function() {};
-    exports.StackdriverErrorReporter = StackdriverErrorReporter;
-    
-    /**
-     * Initialize the StackdriverErrorReporter object.
-     * @param {Object} config - the init configuration.
-     * @param {String} config.key - the API key to use to call the API.
-     * @param {String} config.projectId - the Google Cloud Platform project ID to report errors to.
-     * @param {String} [config.service=web] - service identifier.
-     * @param {String} [config.version] - version identifier.
-     * @param {Boolean} [config.reportUncaughtExceptions=true] - Set to false to stop reporting unhandled exceptions.
-     * @param {Boolean} [config.disabled=false] - Set to true to not report errors when calling report(), this can be used when developping locally.
-     */
-    StackdriverErrorReporter.prototype.start = function(config) {
-      if(!config.key) {
-        throw new Error('Cannot initialize: No API key provided.');
-      }
-      if(!config.projectId) {
-        throw new Error('Cannot initialize: No project ID provided.');
-      }
-      
-      this.apiKey = config.key;
-      this.projectId = config.projectId;
-      this.serviceContext = {service: config.service || 'web'};
-      if(config.version) {
-        this.serviceContext.version = config.version;
-      }
-      this.reportUncaughtExceptions = !(config.reportUncaughtExceptions === false);
-      this.disabled = config.disabled || false;
-      
-      // Register as global error handler if requested
-      var that = this;
-      if(this.reportUncaughtExceptions) {
-        var oldErrorHandler = window.onerror || function(){};
-        
-        window.onerror = function(message, source, lineno, colno, error) {
-          if(error){
-            that.report(error);
-          }
-          oldErrorHandler(message, source, lineno, colno, error);
-          return true;
-        };
-      }
-    };
-    
-    /**
-     * Report an error to the Stackdriver Error Reporting API
-     * @param {Error|String} err - The Error object or message string to report.
-     * @param callback - Calback function to be called once error has been reported.
-     */
-    StackdriverErrorReporter.prototype.report = function(err, callback) {
-      if (this.disabled) {
-        return typeof callback === 'function' && callback();
-      }
-      if (!err) {
-        return typeof callback === 'function' && callback('no error to report');
-      }
-      
-      var payload = {};
-      payload.serviceContext = this.serviceContext;
-      payload.context = {
-        httpRequest: {
-          userAgent: window.navigator.userAgent,
-          url: window.location.href
-        }
-      };
-      
-      if (typeof err === 'string' || err instanceof String) {
-        // Transform the message in an error, use try/catch to make sure the stacktrace is populated.
-        try {
-          //noinspection ExceptionCaughtLocallyJS
-          throw new Error(err);
-        } catch(e) {
-          err = e;
-        }
-        // the first frame when using report() is always this library
-      }
-      
-      payload.message = err.stack || err.name +': '+ err.message || 'Error';
-      
-      this.sendErrorPayload(payload, callback);
-    };
-    
-    StackdriverErrorReporter.prototype.sendErrorPayload = function(payload, callback) {
-      var url = baseAPIUrl + this.projectId + "/events:report?key=" + this.apiKey;
-      
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', url, true);
-      xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-      xhr.onloadend = function() {
-        return typeof callback === 'function' && callback();
-      };
-      xhr.onerror = function(e) {
-        return typeof callback === 'function' && callback(e);
-      };
-      xhr.send(JSON.stringify(payload));
-      
-      console.error(payload.message);
-    };
-  })(this);
+  var baseAPIUrl = "https://clouderrorreporting.googleapis.com/v1beta1/projects/";
   
-  var errorHandler = new StackdriverErrorReporter();
+  /**
+   * An Error handler that sends errors to the Stackdriver Error Reporting API.
+   */
+  var StackdriverErrorReporter = function () {
+  };
+  exports.StackdriverErrorReporter = StackdriverErrorReporter;
   
-  errorHandler.start(
-    /* @exclude */
-    { // For DEV Slide
-      key: 'AIzaSyDse4uaZlVOVl3jCPajyVlXY5FYjLe5d7Q',
-      projectId: 'project-id-3041769103631139407'
+  /**
+   * Initialize the StackdriverErrorReporter object.
+   * @param {Object} config - the init configuration.
+   * @param {String} config.key - the API key to use to call the API.
+   * @param {String} config.projectId - the Google Cloud Platform project ID to report errors to.
+   * @param {String} [config.service=web] - service identifier.
+   * @param {String} [config.version] - version identifier.
+   * @param {Boolean} [config.reportUncaughtExceptions=true] - Set to false to stop reporting unhandled exceptions.
+   * @param {Boolean} [config.disabled=false] - Set to true to not report errors when calling report(), this can be used when developping locally.
+   */
+  StackdriverErrorReporter.prototype.start = function (config) {
+    if (!config.key) {
+      throw new Error('Cannot initialize: No API key provided.');
     }
-    /* @endexclude */
-    /* @if true **
-     /* @echo configError **
-     /* @endif */
-  );
-</script>
+    if (!config.projectId) {
+      throw new Error('Cannot initialize: No project ID provided.');
+    }
+    
+    this.apiKey = config.key;
+    this.projectId = config.projectId;
+    this.serviceContext = {service: config.service || 'web'};
+    if (config.version) {
+      this.serviceContext.version = config.version;
+    }
+    this.reportUncaughtExceptions = !(config.reportUncaughtExceptions === false);
+    this.disabled = config.disabled || false;
+    
+    // Register as global error handler if requested
+    var that = this;
+    if (this.reportUncaughtExceptions) {
+      var oldErrorHandler = window.onerror || function () {
+      };
+      
+      window.onerror = function (message, source, lineno, colno, error) {
+        if (error) {
+          that.report(error);
+        }
+        oldErrorHandler(message, source, lineno, colno, error);
+        return true;
+      };
+    }
+  };
+  
+  /**
+   * Report an error to the Stackdriver Error Reporting API
+   * @param {Error|String} err - The Error object or message string to report.
+   * @param callback - Calback function to be called once error has been reported.
+   */
+  StackdriverErrorReporter.prototype.report = function (err, callback) {
+    if (this.disabled) {
+      return typeof callback === 'function' && callback();
+    }
+    if (!err) {
+      return typeof callback === 'function' && callback('no error to report');
+    }
+    
+    var payload = {};
+    payload.serviceContext = this.serviceContext;
+    payload.context = {
+      httpRequest: {
+        userAgent: window.navigator.userAgent,
+        url: window.location.href
+      }
+    };
+    
+    if (typeof err === 'string' || err instanceof String) {
+      // Transform the message in an error, use try/catch to make sure the stacktrace is populated.
+      try {
+        //noinspection ExceptionCaughtLocallyJS
+        throw new Error(err);
+      }
+      catch (e) {
+        err = e;
+      }
+      // the first frame when using report() is always this library
+    }
+    
+    payload.message = err.stack || err.name + ': ' + err.message || 'Error';
+    
+    this.sendErrorPayload(payload, callback);
+  };
+  
+  StackdriverErrorReporter.prototype.sendErrorPayload = function (payload, callback) {
+    var url = baseAPIUrl + this.projectId + "/events:report?key=" + this.apiKey;
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    xhr.onloadend = function () {
+      return typeof callback === 'function' && callback();
+    };
+    xhr.onerror = function (e) {
+      return typeof callback === 'function' && callback(e);
+    };
+    xhr.send(JSON.stringify(payload));
+    
+    console.error(payload.message);
+  };
+})(this);
+
+var errorHandler = new StackdriverErrorReporter();
+
+errorHandler.start(
+  /* @exclude */
+  { // For DEV Slide
+    key: 'AIzaSyDse4uaZlVOVl3jCPajyVlXY5FYjLe5d7Q',
+    projectId: 'project-id-3041769103631139407'
+  }
+  /* @endexclude */
+  /* @if true **
+   /* @echo configError **
+   /* @endif */
+);
