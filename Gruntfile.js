@@ -32,7 +32,7 @@ module.exports = function(grunt) {
   //<editor-fold desc="# Prepare CONFIG object">
   {
     try {
-      CONFIG = require(`./build/config/${TARGET}_config.json`);
+      CONFIG = require(`./build/config/${TARGET}_config`);
     }
     catch(e){
       grunt['fail'].fatal(`\x1b[31mERROR: "\x1b[0m\x1b[41m\x1b[30m${TARGET}\x1b[31m\x1b[0m\x1b[31m" is not a valid target build\x1b[0m`);
