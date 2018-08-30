@@ -333,17 +333,59 @@
   /**
    * Upon icon insertion failure, hide the footer, and show error message
    */
-  _self.onIconAddFailure = function () {
+  _self.onIconAddFailure = function (error) {
+    if (!error) error = {};
     this.dom.footer.style.display = 'none';
     
-    //<editor-fold desc="# Show error message">
-    this.dom.errorMessage.classList.remove('show-message');
+    if (error.message === "Action not allowed"
+            || error.message.indexOf('required to perform that action') != -1
+            || error.message.indexOf('Se necesita autorización para realizar esta acción.') != -1
+            || error.message.indexOf('Se requiere autorización para realizar esa acción.') != -1
+            || error.message.indexOf('Cal tenir autorització per efectuar aquesta acció.') != -1
+            || error.message.indexOf('Este necesară autorizarea pentru a efectua acțiunea respectivă.') != -1
+            || error.message.indexOf('autorização para efetuar') != -1
+            || error.message.indexOf('autorização para executar') != -1
+            || error.message.indexOf("Kailangan ng awtorisasyon upang maisagawa ang aksyon na iyan.") != -1
+            || error.message.indexOf("A művelet végrehajtásához engedély szükséges.") != -1
+            || error.message.indexOf("Da biste izvršili tu akciju, potrebna je autorizacija.") != -1
+            || error.message.indexOf('वह कार्यवाही करने के लिए अधिकार की आवश्यकता है.') != -1
+            || error.message.indexOf('ती क्रिया करण्यासाठी अधिकृतता आवश्यक आहे.') != -1
+            || error.message.indexOf('এই ক্রিয়াটি সম্পাদনা করার জন্য অনুমোদন প্রয়োজন৷') != -1
+            || error.message.indexOf('அந்தச் செயலைச் செய்ய அங்கீகரிப்பு தேவைப்படுகிறது.') != -1
+            || error.message.indexOf('එම ක්‍රියාව කිරීමට අනුමැතිය අවශ්‍ය වේ.') != -1
+            || error.message.indexOf('Godkännande krävs för att utföra denna åtgärd.') != -1
+            || error.message.indexOf('Do wykonania tej czynności wymagana jest autoryzacja.') != -1            
+            || error.message.indexOf('Vous devez disposer des autorisations requises pour pouvoir effectuer cette action.') != -1
+            || error.message.indexOf('Autorisation requise pour exécuter cette action. Exécutez à nouveau le script pour autoriser cette action.') != -1
+            || error.message.indexOf('Für die Ausführung dieser Aktion ist eine Berechtigung erforderlich.') != -1
+            || error.message.indexOf('K provedení dané akce je vyžadována autorizace.') != -1
+            || error.message.indexOf('Perlu otorisasi untuk melakukan tindakan itu.') != -1
+            || error.message.indexOf('За да извършите това действие, ви е необходимо разрешение.') != -1
+            || error.message.indexOf('Для виконання цієї дії потрібно здійснити авторизацію.') != -1
+            || error.message.indexOf('Для выполнения этого действия необходима авторизация.') != -1
+            || error.message.indexOf('Для выканання гэтага дзеяння патрэбна аўтарызацыя.') != -1
+            || error.message.indexOf('Autorisation er påkrævet') != -1
+            || error.message.indexOf("richiesta l'autorizzazione") != -1
+            || error.message.indexOf('toestemming nodig') != -1
+            || error.message.indexOf('Bu eylemi gerçekleştirmek için yetki gerekiyor') != -1
+            || error.message.indexOf('需要授權才能執行此動作。') != -1
+            || error.message.indexOf('その操作を実行するには承認が必要です。') != -1
+            || error.message.indexOf('Toiminnon tekemiseen vaaditaan lupa.') != -1
+            || error.message.indexOf('Cần được cho phép để thực hiện') != -1) {
+      var message = "Failed to insert. This usually happens when logged in with multiple Google Accounts.";
+      message+= " Please try from a private browsing / incognito session.";
+      this.dom.errorMessage.innerHTML = message;
+      // make sure the error message remains visible
+      this.dom.errorMessage.style.transform = "none";
+    }
+    else {
+      this.dom.errorMessage.classList.remove('show-message');
     
-    // trigger re-flow to restart animation (https://css-tricks.com/restart-css-animation/#article-header-id-0) 
-    void this.dom.errorMessage.offsetWidth;
+      // trigger re-flow to restart animation (https://css-tricks.com/restart-css-animation/#article-header-id-0) 
+      void this.dom.errorMessage.offsetWidth;
     
-    this.dom.errorMessage.classList.add('show-message');
-    //</editor-fold>
+      this.dom.errorMessage.classList.add('show-message');
+    }
   };
   
   /*</editor-fold>*/
