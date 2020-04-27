@@ -8,4524 +8,1595 @@ var IconLists = this.IconLists || {};
  * https://docs.google.com/spreadsheets/d/1Pt8bcsMLK2zlW-pxVpchNtwo2CJ46ZapZCuqYkRJt00/edit#gid=2091947411
  */
 IconLists.FA = [
-  {
-    n: "500px",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "accessible-icon",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "accusoft",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "address-book",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "address-book",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "address-card",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "address-card",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "adjust",
-    t: "s",
-    a: "contrast"
-  },
-  {
-    n: "adn",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "adversal",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "affiliatetheme",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "algolia",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "align-center",
-    t: "s",
-    a: "middle,text"
-  },
-  {
-    n: "align-justify",
-    t: "s",
-    a: "text"
-  },
-  {
-    n: "align-left",
-    t: "s",
-    a: "text"
-  },
-  {
-    n: "align-right",
-    t: "s",
-    a: "text"
-  },
-  {
-    n: "amazon",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "amazon-pay",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "ambulance",
-    t: "s",
-    a: "vehicle,support,help"
-  },
-  {
-    n: "american-sign-language-interpreting",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "amilia",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "anchor",
-    t: "s",
-    a: "link"
-  },
-  {
-    n: "android",
-    t: "b",
-    a: "robot"
-  },
-  {
-    n: "angellist",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "angle-double-down",
-    t: "s",
-    a: "arrows"
-  },
-  {
-    n: "angle-double-left",
-    t: "s",
-    a: "laquo,quote,previous,back,arrows"
-  },
-  {
-    n: "angle-double-right",
-    t: "s",
-    a: "raquo,quote,next,forward,arrows"
-  },
-  {
-    n: "angle-double-up",
-    t: "s",
-    a: "arrows"
-  },
-  {
-    n: "angle-down",
-    t: "s",
-    a: "arrow"
-  },
-  {
-    n: "angle-left",
-    t: "s",
-    a: "previous,back,arrow"
-  },
-  {
-    n: "angle-right",
-    t: "s",
-    a: "next,forward,arrow"
-  },
-  {
-    n: "angle-up",
-    t: "s",
-    a: "arrow"
-  },
-  {
-    n: "angrycreative",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "angular",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "app-store",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "app-store-ios",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "apper",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "apple",
-    t: "b",
-    a: "osx,food"
-  },
-  {
-    n: "apple-pay",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "archive",
-    t: "s",
-    a: "box,storage"
-  },
-  {
-    n: "arrow-alt-circle-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "arrow-alt-circle-down",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "arrow-alt-circle-left",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "arrow-alt-circle-left",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "arrow-alt-circle-right",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "arrow-alt-circle-right",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "arrow-alt-circle-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "arrow-alt-circle-up",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "arrow-circle-down",
-    t: "s",
-    a: "download"
-  },
-  {
-    n: "arrow-circle-left",
-    t: "s",
-    a: "previous,back"
-  },
-  {
-    n: "arrow-circle-right",
-    t: "s",
-    a: "next,forward"
-  },
-  {
-    n: "arrow-circle-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "arrow-down",
-    t: "s",
-    a: "download"
-  },
-  {
-    n: "arrow-left",
-    t: "s",
-    a: "previous,back"
-  },
-  {
-    n: "arrow-right",
-    t: "s",
-    a: "next,forward"
-  },
-  {
-    n: "arrow-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "arrows-alt",
-    t: "s",
-    a: "expand,enlarge,fullscreen,bigger,move,reorder,resize,arrow"
-  },
-  {
-    n: "arrows-alt-h",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "arrows-alt-v",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "assistive-listening-systems",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "asterisk",
-    t: "s",
-    a: "details"
-  },
-  {
-    n: "asymmetrik",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "at",
-    t: "s",
-    a: "email,e-mail"
-  },
-  {
-    n: "audible",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "audio-description",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "autoprefixer",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "avianex",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "aviato",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "aws",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "backward",
-    t: "s",
-    a: "rewind,previous"
-  },
-  {
-    n: "balance-scale",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "ban",
-    t: "s",
-    a: "delete,remove,trash,hide,block,stop,abort,cancel"
-  },
-  {
-    n: "bandcamp",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "barcode",
-    t: "s",
-    a: "scan"
-  },
-  {
-    n: "bars",
-    t: "s",
-    a: "menu,drag,reorder,settings,list,ul,ol,checklist,todo,list,hamburger"
-  },
-  {
-    n: "bath",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "battery-empty",
-    t: "s",
-    a: "power"
-  },
-  {
-    n: "battery-full",
-    t: "s",
-    a: "power"
-  },
-  {
-    n: "battery-half",
-    t: "s",
-    a: "power"
-  },
-  {
-    n: "battery-quarter",
-    t: "s",
-    a: "power"
-  },
-  {
-    n: "battery-three-quarters",
-    t: "s",
-    a: "power"
-  },
-  {
-    n: "bed",
-    t: "s",
-    a: "travel"
-  },
-  {
-    n: "beer",
-    t: "s",
-    a: "alcohol,stein,drink,mug,bar,liquor"
-  },
-  {
-    n: "behance",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "behance-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "bell",
-    t: "s",
-    a: "alert,reminder,notification"
-  },
-  {
-    n: "bell",
-    t: "r",
-    a: "alert,reminder,notification"
-  },
-  {
-    n: "bell-slash",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "bell-slash",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "bicycle",
-    t: "s",
-    a: "vehicle,bike"
-  },
-  {
-    n: "bimobject",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "binoculars",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "birthday-cake",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "bitbucket",
-    t: "b",
-    a: "git"
-  },
-  {
-    n: "bitcoin",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "bity",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "black-tie",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "blackberry",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "blind",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "blogger",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "blogger-b",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "bluetooth",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "bluetooth-b",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "bold",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "bolt",
-    t: "s",
-    a: "lightning,weather"
-  },
-  {
-    n: "bomb",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "book",
-    t: "s",
-    a: "read,documentation"
-  },
-  {
-    n: "bookmark",
-    t: "s",
-    a: "save"
-  },
-  {
-    n: "bookmark",
-    t: "r",
-    a: "save"
-  },
-  {
-    n: "braille",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "briefcase",
-    t: "s",
-    a: "work,business,office,luggage,bag"
-  },
-  {
-    n: "btc",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "bug",
-    t: "s",
-    a: "report,insect"
-  },
-  {
-    n: "building",
-    t: "s",
-    a: "work,business,apartment,office,company"
-  },
-  {
-    n: "building",
-    t: "r",
-    a: "work,business,apartment,office,company"
-  },
-  {
-    n: "bullhorn",
-    t: "s",
-    a: "announcement,share,broadcast,louder,megaphone"
-  },
-  {
-    n: "bullseye",
-    t: "s",
-    a: "target"
-  },
-  {
-    n: "buromobelexperte",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "bus",
-    t: "s",
-    a: "vehicle"
-  },
-  {
-    n: "buysellads",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "calculator",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "calendar",
-    t: "s",
-    a: "date,time,when,event"
-  },
-  {
-    n: "calendar",
-    t: "r",
-    a: "date,time,when,event"
-  },
-  {
-    n: "calendar-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "calendar-alt",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "calendar-check",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "calendar-check",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "calendar-minus",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "calendar-minus",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "calendar-plus",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "calendar-plus",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "calendar-times",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "calendar-times",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "camera",
-    t: "s",
-    a: "photo,picture,record"
-  },
-  {
-    n: "camera-retro",
-    t: "s",
-    a: "photo,picture,record"
-  },
-  {
-    n: "car",
-    t: "s",
-    a: "vehicle"
-  },
-  {
-    n: "caret-down",
-    t: "s",
-    a: "more,dropdown,menu,triangledown,arrow"
-  },
-  {
-    n: "caret-left",
-    t: "s",
-    a: "previous,back,triangleleft,arrow"
-  },
-  {
-    n: "caret-right",
-    t: "s",
-    a: "next,forward,triangleright,arrow"
-  },
-  {
-    n: "caret-square-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "caret-square-down",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "caret-square-left",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "caret-square-left",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "caret-square-right",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "caret-square-right",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "caret-square-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "caret-square-up",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "caret-up",
-    t: "s",
-    a: "triangleup,arrow"
-  },
-  {
-    n: "cart-arrow-down",
-    t: "s",
-    a: "shopping"
-  },
-  {
-    n: "cart-plus",
-    t: "s",
-    a: "add,shopping"
-  },
-  {
-    n: "cc-amazon-pay",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cc-amex",
-    t: "b",
-    a: "amex"
-  },
-  {
-    n: "cc-apple-pay",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cc-diners-club",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cc-discover",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cc-jcb",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cc-mastercard",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cc-paypal",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cc-stripe",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cc-visa",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "centercode",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "certificate",
-    t: "s",
-    a: "badge,star"
-  },
-  {
-    n: "chart-area",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "chart-bar",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "chart-bar",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "chart-line",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "chart-pie",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "check",
-    t: "s",
-    a: "checkmark,done,todo,agree,accept,confirm,tick,ok"
-  },
-  {
-    n: "check-circle",
-    t: "s",
-    a: "todo,done,agree,accept,confirm,ok"
-  },
-  {
-    n: "check-circle",
-    t: "r",
-    a: "todo,done,agree,accept,confirm,ok"
-  },
-  {
-    n: "check-square",
-    t: "s",
-    a: "checkmark,done,todo,agree,accept,confirm,ok"
-  },
-  {
-    n: "check-square",
-    t: "r",
-    a: "checkmark,done,todo,agree,accept,confirm,ok"
-  },
-  {
-    n: "chevron-circle-down",
-    t: "s",
-    a: "more,dropdown,menu,arrow"
-  },
-  {
-    n: "chevron-circle-left",
-    t: "s",
-    a: "previous,back,arrow"
-  },
-  {
-    n: "chevron-circle-right",
-    t: "s",
-    a: "next,forward,arrow"
-  },
-  {
-    n: "chevron-circle-up",
-    t: "s",
-    a: "arrow"
-  },
-  {
-    n: "chevron-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "chevron-left",
-    t: "s",
-    a: "bracket,previous,back"
-  },
-  {
-    n: "chevron-right",
-    t: "s",
-    a: "bracket,next,forward"
-  },
-  {
-    n: "chevron-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "child",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "chrome",
-    t: "b",
-    a: "browser"
-  },
-  {
-    n: "circle",
-    t: "s",
-    a: "dot,notification"
-  },
-  {
-    n: "circle",
-    t: "r",
-    a: "dot,notification"
-  },
-  {
-    n: "circle-notch",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "clipboard",
-    t: "s",
-    a: "copy"
-  },
-  {
-    n: "clipboard",
-    t: "r",
-    a: "copy"
-  },
-  {
-    n: "clock",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "clock",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "clone",
-    t: "s",
-    a: "copy"
-  },
-  {
-    n: "clone",
-    t: "r",
-    a: "copy"
-  },
-  {
-    n: "closed-captioning",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "closed-captioning",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "cloud",
-    t: "s",
-    a: "save"
-  },
-  {
-    n: "cloud-download-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "cloud-upload-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "cloudscale",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cloudsmith",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cloudversify",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "code",
-    t: "s",
-    a: "html,brackets"
-  },
-  {
-    n: "code-branch",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "codepen",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "codiepie",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "coffee",
-    t: "s",
-    a: "morning,mug,breakfast,tea,drink,cafe"
-  },
-  {
-    n: "cog",
-    t: "s",
-    a: "settings"
-  },
-  {
-    n: "cogs",
-    t: "s",
-    a: "settings"
-  },
-  {
-    n: "columns",
-    t: "s",
-    a: "split,panes"
-  },
-  {
-    n: "comment",
-    t: "s",
-    a: "speech,notification,note,chat,bubble,feedback,message,texting,sms,conversation"
-  },
-  {
-    n: "comment",
-    t: "r",
-    a: "speech,notification,note,chat,bubble,feedback,message,texting,sms,conversation"
-  },
-  {
-    n: "comment-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "comment-alt",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "comments",
-    t: "s",
-    a: "speech,notification,note,chat,bubble,feedback,message,texting,sms,conversation"
-  },
-  {
-    n: "comments",
-    t: "r",
-    a: "speech,notification,note,chat,bubble,feedback,message,texting,sms,conversation"
-  },
-  {
-    n: "compass",
-    t: "s",
-    a: "safari,directory,menu,location"
-  },
-  {
-    n: "compass",
-    t: "r",
-    a: "safari,directory,menu,location"
-  },
-  {
-    n: "compress",
-    t: "s",
-    a: "collapse,combine,contract,merge,smaller"
-  },
-  {
-    n: "connectdevelop",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "contao",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "copy",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "copy",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "copyright",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "copyright",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "cpanel",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "creative-commons",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "credit-card",
-    t: "s",
-    a: "money,buy,debit,checkout,purchase,payment"
-  },
-  {
-    n: "credit-card",
-    t: "r",
-    a: "money,buy,debit,checkout,purchase,payment"
-  },
-  {
-    n: "crop",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "crosshairs",
-    t: "s",
-    a: "picker"
-  },
-  {
-    n: "css3",
-    t: "b",
-    a: "code"
-  },
-  {
-    n: "css3-alt",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "cube",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "cubes",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "cut",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "cuttlefish",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "d-and-d",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "dashcube",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "database",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "deaf",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "delicious",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "deploydog",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "deskpro",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "desktop",
-    t: "s",
-    a: "monitor,screen,desktop,computer,demo,device"
-  },
-  {
-    n: "deviantart",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "digg",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "digital-ocean",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "discord",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "discourse",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "dochub",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "docker",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "dollar-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "dot-circle",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "dot-circle",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "download",
-    t: "s",
-    a: "import"
-  },
-  {
-    n: "draft2digital",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "dribbble",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "dribbble-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "dropbox",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "drupal",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "dyalog",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "earlybirds",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "edge",
-    t: "b",
-    a: "browser,ie"
-  },
-  {
-    n: "edit",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "edit",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "eject",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "ellipsis-h",
-    t: "s",
-    a: "dots"
-  },
-  {
-    n: "ellipsis-v",
-    t: "s",
-    a: "dots"
-  },
-  {
-    n: "ember",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "empire",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "envelope",
-    t: "s",
-    a: "email,e-mail,letter,support,mail,message,notification"
-  },
-  {
-    n: "envelope",
-    t: "r",
-    a: "email,e-mail,letter,support,mail,message,notification"
-  },
-  {
-    n: "envelope-open",
-    t: "s",
-    a: "email,e-mail,letter,support,mail,message,notification"
-  },
-  {
-    n: "envelope-open",
-    t: "r",
-    a: "email,e-mail,letter,support,mail,message,notification"
-  },
-  {
-    n: "envelope-square",
-    t: "s",
-    a: "email,e-mail,letter,support,mail,message,notification"
-  },
-  {
-    n: "envira",
-    t: "b",
-    a: "leaf"
-  },
-  {
-    n: "eraser",
-    t: "s",
-    a: "remove,delete"
-  },
-  {
-    n: "erlang",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "ethereum",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "etsy",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "euro-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "exchange-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "exclamation",
-    t: "s",
-    a: "warning,error,problem,notification,notify,alert"
-  },
-  {
-    n: "exclamation-circle",
-    t: "s",
-    a: "warning,error,problem,notification,alert"
-  },
-  {
-    n: "exclamation-triangle",
-    t: "s",
-    a: "warning,error,problem,notification,alert"
-  },
-  {
-    n: "expand",
-    t: "s",
-    a: "enlarge,bigger,resize"
-  },
-  {
-    n: "expand-arrows-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "expeditedssl",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "external-link-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "external-link-square-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "eye",
-    t: "s",
-    a: "show,visible,views"
-  },
-  {
-    n: "eye-dropper",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "eye-slash",
-    t: "s",
-    a: "toggle,show,hide,visible,visiblity,views"
-  },
-  {
-    n: "eye-slash",
-    t: "r",
-    a: "toggle,show,hide,visible,visiblity,views"
-  },
-  {
-    n: "facebook",
-    t: "b",
-    a: "socialnetwork"
-  },
-  {
-    n: "facebook-f",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "facebook-messenger",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "facebook-square",
-    t: "b",
-    a: "socialnetwork"
-  },
-  {
-    n: "fast-backward",
-    t: "s",
-    a: "rewind,previous,beginning,start,first"
-  },
-  {
-    n: "fast-forward",
-    t: "s",
-    a: "next,end,last"
-  },
-  {
-    n: "fax",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "female",
-    t: "s",
-    a: "woman,user,person,profile"
-  },
-  {
-    n: "fighter-jet",
-    t: "s",
-    a: "fly,plane,airplane,quick,fast,travel"
-  },
-  {
-    n: "file",
-    t: "s",
-    a: "new,page,pdf,document"
-  },
-  {
-    n: "file",
-    t: "r",
-    a: "new,page,pdf,document"
-  },
-  {
-    n: "file-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-alt",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-archive",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-archive",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-audio",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-audio",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-code",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-code",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-excel",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-excel",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-image",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-image",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-pdf",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-pdf",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-powerpoint",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-powerpoint",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-video",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-video",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "file-word",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "file-word",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "film",
-    t: "s",
-    a: "movie"
-  },
-  {
-    n: "filter",
-    t: "s",
-    a: "funnel,options"
-  },
-  {
-    n: "fire",
-    t: "s",
-    a: "flame,hot,popular"
-  },
-  {
-    n: "fire-extinguisher",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "firefox",
-    t: "b",
-    a: "browser"
-  },
-  {
-    n: "first-order",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "firstdraft",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "flag",
-    t: "s",
-    a: "report,notification,notify"
-  },
-  {
-    n: "flag",
-    t: "r",
-    a: "report,notification,notify"
-  },
-  {
-    n: "flag-checkered",
-    t: "s",
-    a: "report,notification,notify"
-  },
-  {
-    n: "flask",
-    t: "s",
-    a: "science,beaker,experimental,labs"
-  },
-  {
-    n: "flickr",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "fly",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "folder",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "folder",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "folder-open",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "folder-open",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "font",
-    t: "s",
-    a: "text"
-  },
-  {
-    n: "font-awesome",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "font-awesome-alt",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "font-awesome-flag",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "fonticons",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "fonticons-fi",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "fort-awesome",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "fort-awesome-alt",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "forumbee",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "forward",
-    t: "s",
-    a: "forward,next"
-  },
-  {
-    n: "foursquare",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "free-code-camp",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "freebsd",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "frown",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "frown",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "futbol",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "futbol",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "gamepad",
-    t: "s",
-    a: "controller"
-  },
-  {
-    n: "gavel",
-    t: "s",
-    a: "judge,lawyer,opinion"
-  },
-  {
-    n: "gem",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "gem",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "genderless",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "get-pocket",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "gg",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "gg-circle",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "gift",
-    t: "s",
-    a: "present"
-  },
-  {
-    n: "git",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "git-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "github",
-    t: "b",
-    a: "octocat"
-  },
-  {
-    n: "github-alt",
-    t: "b",
-    a: "octocat"
-  },
-  {
-    n: "github-square",
-    t: "b",
-    a: "octocat"
-  },
-  {
-    n: "gitkraken",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "gitlab",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "gitter",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "glass-martini",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "glide",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "glide-g",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "globe",
-    t: "s",
-    a: "world,planet,map,place,travel,earth,global,translate,all,language,localize,location,coordinates,country"
-  },
-  {
-    n: "gofore",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "goodreads",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "goodreads-g",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "google",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "google-drive",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "google-play",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "google-plus",
-    t: "b",
-    a: "socialnetwork"
-  },
-  {
-    n: "google-plus-g",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "google-plus-square",
-    t: "b",
-    a: "socialnetwork"
-  },
-  {
-    n: "google-wallet",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "graduation-cap",
-    t: "s",
-    a: "learning,school,student"
-  },
-  {
-    n: "gratipay",
-    t: "b",
-    a: "heart,like,favorite,love"
-  },
-  {
-    n: "grav",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "gripfire",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "grunt",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "gulp",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "h-square",
-    t: "s",
-    a: "hospital,hotel"
-  },
-  {
-    n: "hacker-news",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "hacker-news-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "hand-lizard",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-lizard",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-paper",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-paper",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-peace",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-peace",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-point-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-point-down",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-point-left",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-point-left",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-point-right",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-point-right",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-point-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-point-up",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-pointer",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-pointer",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-rock",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-rock",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-scissors",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-scissors",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hand-spock",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hand-spock",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "handshake",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "handshake",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hashtag",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hdd",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hdd",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "heading",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "headphones",
-    t: "s",
-    a: "sound,listen,music,audio"
-  },
-  {
-    n: "heart",
-    t: "s",
-    a: "love,like,favorite"
-  },
-  {
-    n: "heart",
-    t: "r",
-    a: "love,like,favorite"
-  },
-  {
-    n: "heartbeat",
-    t: "s",
-    a: "ekg"
-  },
-  {
-    n: "hire-a-helper",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "history",
-    t: "s",
-    a: "recent"
-  },
-  {
-    n: "home",
-    t: "s",
-    a: "main,house"
-  },
-  {
-    n: "hooli",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "hospital",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hospital",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hotjar",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "hourglass",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hourglass",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "hourglass-end",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hourglass-half",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "hourglass-start",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "houzz",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "html5",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "hubspot",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "i-cursor",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "id-badge",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "id-badge",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "id-card",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "id-card",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "image",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "image",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "images",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "images",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "imdb",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "inbox",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "indent",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "industry",
-    t: "s",
-    a: "factory"
-  },
-  {
-    n: "info",
-    t: "s",
-    a: "help,information,more,details"
-  },
-  {
-    n: "info-circle",
-    t: "s",
-    a: "help,information,more,details"
-  },
-  {
-    n: "instagram",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "internet-explorer",
-    t: "b",
-    a: "browser,ie"
-  },
-  {
-    n: "ioxhost",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "italic",
-    t: "s",
-    a: "italics"
-  },
-  {
-    n: "itunes",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "itunes-note",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "jenkins",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "joget",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "joomla",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "js",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "js-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "jsfiddle",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "key",
-    t: "s",
-    a: "unlock,password"
-  },
-  {
-    n: "keyboard",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "keyboard",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "keycdn",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "kickstarter",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "kickstarter-k",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "korvue",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "language",
-    t: "s",
-    a: "translate"
-  },
-  {
-    n: "laptop",
-    t: "s",
-    a: "demo,computer,device"
-  },
-  {
-    n: "laravel",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "lastfm",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "lastfm-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "leaf",
-    t: "s",
-    a: "eco,nature,plant"
-  },
-  {
-    n: "leanpub",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "lemon",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "lemon",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "less",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "level-down-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "level-up-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "life-ring",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "life-ring",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "lightbulb",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "lightbulb",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "line",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "link",
-    t: "s",
-    a: "chain"
-  },
-  {
-    n: "linkedin",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "linkedin-in",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "linode",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "linux",
-    t: "b",
-    a: "tux"
-  },
-  {
-    n: "lira-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "list",
-    t: "s",
-    a: "ul,ol,checklist,finished,completed,done,todo"
-  },
-  {
-    n: "list-alt",
-    t: "s",
-    a: "ul,ol,checklist,finished,completed,done,todo"
-  },
-  {
-    n: "list-alt",
-    t: "r",
-    a: "ul,ol,checklist,finished,completed,done,todo"
-  },
-  {
-    n: "list-ol",
-    t: "s",
-    a: "ul,ol,checklist,list,todo,list,numbers"
-  },
-  {
-    n: "list-ul",
-    t: "s",
-    a: "ul,ol,checklist,todo,list"
-  },
-  {
-    n: "location-arrow",
-    t: "s",
-    a: "map,coordinates,location,address,place,where"
-  },
-  {
-    n: "lock",
-    t: "s",
-    a: "protect,admin,security"
-  },
-  {
-    n: "lock-open",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "long-arrow-alt-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "long-arrow-alt-left",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "long-arrow-alt-right",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "long-arrow-alt-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "low-vision",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "lyft",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "magento",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "magic",
-    t: "s",
-    a: "wizard,automatic,autocomplete"
-  },
-  {
-    n: "magnet",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "male",
-    t: "s",
-    a: "man,user,person,profile"
-  },
-  {
-    n: "map",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "map",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "map-marker",
-    t: "s",
-    a: "map,pin,location,coordinates,localize,address,travel,where,place"
-  },
-  {
-    n: "map-marker-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "map-pin",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "map-signs",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "mars",
-    t: "s",
-    a: "male"
-  },
-  {
-    n: "mars-double",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "mars-stroke",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "mars-stroke-h",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "mars-stroke-v",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "maxcdn",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "medapps",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "medium",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "medium-m",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "medkit",
-    t: "s",
-    a: "firstaid,firstaid,help,support,health"
-  },
-  {
-    n: "medrt",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "meetup",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "meh",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "meh",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "mercury",
-    t: "s",
-    a: "transgender"
-  },
-  {
-    n: "microchip",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "microphone",
-    t: "s",
-    a: "record,voice,sound"
-  },
-  {
-    n: "microphone-slash",
-    t: "s",
-    a: "record,voice,sound,mute"
-  },
-  {
-    n: "microsoft",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "minus",
-    t: "s",
-    a: "hide,minify,delete,remove,trash,hide,collapse"
-  },
-  {
-    n: "minus-circle",
-    t: "s",
-    a: "delete,remove,trash,hide"
-  },
-  {
-    n: "minus-square",
-    t: "s",
-    a: "hide,minify,delete,remove,trash,hide,collapse"
-  },
-  {
-    n: "minus-square",
-    t: "r",
-    a: "hide,minify,delete,remove,trash,hide,collapse"
-  },
-  {
-    n: "mix",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "mixcloud",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "mizuni",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "mobile",
-    t: "s",
-    a: "cellphone,cellphone,text,call,iphone,number,telephone"
-  },
-  {
-    n: "mobile-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "modx",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "monero",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "money-bill-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "money-bill-alt",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "moon",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "moon",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "motorcycle",
-    t: "s",
-    a: "vehicle,bike"
-  },
-  {
-    n: "mouse-pointer",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "music",
-    t: "s",
-    a: "note,sound"
-  },
-  {
-    n: "napster",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "neuter",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "newspaper",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "newspaper",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "nintendo-switch",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "node",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "node-js",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "npm",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "ns8",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "nutritionix",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "object-group",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "object-group",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "object-ungroup",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "object-ungroup",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "odnoklassniki",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "odnoklassniki-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "opencart",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "openid",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "opera",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "optin-monster",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "osi",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "outdent",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "page4",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pagelines",
-    t: "b",
-    a: "leaf,leaves,tree,plant,eco,nature"
-  },
-  {
-    n: "paint-brush",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "palfed",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "paper-plane",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "paper-plane",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "paperclip",
-    t: "s",
-    a: "attachment"
-  },
-  {
-    n: "paragraph",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "paste",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "patreon",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pause",
-    t: "s",
-    a: "wait"
-  },
-  {
-    n: "pause-circle",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "pause-circle",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "paw",
-    t: "s",
-    a: "pet"
-  },
-  {
-    n: "paypal",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pen-square",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "pencil-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "percent",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "periscope",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "phabricator",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "phoenix-framework",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "phone",
-    t: "s",
-    a: "call,voice,number,support,earphone,telephone"
-  },
-  {
-    n: "phone-square",
-    t: "s",
-    a: "call,voice,number,support,telephone"
-  },
-  {
-    n: "phone-volume",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "pied-piper",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pied-piper-alt",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pied-piper-pp",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pinterest",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pinterest-p",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pinterest-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "plane",
-    t: "s",
-    a: "travel,trip,location,destination,airplane,fly,mode"
-  },
-  {
-    n: "play",
-    t: "s",
-    a: "start,playing,music,sound"
-  },
-  {
-    n: "play-circle",
-    t: "s",
-    a: "start,playing"
-  },
-  {
-    n: "play-circle",
-    t: "r",
-    a: "start,playing"
-  },
-  {
-    n: "playstation",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "plug",
-    t: "s",
-    a: "power,connect"
-  },
-  {
-    n: "plus",
-    t: "s",
-    a: "add,new,create,expand"
-  },
-  {
-    n: "plus-circle",
-    t: "s",
-    a: "add,new,create,expand"
-  },
-  {
-    n: "plus-square",
-    t: "s",
-    a: "add,new,create,expand"
-  },
-  {
-    n: "plus-square",
-    t: "r",
-    a: "add,new,create,expand"
-  },
-  {
-    n: "podcast",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "pound-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "power-off",
-    t: "s",
-    a: "on"
-  },
-  {
-    n: "print",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "product-hunt",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "pushed",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "puzzle-piece",
-    t: "s",
-    a: "addon,add-on,section"
-  },
-  {
-    n: "python",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "qq",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "qrcode",
-    t: "s",
-    a: "scan"
-  },
-  {
-    n: "question",
-    t: "s",
-    a: "help,information,unknown,support"
-  },
-  {
-    n: "question-circle",
-    t: "s",
-    a: "help,information,unknown,support"
-  },
-  {
-    n: "question-circle",
-    t: "r",
-    a: "help,information,unknown,support"
-  },
-  {
-    n: "quora",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "quote-left",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "quote-right",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "random",
-    t: "s",
-    a: "sort,shuffle"
-  },
-  {
-    n: "ravelry",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "react",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "rebel",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "recycle",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "red-river",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "reddit",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "reddit-alien",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "reddit-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "redo",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "redo-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "registered",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "registered",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "rendact",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "renren",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "reply",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "reply-all",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "replyd",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "resolving",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "retweet",
-    t: "s",
-    a: "refresh,reload,share"
-  },
-  {
-    n: "road",
-    t: "s",
-    a: "street"
-  },
-  {
-    n: "rocket",
-    t: "s",
-    a: "app"
-  },
-  {
-    n: "rocketchat",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "rockrms",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "rss",
-    t: "s",
-    a: "blog"
-  },
-  {
-    n: "rss-square",
-    t: "s",
-    a: "feed,blog"
-  },
-  {
-    n: "ruble-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "rupee-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "safari",
-    t: "b",
-    a: "browser"
-  },
-  {
-    n: "sass",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "save",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "save",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "schlix",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "scribd",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "search",
-    t: "s",
-    a: "magnify,zoom,enlarge,bigger"
-  },
-  {
-    n: "search-minus",
-    t: "s",
-    a: "magnify,minify,zoom,smaller"
-  },
-  {
-    n: "search-plus",
-    t: "s",
-    a: "magnify,zoom,enlarge,bigger"
-  },
-  {
-    n: "searchengin",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "sellcast",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "sellsy",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "server",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "servicestack",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "share",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "share-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "share-alt-square",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "share-square",
-    t: "s",
-    a: "social,send"
-  },
-  {
-    n: "share-square",
-    t: "r",
-    a: "social,send"
-  },
-  {
-    n: "shekel-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "shield-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "ship",
-    t: "s",
-    a: "boat,sea"
-  },
-  {
-    n: "shirtsinbulk",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "shopping-bag",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "shopping-basket",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "shopping-cart",
-    t: "s",
-    a: "checkout,buy,purchase,payment"
-  },
-  {
-    n: "shower",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sign-in-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sign-language",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sign-out-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "signal",
-    t: "s",
-    a: "graph,bars"
-  },
-  {
-    n: "simplybuilt",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "sistrix",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "sitemap",
-    t: "s",
-    a: "directory,hierarchy,organization"
-  },
-  {
-    n: "skyatlas",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "skype",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "slack",
-    t: "b",
-    a: "hashtag,anchor,hash"
-  },
-  {
-    n: "slack-hash",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "sliders-h",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "slideshare",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "smile",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "smile",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "snapchat",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "snapchat-ghost",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "snapchat-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "snowflake",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "snowflake",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "sort",
-    t: "s",
-    a: "order"
-  },
-  {
-    n: "sort-alpha-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sort-alpha-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sort-amount-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sort-amount-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sort-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sort-numeric-down",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sort-numeric-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sort-up",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "soundcloud",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "space-shuttle",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "speakap",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "spinner",
-    t: "s",
-    a: "loading,progress"
-  },
-  {
-    n: "spotify",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "square",
-    t: "s",
-    a: "block,box"
-  },
-  {
-    n: "square",
-    t: "r",
-    a: "block,box"
-  },
-  {
-    n: "stack-exchange",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "stack-overflow",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "star",
-    t: "s",
-    a: "award,achievement,night,rating,score,favorite"
-  },
-  {
-    n: "star",
-    t: "r",
-    a: "award,achievement,night,rating,score,favorite"
-  },
-  {
-    n: "star-half",
-    t: "s",
-    a: "award,achievement,rating,score"
-  },
-  {
-    n: "star-half",
-    t: "r",
-    a: "award,achievement,rating,score"
-  },
-  {
-    n: "staylinked",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "steam",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "steam-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "steam-symbol",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "step-backward",
-    t: "s",
-    a: "rewind,previous,beginning,start,first"
-  },
-  {
-    n: "step-forward",
-    t: "s",
-    a: "next,end,last"
-  },
-  {
-    n: "stethoscope",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sticker-mule",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "sticky-note",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sticky-note",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "stop",
-    t: "s",
-    a: "block,box,square"
-  },
-  {
-    n: "stop-circle",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "stop-circle",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "stopwatch",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "strava",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "street-view",
-    t: "s",
-    a: "map"
-  },
-  {
-    n: "strikethrough",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "stripe",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "stripe-s",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "studiovinari",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "stumbleupon",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "stumbleupon-circle",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "subscript",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "subway",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "suitcase",
-    t: "s",
-    a: "trip,luggage,travel,move,baggage"
-  },
-  {
-    n: "sun",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sun",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "superpowers",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "superscript",
-    t: "s",
-    a: "exponential"
-  },
-  {
-    n: "supple",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "sync",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "sync-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "table",
-    t: "s",
-    a: "data,excel,spreadsheet"
-  },
-  {
-    n: "tablet",
-    t: "s",
-    a: "ipad,device"
-  },
-  {
-    n: "tablet-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "tachometer-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "tag",
-    t: "s",
-    a: "label"
-  },
-  {
-    n: "tags",
-    t: "s",
-    a: "labels"
-  },
-  {
-    n: "tasks",
-    t: "s",
-    a: "progress,loading,downloading,downloads,settings"
-  },
-  {
-    n: "taxi",
-    t: "s",
-    a: "vehicle"
-  },
-  {
-    n: "telegram",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "telegram-plane",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "tencent-weibo",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "terminal",
-    t: "s",
-    a: "command,prompt,code"
-  },
-  {
-    n: "text-height",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "text-width",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "th",
-    t: "s",
-    a: "blocks,squares,boxes,grid"
-  },
-  {
-    n: "th-large",
-    t: "s",
-    a: "blocks,squares,boxes,grid"
-  },
-  {
-    n: "th-list",
-    t: "s",
-    a: "ul,ol,checklist,finished,completed,done,todo"
-  },
-  {
-    n: "themeisle",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "thermometer-empty",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "thermometer-full",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "thermometer-half",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "thermometer-quarter",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "thermometer-three-quarters",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "thumbs-down",
-    t: "s",
-    a: "dislike,disapprove,disagree,hand"
-  },
-  {
-    n: "thumbs-down",
-    t: "r",
-    a: "dislike,disapprove,disagree,hand"
-  },
-  {
-    n: "thumbs-up",
-    t: "s",
-    a: "like,favorite,approve,agree,hand"
-  },
-  {
-    n: "thumbs-up",
-    t: "r",
-    a: "like,favorite,approve,agree,hand"
-  },
-  {
-    n: "thumbtack",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "ticket-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "times",
-    t: "s",
-    a: "close,exit,x,cross"
-  },
-  {
-    n: "times-circle",
-    t: "s",
-    a: "close,exit,x"
-  },
-  {
-    n: "times-circle",
-    t: "r",
-    a: "close,exit,x"
-  },
-  {
-    n: "tint",
-    t: "s",
-    a: "raindrop,waterdrop,drop,droplet"
-  },
-  {
-    n: "toggle-off",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "toggle-on",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "trademark",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "train",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "transgender",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "transgender-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "trash",
-    t: "s",
-    a: "garbage,delete,remove,hide"
-  },
-  {
-    n: "trash-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "trash-alt",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "tree",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "trello",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "tripadvisor",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "trophy",
-    t: "s",
-    a: "award,achievement,cup,winner,game"
-  },
-  {
-    n: "truck",
-    t: "s",
-    a: "shipping"
-  },
-  {
-    n: "tty",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "tumblr",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "tumblr-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "tv",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "twitch",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "twitter",
-    t: "b",
-    a: "tweet,socialnetwork"
-  },
-  {
-    n: "twitter-square",
-    t: "b",
-    a: "tweet,socialnetwork"
-  },
-  {
-    n: "typo3",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "uber",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "uikit",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "umbrella",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "underline",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "undo",
-    t: "s",
-    a: "back"
-  },
-  {
-    n: "undo-alt",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "uniregistry",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "universal-access",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "university",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "unlink",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "unlock",
-    t: "s",
-    a: "protect,admin,password,lock"
-  },
-  {
-    n: "unlock-alt",
-    t: "s",
-    a: "protect,admin,password,lock"
-  },
-  {
-    n: "untappd",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "upload",
-    t: "s",
-    a: "import"
-  },
-  {
-    n: "usb",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "user",
-    t: "s",
-    a: "person,man,head,profile"
-  },
-  {
-    n: "user",
-    t: "r",
-    a: "person,man,head,profile"
-  },
-  {
-    n: "user-circle",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "user-circle",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "user-md",
-    t: "s",
-    a: "doctor,profile,medical,nurse"
-  },
-  {
-    n: "user-plus",
-    t: "s",
-    a: "signup,signup"
-  },
-  {
-    n: "user-secret",
-    t: "s",
-    a: "whisper,spy,incognito,privacy"
-  },
-  {
-    n: "user-times",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "users",
-    t: "s",
-    a: "people,profiles,persons"
-  },
-  {
-    n: "ussunnah",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "utensil-spoon",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "utensils",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "vaadin",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "venus",
-    t: "s",
-    a: "female"
-  },
-  {
-    n: "venus-double",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "venus-mars",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "viacoin",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "viadeo",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "viadeo-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "viber",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "video",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "vimeo",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "vimeo-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "vimeo-v",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "vine",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "vk",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "vnv",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "volume-down",
-    t: "s",
-    a: "audio,lower,quieter,sound,music"
-  },
-  {
-    n: "volume-off",
-    t: "s",
-    a: "audio,mute,sound,music"
-  },
-  {
-    n: "volume-up",
-    t: "s",
-    a: "audio,higher,louder,sound,music"
-  },
-  {
-    n: "vuejs",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "weibo",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "weixin",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "whatsapp",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "whatsapp-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "wheelchair",
-    t: "s",
-    a: "handicap,person"
-  },
-  {
-    n: "whmcs",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "wifi",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "wikipedia-w",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "window-close",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "window-close",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "window-maximize",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "window-maximize",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "window-minimize",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "window-restore",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "window-restore",
-    t: "r",
-    a: ""
-  },
-  {
-    n: "windows",
-    t: "b",
-    a: "microsoft"
-  },
-  {
-    n: "won-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "wordpress",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "wordpress-simple",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "wpbeginner",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "wpexplorer",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "wpforms",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "wrench",
-    t: "s",
-    a: "settings,fix,update,spanner"
-  },
-  {
-    n: "xbox",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "xing",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "xing-square",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "y-combinator",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "yahoo",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "yandex",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "yandex-international",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "yelp",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "yen-sign",
-    t: "s",
-    a: ""
-  },
-  {
-    n: "yoast",
-    t: "b",
-    a: ""
-  },
-  {
-    n: "youtube",
-    t: "b",
-    a: "video,film"
-  }
+  { n: "500px", t: "b", a: "" },
+  { n: "accessible-icon", t: "b", a: "accessibility,handicap,person,wheelchair,wheelchair-alt" },
+  { n: "accusoft", t: "b", a: "" },
+  { n: "acquisitions-incorporated", t: "b", a: "Dungeons & Dragons,d&d,dnd,fantasy,game,gaming,tabletop" },
+  { n: "ad", t: "s", a: "advertisement,media,newspaper,promotion,publicity" },
+  { n: "address-book", t: "s", a: "contact,directory,index,little black book,rolodex" },
+  { n: "address-book", t: "r", a: "contact,directory,index,little black book,rolodex" },
+  { n: "address-card", t: "s", a: "about,contact,id,identification,postcard,profile" },
+  { n: "address-card", t: "r", a: "about,contact,id,identification,postcard,profile" },
+  { n: "adjust", t: "s", a: "contrast,dark,light,saturation" },
+  { n: "adn", t: "b", a: "" },
+  { n: "adobe", t: "b", a: "acrobat,app,design,illustrator,indesign,photoshop" },
+  { n: "adversal", t: "b", a: "" },
+  { n: "affiliatetheme", t: "b", a: "" },
+  { n: "air-freshener", t: "s", a: "car,deodorize,fresh,pine,scent" },
+  { n: "airbnb", t: "b", a: "" },
+  { n: "algolia", t: "b", a: "" },
+  { n: "align-center", t: "s", a: "format,middle,paragraph,text" },
+  { n: "align-justify", t: "s", a: "format,paragraph,text" },
+  { n: "align-left", t: "s", a: "format,paragraph,text" },
+  { n: "align-right", t: "s", a: "format,paragraph,text" },
+  { n: "alipay", t: "b", a: "" },
+  { n: "allergies", t: "s", a: "allergy,freckles,hand,hives,pox,skin,spots" },
+  { n: "amazon", t: "b", a: "" },
+  { n: "amazon-pay", t: "b", a: "" },
+  { n: "ambulance", t: "s", a: "covid-19,emergency,emt,er,help,hospital,support,vehicle" },
+  { n: "american-sign-language-interpreting", t: "s", a: "asl,deaf,finger,hand,interpret,speak" },
+  { n: "amilia", t: "b", a: "" },
+  { n: "anchor", t: "s", a: "berth,boat,dock,embed,link,maritime,moor,secure" },
+  { n: "android", t: "b", a: "robot" },
+  { n: "angellist", t: "b", a: "" },
+  { n: "angle-double-down", t: "s", a: "arrows,caret,download,expand" },
+  { n: "angle-double-left", t: "s", a: "arrows,back,caret,laquo,previous,quote" },
+  { n: "angle-double-right", t: "s", a: "arrows,caret,forward,more,next,quote,raquo" },
+  { n: "angle-double-up", t: "s", a: "arrows,caret,collapse,upload" },
+  { n: "angle-down", t: "s", a: "arrow,caret,download,expand" },
+  { n: "angle-left", t: "s", a: "arrow,back,caret,less,previous" },
+  { n: "angle-right", t: "s", a: "arrow,care,forward,more,next" },
+  { n: "angle-up", t: "s", a: "arrow,caret,collapse,upload" },
+  { n: "angry", t: "s", a: "disapprove,emoticon,face,mad,upset" },
+  { n: "angry", t: "r", a: "disapprove,emoticon,face,mad,upset" },
+  { n: "angrycreative", t: "b", a: "" },
+  { n: "angular", t: "b", a: "" },
+  { n: "ankh", t: "s", a: "amulet,copper,coptic christianity,copts,crux ansata,egypt,venus" },
+  { n: "app-store", t: "b", a: "" },
+  { n: "app-store-ios", t: "b", a: "" },
+  { n: "apper", t: "b", a: "" },
+  { n: "apple", t: "b", a: "fruit,ios,mac,operating system,os,osx" },
+  { n: "apple-alt", t: "s", a: "fall,fruit,fuji,macintosh,orchard,seasonal,vegan" },
+  { n: "apple-pay", t: "b", a: "" },
+  { n: "archive", t: "s", a: "box,package,save,storage" },
+  { n: "archway", t: "s", a: "arc,monument,road,street,tunnel" },
+  { n: "arrow-alt-circle-down", t: "s", a: "arrow-circle-o-down,download" },
+  { n: "arrow-alt-circle-down", t: "r", a: "arrow-circle-o-down,download" },
+  { n: "arrow-alt-circle-left", t: "s", a: "arrow-circle-o-left,back,previous" },
+  { n: "arrow-alt-circle-left", t: "r", a: "arrow-circle-o-left,back,previous" },
+  { n: "arrow-alt-circle-right", t: "s", a: "arrow-circle-o-right,forward,next" },
+  { n: "arrow-alt-circle-right", t: "r", a: "arrow-circle-o-right,forward,next" },
+  { n: "arrow-alt-circle-up", t: "s", a: "arrow-circle-o-up" },
+  { n: "arrow-alt-circle-up", t: "r", a: "arrow-circle-o-up" },
+  { n: "arrow-circle-down", t: "s", a: "download" },
+  { n: "arrow-circle-left", t: "s", a: "back,previous" },
+  { n: "arrow-circle-right", t: "s", a: "forward,next" },
+  { n: "arrow-circle-up", t: "s", a: "upload" },
+  { n: "arrow-down", t: "s", a: "download" },
+  { n: "arrow-left", t: "s", a: "back,previous" },
+  { n: "arrow-right", t: "s", a: "forward,next" },
+  { n: "arrow-up", t: "s", a: "forward,upload" },
+  { n: "arrows-alt", t: "s", a: "arrow,arrows,bigger,enlarge,expand,fullscreen,move,position,reorder,resize" },
+  { n: "arrows-alt-h", t: "s", a: "arrows-h,expand,horizontal,landscape,resize,wide" },
+  { n: "arrows-alt-v", t: "s", a: "arrows-v,expand,portrait,resize,tall,vertical" },
+  { n: "artstation", t: "b", a: "" },
+  { n: "assistive-listening-systems", t: "s", a: "amplify,audio,deaf,ear,headset,hearing,sound" },
+  { n: "asterisk", t: "s", a: "annotation,details,reference,star" },
+  { n: "asymmetrik", t: "b", a: "" },
+  { n: "at", t: "s", a: "address,author,e-mail,email,handle" },
+  { n: "atlas", t: "s", a: "book,directions,geography,globe,map,travel,wayfinding" },
+  { n: "atlassian", t: "b", a: "" },
+  { n: "atom", t: "s", a: "atheism,chemistry,electron,ion,isotope,neutron,nuclear,proton,science" },
+  { n: "audible", t: "b", a: "" },
+  { n: "audio-description", t: "s", a: "blind,narration,video,visual" },
+  { n: "autoprefixer", t: "b", a: "" },
+  { n: "avianex", t: "b", a: "" },
+  { n: "aviato", t: "b", a: "" },
+  { n: "award", t: "s", a: "honor,praise,prize,recognition,ribbon,trophy" },
+  { n: "aws", t: "b", a: "" },
+  { n: "baby", t: "s", a: "child,diaper,doll,human,infant,kid,offspring,person,sprout" },
+  { n: "baby-carriage", t: "s", a: "buggy,carrier,infant,push,stroller,transportation,walk,wheels" },
+  { n: "backspace", t: "s", a: "command,delete,erase,keyboard,undo" },
+  { n: "backward", t: "s", a: "previous,rewind" },
+  { n: "bacon", t: "s", a: "blt,breakfast,ham,lard,meat,pancetta,pork,rasher" },
+  { n: "bahai", t: "s", a: "bahai,bahá'í,star" },
+  { n: "balance-scale", t: "s", a: "balanced,justice,legal,measure,weight" },
+  { n: "balance-scale-left", t: "s", a: "justice,legal,measure,unbalanced,weight" },
+  { n: "balance-scale-right", t: "s", a: "justice,legal,measure,unbalanced,weight" },
+  { n: "ban", t: "s", a: "abort,ban,block,cancel,delete,hide,prohibit,remove,stop,trash" },
+  { n: "band-aid", t: "s", a: "bandage,boo boo,first aid,ouch" },
+  { n: "bandcamp", t: "b", a: "" },
+  { n: "barcode", t: "s", a: "info,laser,price,scan,upc" },
+  { n: "bars", t: "s", a: "checklist,drag,hamburger,list,menu,nav,navigation,ol,reorder,settings,todo,ul" },
+  { n: "baseball-ball", t: "s", a: "foul,hardball,league,leather,mlb,softball,sport" },
+  { n: "basketball-ball", t: "s", a: "dribble,dunk,hoop,nba" },
+  { n: "bath", t: "s", a: "clean,shower,tub,wash" },
+  { n: "battery-empty", t: "s", a: "charge,dead,power,status" },
+  { n: "battery-full", t: "s", a: "charge,power,status" },
+  { n: "battery-half", t: "s", a: "charge,power,status" },
+  { n: "battery-quarter", t: "s", a: "charge,low,power,status" },
+  { n: "battery-three-quarters", t: "s", a: "charge,power,status" },
+  { n: "battle-net", t: "b", a: "" },
+  { n: "bed", t: "s", a: "lodging,mattress,rest,sleep,travel" },
+  { n: "beer", t: "s", a: "alcohol,ale,bar,beverage,brewery,drink,lager,liquor,mug,stein" },
+  { n: "behance", t: "b", a: "" },
+  { n: "behance-square", t: "b", a: "" },
+  { n: "bell", t: "s", a: "alarm,alert,chime,notification,reminder" },
+  { n: "bell", t: "r", a: "alarm,alert,chime,notification,reminder" },
+  { n: "bell-slash", t: "s", a: "alert,cancel,disabled,notification,off,reminder" },
+  { n: "bell-slash", t: "r", a: "alert,cancel,disabled,notification,off,reminder" },
+  { n: "bezier-curve", t: "s", a: "curves,illustrator,lines,path,vector" },
+  { n: "bible", t: "s", a: "book,catholicism,christianity,god,holy" },
+  { n: "bicycle", t: "s", a: "bike,gears,pedal,transportation,vehicle" },
+  { n: "biking", t: "s", a: "bicycle,bike,cycle,cycling,ride,wheel" },
+  { n: "bimobject", t: "b", a: "" },
+  { n: "binoculars", t: "s", a: "glasses,magnify,scenic,spyglass,view" },
+  { n: "biohazard", t: "s", a: "covid-19,danger,dangerous,hazmat,medical,radioactive,toxic,waste,zombie" },
+  { n: "birthday-cake", t: "s", a: "anniversary,bakery,candles,celebration,dessert,frosting,holiday,party,pastry" },
+  { n: "bitbucket", t: "b", a: "atlassian,bitbucket-square,git" },
+  { n: "bitcoin", t: "b", a: "" },
+  { n: "bity", t: "b", a: "" },
+  { n: "black-tie", t: "b", a: "" },
+  { n: "blackberry", t: "b", a: "" },
+  { n: "blender", t: "s", a: "cocktail,milkshake,mixer,puree,smoothie" },
+  { n: "blender-phone", t: "s", a: "appliance,cocktail,communication,fantasy,milkshake,mixer,puree,silly,smoothie" },
+  { n: "blind", t: "s", a: "cane,disability,person,sight" },
+  { n: "blog", t: "s", a: "journal,log,online,personal,post,web 2.0,wordpress,writing" },
+  { n: "blogger", t: "b", a: "" },
+  { n: "blogger-b", t: "b", a: "" },
+  { n: "bluetooth", t: "b", a: "" },
+  { n: "bluetooth-b", t: "b", a: "" },
+  { n: "bold", t: "s", a: "emphasis,format,text" },
+  { n: "bolt", t: "s", a: "electricity,lightning,weather,zap" },
+  { n: "bomb", t: "s", a: "error,explode,fuse,grenade,warning" },
+  { n: "bone", t: "s", a: "calcium,dog,skeletal,skeleton,tibia" },
+  { n: "bong", t: "s", a: "aparatus,cannabis,marijuana,pipe,smoke,smoking" },
+  { n: "book", t: "s", a: "diary,documentation,journal,library,read" },
+  { n: "book-dead", t: "s", a: "Dungeons & Dragons,crossbones,d&d,dark arts,death,dnd,documentation,evil,fantasy,halloween,holiday,necronomicon,read,skull,spell" },
+  { n: "book-medical", t: "s", a: "diary,documentation,health,history,journal,library,read,record" },
+  { n: "book-open", t: "s", a: "flyer,library,notebook,open book,pamphlet,reading" },
+  { n: "book-reader", t: "s", a: "flyer,library,notebook,open book,pamphlet,reading" },
+  { n: "bookmark", t: "s", a: "favorite,marker,read,remember,save" },
+  { n: "bookmark", t: "r", a: "favorite,marker,read,remember,save" },
+  { n: "bootstrap", t: "b", a: "" },
+  { n: "border-all", t: "s", a: "cell,grid,outline,stroke,table" },
+  { n: "border-none", t: "s", a: "cell,grid,outline,stroke,table" },
+  { n: "border-style", t: "s", a: "" },
+  { n: "bowling-ball", t: "s", a: "alley,candlepin,gutter,lane,strike,tenpin" },
+  { n: "box", t: "s", a: "archive,container,package,storage" },
+  { n: "box-open", t: "s", a: "archive,container,package,storage,unpack" },
+  { n: "box-tissue", t: "s", a: "cough,covid-19,kleenex,mucus,nose,sneeze,snot" },
+  { n: "boxes", t: "s", a: "archives,inventory,storage,warehouse" },
+  { n: "braille", t: "s", a: "alphabet,blind,dots,raised,vision" },
+  { n: "brain", t: "s", a: "cerebellum,gray matter,intellect,medulla oblongata,mind,noodle,wit" },
+  { n: "bread-slice", t: "s", a: "bake,bakery,baking,dough,flour,gluten,grain,sandwich,sourdough,toast,wheat,yeast" },
+  { n: "briefcase", t: "s", a: "bag,business,luggage,office,work" },
+  { n: "briefcase-medical", t: "s", a: "doctor,emt,first aid,health" },
+  { n: "broadcast-tower", t: "s", a: "airwaves,antenna,radio,reception,waves" },
+  { n: "broom", t: "s", a: "clean,firebolt,fly,halloween,nimbus 2000,quidditch,sweep,witch" },
+  { n: "brush", t: "s", a: "art,bristles,color,handle,paint" },
+  { n: "btc", t: "b", a: "" },
+  { n: "buffer", t: "b", a: "" },
+  { n: "bug", t: "s", a: "beetle,error,insect,report" },
+  { n: "building", t: "s", a: "apartment,business,city,company,office,work" },
+  { n: "building", t: "r", a: "apartment,business,city,company,office,work" },
+  { n: "bullhorn", t: "s", a: "announcement,broadcast,louder,megaphone,share" },
+  { n: "bullseye", t: "s", a: "archery,goal,objective,target" },
+  { n: "burn", t: "s", a: "caliente,energy,fire,flame,gas,heat,hot" },
+  { n: "buromobelexperte", t: "b", a: "" },
+  { n: "bus", t: "s", a: "public transportation,transportation,travel,vehicle" },
+  { n: "bus-alt", t: "s", a: "mta,public transportation,transportation,travel,vehicle" },
+  { n: "business-time", t: "s", a: "alarm,briefcase,business socks,clock,flight of the conchords,reminder,wednesday" },
+  { n: "buy-n-large", t: "b", a: "" },
+  { n: "buysellads", t: "b", a: "" },
+  { n: "calculator", t: "s", a: "abacus,addition,arithmetic,counting,math,multiplication,subtraction" },
+  { n: "calendar", t: "s", a: "calendar-o,date,event,schedule,time,when" },
+  { n: "calendar", t: "r", a: "calendar-o,date,event,schedule,time,when" },
+  { n: "calendar-alt", t: "s", a: "calendar,date,event,schedule,time,when" },
+  { n: "calendar-alt", t: "r", a: "calendar,date,event,schedule,time,when" },
+  { n: "calendar-check", t: "s", a: "accept,agree,appointment,confirm,correct,date,done,event,ok,schedule,select,success,tick,time,todo,when" },
+  { n: "calendar-check", t: "r", a: "accept,agree,appointment,confirm,correct,date,done,event,ok,schedule,select,success,tick,time,todo,when" },
+  { n: "calendar-day", t: "s", a: "date,detail,event,focus,schedule,single day,time,today,when" },
+  { n: "calendar-minus", t: "s", a: "calendar,date,delete,event,negative,remove,schedule,time,when" },
+  { n: "calendar-minus", t: "r", a: "calendar,date,delete,event,negative,remove,schedule,time,when" },
+  { n: "calendar-plus", t: "s", a: "add,calendar,create,date,event,new,positive,schedule,time,when" },
+  { n: "calendar-plus", t: "r", a: "add,calendar,create,date,event,new,positive,schedule,time,when" },
+  { n: "calendar-times", t: "s", a: "archive,calendar,date,delete,event,remove,schedule,time,when,x" },
+  { n: "calendar-times", t: "r", a: "archive,calendar,date,delete,event,remove,schedule,time,when,x" },
+  { n: "calendar-week", t: "s", a: "date,detail,event,focus,schedule,single week,time,today,when" },
+  { n: "camera", t: "s", a: "image,lens,photo,picture,record,shutter,video" },
+  { n: "camera-retro", t: "s", a: "image,lens,photo,picture,record,shutter,video" },
+  { n: "campground", t: "s", a: "camping,fall,outdoors,teepee,tent,tipi" },
+  { n: "canadian-maple-leaf", t: "b", a: "canada,flag,flora,nature,plant" },
+  { n: "candy-cane", t: "s", a: "candy,christmas,holiday,mint,peppermint,striped,xmas" },
+  { n: "cannabis", t: "s", a: "bud,chronic,drugs,endica,endo,ganja,marijuana,mary jane,pot,reefer,sativa,spliff,weed,whacky-tabacky" },
+  { n: "capsules", t: "s", a: "drugs,medicine,pills,prescription" },
+  { n: "car", t: "s", a: "auto,automobile,sedan,transportation,travel,vehicle" },
+  { n: "car-alt", t: "s", a: "auto,automobile,sedan,transportation,travel,vehicle" },
+  { n: "car-battery", t: "s", a: "auto,electric,mechanic,power" },
+  { n: "car-crash", t: "s", a: "accident,auto,automobile,insurance,sedan,transportation,vehicle,wreck" },
+  { n: "car-side", t: "s", a: "auto,automobile,sedan,transportation,travel,vehicle" },
+  { n: "caravan", t: "s", a: "camper,motor home,rv,trailer,travel" },
+  { n: "caret-down", t: "s", a: "arrow,dropdown,expand,menu,more,triangle" },
+  { n: "caret-left", t: "s", a: "arrow,back,previous,triangle" },
+  { n: "caret-right", t: "s", a: "arrow,forward,next,triangle" },
+  { n: "caret-square-down", t: "s", a: "arrow,caret-square-o-down,dropdown,expand,menu,more,triangle" },
+  { n: "caret-square-down", t: "r", a: "arrow,caret-square-o-down,dropdown,expand,menu,more,triangle" },
+  { n: "caret-square-left", t: "s", a: "arrow,back,caret-square-o-left,previous,triangle" },
+  { n: "caret-square-left", t: "r", a: "arrow,back,caret-square-o-left,previous,triangle" },
+  { n: "caret-square-right", t: "s", a: "arrow,caret-square-o-right,forward,next,triangle" },
+  { n: "caret-square-right", t: "r", a: "arrow,caret-square-o-right,forward,next,triangle" },
+  { n: "caret-square-up", t: "s", a: "arrow,caret-square-o-up,collapse,triangle,upload" },
+  { n: "caret-square-up", t: "r", a: "arrow,caret-square-o-up,collapse,triangle,upload" },
+  { n: "caret-up", t: "s", a: "arrow,collapse,triangle" },
+  { n: "carrot", t: "s", a: "bugs bunny,orange,vegan,vegetable" },
+  { n: "cart-arrow-down", t: "s", a: "download,save,shopping" },
+  { n: "cart-plus", t: "s", a: "add,create,new,positive,shopping" },
+  { n: "cash-register", t: "s", a: "buy,cha-ching,change,checkout,commerce,leaerboard,machine,pay,payment,purchase,store" },
+  { n: "cat", t: "s", a: "feline,halloween,holiday,kitten,kitty,meow,pet" },
+  { n: "cc-amazon-pay", t: "b", a: "" },
+  { n: "cc-amex", t: "b", a: "amex" },
+  { n: "cc-apple-pay", t: "b", a: "" },
+  { n: "cc-diners-club", t: "b", a: "" },
+  { n: "cc-discover", t: "b", a: "" },
+  { n: "cc-jcb", t: "b", a: "" },
+  { n: "cc-mastercard", t: "b", a: "" },
+  { n: "cc-paypal", t: "b", a: "" },
+  { n: "cc-stripe", t: "b", a: "" },
+  { n: "cc-visa", t: "b", a: "" },
+  { n: "centercode", t: "b", a: "" },
+  { n: "centos", t: "b", a: "linux,operating system,os" },
+  { n: "certificate", t: "s", a: "badge,star,verified" },
+  { n: "chair", t: "s", a: "furniture,seat,sit" },
+  { n: "chalkboard", t: "s", a: "blackboard,learning,school,teaching,whiteboard,writing" },
+  { n: "chalkboard-teacher", t: "s", a: "blackboard,instructor,learning,professor,school,whiteboard,writing" },
+  { n: "charging-station", t: "s", a: "electric,ev,tesla,vehicle" },
+  { n: "chart-area", t: "s", a: "analytics,area,chart,graph" },
+  { n: "chart-bar", t: "s", a: "analytics,bar,chart,graph" },
+  { n: "chart-bar", t: "r", a: "analytics,bar,chart,graph" },
+  { n: "chart-line", t: "s", a: "activity,analytics,chart,dashboard,gain,graph,increase,line" },
+  { n: "chart-pie", t: "s", a: "analytics,chart,diagram,graph,pie" },
+  { n: "check", t: "s", a: "accept,agree,checkmark,confirm,correct,done,notice,notification,notify,ok,select,success,tick,todo,yes" },
+  { n: "check-circle", t: "s", a: "accept,agree,confirm,correct,done,ok,select,success,tick,todo,yes" },
+  { n: "check-circle", t: "r", a: "accept,agree,confirm,correct,done,ok,select,success,tick,todo,yes" },
+  { n: "check-double", t: "s", a: "accept,agree,checkmark,confirm,correct,done,notice,notification,notify,ok,select,success,tick,todo" },
+  { n: "check-square", t: "s", a: "accept,agree,checkmark,confirm,correct,done,ok,select,success,tick,todo,yes" },
+  { n: "check-square", t: "r", a: "accept,agree,checkmark,confirm,correct,done,ok,select,success,tick,todo,yes" },
+  { n: "cheese", t: "s", a: "cheddar,curd,gouda,melt,parmesan,sandwich,swiss,wedge" },
+  { n: "chess", t: "s", a: "board,castle,checkmate,game,king,rook,strategy,tournament" },
+  { n: "chess-bishop", t: "s", a: "board,checkmate,game,strategy" },
+  { n: "chess-board", t: "s", a: "board,checkmate,game,strategy" },
+  { n: "chess-king", t: "s", a: "board,checkmate,game,strategy" },
+  { n: "chess-knight", t: "s", a: "board,checkmate,game,horse,strategy" },
+  { n: "chess-pawn", t: "s", a: "board,checkmate,game,strategy" },
+  { n: "chess-queen", t: "s", a: "board,checkmate,game,strategy" },
+  { n: "chess-rook", t: "s", a: "board,castle,checkmate,game,strategy" },
+  { n: "chevron-circle-down", t: "s", a: "arrow,download,dropdown,menu,more" },
+  { n: "chevron-circle-left", t: "s", a: "arrow,back,previous" },
+  { n: "chevron-circle-right", t: "s", a: "arrow,forward,next" },
+  { n: "chevron-circle-up", t: "s", a: "arrow,collapse,upload" },
+  { n: "chevron-down", t: "s", a: "arrow,download,expand" },
+  { n: "chevron-left", t: "s", a: "arrow,back,bracket,previous" },
+  { n: "chevron-right", t: "s", a: "arrow,bracket,forward,next" },
+  { n: "chevron-up", t: "s", a: "arrow,collapse,upload" },
+  { n: "child", t: "s", a: "boy,girl,kid,toddler,young" },
+  { n: "chrome", t: "b", a: "browser" },
+  { n: "chromecast", t: "b", a: "" },
+  { n: "church", t: "s", a: "building,cathedral,chapel,community,religion" },
+  { n: "circle", t: "s", a: "circle-thin,diameter,dot,ellipse,notification,round" },
+  { n: "circle", t: "r", a: "circle-thin,diameter,dot,ellipse,notification,round" },
+  { n: "circle-notch", t: "s", a: "circle-o-notch,diameter,dot,ellipse,round,spinner" },
+  { n: "city", t: "s", a: "buildings,busy,skyscrapers,urban,windows" },
+  { n: "clinic-medical", t: "s", a: "covid-19,doctor,general practitioner,hospital,infirmary,medicine,office,outpatient" },
+  { n: "clipboard", t: "s", a: "copy,notes,paste,record" },
+  { n: "clipboard", t: "r", a: "copy,notes,paste,record" },
+  { n: "clipboard-check", t: "s", a: "accept,agree,confirm,done,ok,select,success,tick,todo,yes" },
+  { n: "clipboard-list", t: "s", a: "checklist,completed,done,finished,intinerary,ol,schedule,tick,todo,ul" },
+  { n: "clock", t: "s", a: "date,late,schedule,time,timer,timestamp,watch" },
+  { n: "clock", t: "r", a: "date,late,schedule,time,timer,timestamp,watch" },
+  { n: "clone", t: "s", a: "arrange,copy,duplicate,paste" },
+  { n: "clone", t: "r", a: "arrange,copy,duplicate,paste" },
+  { n: "closed-captioning", t: "s", a: "cc,deaf,hearing,subtitle,subtitling,text,video" },
+  { n: "closed-captioning", t: "r", a: "cc,deaf,hearing,subtitle,subtitling,text,video" },
+  { n: "cloud", t: "s", a: "atmosphere,fog,overcast,save,upload,weather" },
+  { n: "cloud-download-alt", t: "s", a: "download,export,save" },
+  { n: "cloud-meatball", t: "s", a: "FLDSMDFR,food,spaghetti,storm" },
+  { n: "cloud-moon", t: "s", a: "crescent,evening,lunar,night,partly cloudy,sky" },
+  { n: "cloud-moon-rain", t: "s", a: "crescent,evening,lunar,night,partly cloudy,precipitation,rain,sky,storm" },
+  { n: "cloud-rain", t: "s", a: "precipitation,rain,sky,storm" },
+  { n: "cloud-showers-heavy", t: "s", a: "precipitation,rain,sky,storm" },
+  { n: "cloud-sun", t: "s", a: "clear,day,daytime,fall,outdoors,overcast,partly cloudy" },
+  { n: "cloud-sun-rain", t: "s", a: "day,overcast,precipitation,storm,summer,sunshower" },
+  { n: "cloud-upload-alt", t: "s", a: "cloud-upload,import,save,upload" },
+  { n: "cloudscale", t: "b", a: "" },
+  { n: "cloudsmith", t: "b", a: "" },
+  { n: "cloudversify", t: "b", a: "" },
+  { n: "cocktail", t: "s", a: "alcohol,beverage,drink,gin,glass,margarita,martini,vodka" },
+  { n: "code", t: "s", a: "brackets,code,development,html" },
+  { n: "code-branch", t: "s", a: "branch,code-fork,fork,git,github,rebase,svn,vcs,version" },
+  { n: "codepen", t: "b", a: "" },
+  { n: "codiepie", t: "b", a: "" },
+  { n: "coffee", t: "s", a: "beverage,breakfast,cafe,drink,fall,morning,mug,seasonal,tea" },
+  { n: "cog", t: "s", a: "gear,mechanical,settings,sprocket,wheel" },
+  { n: "cogs", t: "s", a: "gears,mechanical,settings,sprocket,wheel" },
+  { n: "coins", t: "s", a: "currency,dime,financial,gold,money,penny" },
+  { n: "columns", t: "s", a: "browser,dashboard,organize,panes,split" },
+  { n: "comment", t: "s", a: "bubble,chat,commenting,conversation,feedback,message,note,notification,sms,speech,texting" },
+  { n: "comment", t: "r", a: "bubble,chat,commenting,conversation,feedback,message,note,notification,sms,speech,texting" },
+  { n: "comment-alt", t: "s", a: "bubble,chat,commenting,conversation,feedback,message,note,notification,sms,speech,texting" },
+  { n: "comment-alt", t: "r", a: "bubble,chat,commenting,conversation,feedback,message,note,notification,sms,speech,texting" },
+  { n: "comment-dollar", t: "s", a: "bubble,chat,commenting,conversation,feedback,message,money,note,notification,pay,sms,speech,spend,texting,transfer" },
+  { n: "comment-dots", t: "s", a: "bubble,chat,commenting,conversation,feedback,message,more,note,notification,reply,sms,speech,texting" },
+  { n: "comment-dots", t: "r", a: "bubble,chat,commenting,conversation,feedback,message,more,note,notification,reply,sms,speech,texting" },
+  { n: "comment-medical", t: "s", a: "advice,bubble,chat,commenting,conversation,diagnose,feedback,message,note,notification,prescription,sms,speech,texting" },
+  { n: "comment-slash", t: "s", a: "bubble,cancel,chat,commenting,conversation,feedback,message,mute,note,notification,quiet,sms,speech,texting" },
+  { n: "comments", t: "s", a: "bubble,chat,commenting,conversation,feedback,message,note,notification,sms,speech,texting" },
+  { n: "comments", t: "r", a: "bubble,chat,commenting,conversation,feedback,message,note,notification,sms,speech,texting" },
+  { n: "comments-dollar", t: "s", a: "bubble,chat,commenting,conversation,feedback,message,money,note,notification,pay,sms,speech,spend,texting,transfer" },
+  { n: "compact-disc", t: "s", a: "album,bluray,cd,disc,dvd,media,movie,music,record,video,vinyl" },
+  { n: "compass", t: "s", a: "directions,directory,location,menu,navigation,safari,travel" },
+  { n: "compass", t: "r", a: "directions,directory,location,menu,navigation,safari,travel" },
+  { n: "compress", t: "s", a: "collapse,fullscreen,minimize,move,resize,shrink,smaller" },
+  { n: "compress-alt", t: "s", a: "collapse,fullscreen,minimize,move,resize,shrink,smaller" },
+  { n: "compress-arrows-alt", t: "s", a: "collapse,fullscreen,minimize,move,resize,shrink,smaller" },
+  { n: "concierge-bell", t: "s", a: "attention,hotel,receptionist,service,support" },
+  { n: "confluence", t: "b", a: "atlassian" },
+  { n: "connectdevelop", t: "b", a: "" },
+  { n: "contao", t: "b", a: "" },
+  { n: "cookie", t: "s", a: "baked good,chips,chocolate,eat,snack,sweet,treat" },
+  { n: "cookie-bite", t: "s", a: "baked good,bitten,chips,chocolate,eat,snack,sweet,treat" },
+  { n: "copy", t: "s", a: "clone,duplicate,file,files-o,paper,paste" },
+  { n: "copy", t: "r", a: "clone,duplicate,file,files-o,paper,paste" },
+  { n: "copyright", t: "s", a: "brand,mark,register,trademark" },
+  { n: "copyright", t: "r", a: "brand,mark,register,trademark" },
+  { n: "cotton-bureau", t: "b", a: "clothing,t-shirts,tshirts" },
+  { n: "couch", t: "s", a: "chair,cushion,furniture,relax,sofa" },
+  { n: "cpanel", t: "b", a: "" },
+  { n: "creative-commons", t: "b", a: "" },
+  { n: "creative-commons-by", t: "b", a: "" },
+  { n: "creative-commons-nc", t: "b", a: "" },
+  { n: "creative-commons-nc-eu", t: "b", a: "" },
+  { n: "creative-commons-nc-jp", t: "b", a: "" },
+  { n: "creative-commons-nd", t: "b", a: "" },
+  { n: "creative-commons-pd", t: "b", a: "" },
+  { n: "creative-commons-pd-alt", t: "b", a: "" },
+  { n: "creative-commons-remix", t: "b", a: "" },
+  { n: "creative-commons-sa", t: "b", a: "" },
+  { n: "creative-commons-sampling", t: "b", a: "" },
+  { n: "creative-commons-sampling-plus", t: "b", a: "" },
+  { n: "creative-commons-share", t: "b", a: "" },
+  { n: "creative-commons-zero", t: "b", a: "" },
+  { n: "credit-card", t: "s", a: "buy,checkout,credit-card-alt,debit,money,payment,purchase" },
+  { n: "credit-card", t: "r", a: "buy,checkout,credit-card-alt,debit,money,payment,purchase" },
+  { n: "critical-role", t: "b", a: "Dungeons & Dragons,d&d,dnd,fantasy,game,gaming,tabletop" },
+  { n: "crop", t: "s", a: "design,frame,mask,resize,shrink" },
+  { n: "crop-alt", t: "s", a: "design,frame,mask,resize,shrink" },
+  { n: "cross", t: "s", a: "catholicism,christianity,church,jesus" },
+  { n: "crosshairs", t: "s", a: "aim,bullseye,gpd,picker,position" },
+  { n: "crow", t: "s", a: "bird,bullfrog,fauna,halloween,holiday,toad" },
+  { n: "crown", t: "s", a: "award,favorite,king,queen,royal,tiara" },
+  { n: "crutch", t: "s", a: "cane,injury,mobility,wheelchair" },
+  { n: "css3", t: "b", a: "code" },
+  { n: "css3-alt", t: "b", a: "" },
+  { n: "cube", t: "s", a: "3d,block,dice,package,square,tesseract" },
+  { n: "cubes", t: "s", a: "3d,block,dice,package,pyramid,square,stack,tesseract" },
+  { n: "cut", t: "s", a: "clip,scissors,snip" },
+  { n: "cuttlefish", t: "b", a: "" },
+  { n: "d-and-d", t: "b", a: "" },
+  { n: "d-and-d-beyond", t: "b", a: "Dungeons & Dragons,d&d,dnd,fantasy,gaming,tabletop" },
+  { n: "dailymotion", t: "b", a: "" },
+  { n: "dashcube", t: "b", a: "" },
+  { n: "database", t: "s", a: "computer,development,directory,memory,storage" },
+  { n: "deaf", t: "s", a: "ear,hearing,sign language" },
+  { n: "delicious", t: "b", a: "" },
+  { n: "democrat", t: "s", a: "american,democratic party,donkey,election,left,left-wing,liberal,politics,usa" },
+  { n: "deploydog", t: "b", a: "" },
+  { n: "deskpro", t: "b", a: "" },
+  { n: "desktop", t: "s", a: "computer,cpu,demo,desktop,device,imac,machine,monitor,pc,screen" },
+  { n: "dev", t: "b", a: "" },
+  { n: "deviantart", t: "b", a: "" },
+  { n: "dharmachakra", t: "s", a: "buddhism,buddhist,wheel of dharma" },
+  { n: "dhl", t: "b", a: "Dalsey,Hillblom and Lynn,german,package,shipping" },
+  { n: "diagnoses", t: "s", a: "analyze,detect,diagnosis,examine,medicine" },
+  { n: "diaspora", t: "b", a: "" },
+  { n: "dice", t: "s", a: "chance,gambling,game,roll" },
+  { n: "dice-d20", t: "s", a: "Dungeons & Dragons,chance,d&d,dnd,fantasy,gambling,game,roll" },
+  { n: "dice-d6", t: "s", a: "Dungeons & Dragons,chance,d&d,dnd,fantasy,gambling,game,roll" },
+  { n: "dice-five", t: "s", a: "chance,gambling,game,roll" },
+  { n: "dice-four", t: "s", a: "chance,gambling,game,roll" },
+  { n: "dice-one", t: "s", a: "chance,gambling,game,roll" },
+  { n: "dice-six", t: "s", a: "chance,gambling,game,roll" },
+  { n: "dice-three", t: "s", a: "chance,gambling,game,roll" },
+  { n: "dice-two", t: "s", a: "chance,gambling,game,roll" },
+  { n: "digg", t: "b", a: "" },
+  { n: "digital-ocean", t: "b", a: "" },
+  { n: "digital-tachograph", t: "s", a: "data,distance,speed,tachometer" },
+  { n: "directions", t: "s", a: "map,navigation,sign,turn" },
+  { n: "discord", t: "b", a: "" },
+  { n: "discourse", t: "b", a: "" },
+  { n: "disease", t: "s", a: "bacteria,cancer,covid-19,illness,infection,sickness,virus" },
+  { n: "divide", t: "s", a: "arithmetic,calculus,division,math" },
+  { n: "dizzy", t: "s", a: "dazed,dead,disapprove,emoticon,face" },
+  { n: "dizzy", t: "r", a: "dazed,dead,disapprove,emoticon,face" },
+  { n: "dna", t: "s", a: "double helix,genetic,helix,molecule,protein" },
+  { n: "dochub", t: "b", a: "" },
+  { n: "docker", t: "b", a: "" },
+  { n: "dog", t: "s", a: "animal,canine,fauna,mammal,pet,pooch,puppy,woof" },
+  { n: "dollar-sign", t: "s", a: "$,cost,dollar-sign,money,price,usd" },
+  { n: "dolly", t: "s", a: "carry,shipping,transport" },
+  { n: "dolly-flatbed", t: "s", a: "carry,inventory,shipping,transport" },
+  { n: "donate", t: "s", a: "contribute,generosity,gift,give" },
+  { n: "door-closed", t: "s", a: "enter,exit,locked" },
+  { n: "door-open", t: "s", a: "enter,exit,welcome" },
+  { n: "dot-circle", t: "s", a: "bullseye,notification,target" },
+  { n: "dot-circle", t: "r", a: "bullseye,notification,target" },
+  { n: "dove", t: "s", a: "bird,fauna,flying,peace,war" },
+  { n: "download", t: "s", a: "export,hard drive,save,transfer" },
+  { n: "draft2digital", t: "b", a: "" },
+  { n: "drafting-compass", t: "s", a: "design,map,mechanical drawing,plot,plotting" },
+  { n: "dragon", t: "s", a: "Dungeons & Dragons,d&d,dnd,fantasy,fire,lizard,serpent" },
+  { n: "draw-polygon", t: "s", a: "anchors,lines,object,render,shape" },
+  { n: "dribbble", t: "b", a: "" },
+  { n: "dribbble-square", t: "b", a: "" },
+  { n: "dropbox", t: "b", a: "" },
+  { n: "drum", t: "s", a: "instrument,music,percussion,snare,sound" },
+  { n: "drum-steelpan", t: "s", a: "calypso,instrument,music,percussion,reggae,snare,sound,steel,tropical" },
+  { n: "drumstick-bite", t: "s", a: "bone,chicken,leg,meat,poultry,turkey" },
+  { n: "drupal", t: "b", a: "" },
+  { n: "dumbbell", t: "s", a: "exercise,gym,strength,weight,weight-lifting" },
+  { n: "dumpster", t: "s", a: "alley,bin,commercial,trash,waste" },
+  { n: "dumpster-fire", t: "s", a: "alley,bin,commercial,danger,dangerous,euphemism,flame,heat,hot,trash,waste" },
+  { n: "dungeon", t: "s", a: "Dungeons & Dragons,building,d&d,dnd,door,entrance,fantasy,gate" },
+  { n: "dyalog", t: "b", a: "" },
+  { n: "earlybirds", t: "b", a: "" },
+  { n: "ebay", t: "b", a: "" },
+  { n: "edge", t: "b", a: "browser,ie" },
+  { n: "edit", t: "s", a: "edit,pen,pencil,update,write" },
+  { n: "edit", t: "r", a: "edit,pen,pencil,update,write" },
+  { n: "egg", t: "s", a: "breakfast,chicken,easter,shell,yolk" },
+  { n: "eject", t: "s", a: "abort,cancel,cd,discharge" },
+  { n: "elementor", t: "b", a: "" },
+  { n: "ellipsis-h", t: "s", a: "dots,drag,kebab,list,menu,nav,navigation,ol,reorder,settings,ul" },
+  { n: "ellipsis-v", t: "s", a: "dots,drag,kebab,list,menu,nav,navigation,ol,reorder,settings,ul" },
+  { n: "ello", t: "b", a: "" },
+  { n: "ember", t: "b", a: "" },
+  { n: "empire", t: "b", a: "" },
+  { n: "envelope", t: "s", a: "e-mail,email,letter,mail,message,notification,support" },
+  { n: "envelope", t: "r", a: "e-mail,email,letter,mail,message,notification,support" },
+  { n: "envelope-open", t: "s", a: "e-mail,email,letter,mail,message,notification,support" },
+  { n: "envelope-open", t: "r", a: "e-mail,email,letter,mail,message,notification,support" },
+  { n: "envelope-open-text", t: "s", a: "e-mail,email,letter,mail,message,notification,support" },
+  { n: "envelope-square", t: "s", a: "e-mail,email,letter,mail,message,notification,support" },
+  { n: "envira", t: "b", a: "leaf" },
+  { n: "equals", t: "s", a: "arithmetic,even,match,math" },
+  { n: "eraser", t: "s", a: "art,delete,remove,rubber" },
+  { n: "erlang", t: "b", a: "" },
+  { n: "ethereum", t: "b", a: "" },
+  { n: "ethernet", t: "s", a: "cable,cat 5,cat 6,connection,hardware,internet,network,wired" },
+  { n: "etsy", t: "b", a: "" },
+  { n: "euro-sign", t: "s", a: "currency,dollar,exchange,money" },
+  { n: "evernote", t: "b", a: "" },
+  { n: "exchange-alt", t: "s", a: "arrow,arrows,exchange,reciprocate,return,swap,transfer" },
+  { n: "exclamation", t: "s", a: "alert,danger,error,important,notice,notification,notify,problem,warning" },
+  { n: "exclamation-circle", t: "s", a: "alert,danger,error,important,notice,notification,notify,problem,warning" },
+  { n: "exclamation-triangle", t: "s", a: "alert,danger,error,important,notice,notification,notify,problem,warning" },
+  { n: "expand", t: "s", a: "arrow,bigger,enlarge,resize" },
+  { n: "expand-alt", t: "s", a: "arrow,bigger,enlarge,resize" },
+  { n: "expand-arrows-alt", t: "s", a: "arrows-alt,bigger,enlarge,move,resize" },
+  { n: "expeditedssl", t: "b", a: "" },
+  { n: "external-link-alt", t: "s", a: "external-link,new,open,share" },
+  { n: "external-link-square-alt", t: "s", a: "external-link-square,new,open,share" },
+  { n: "eye", t: "s", a: "look,optic,see,seen,show,sight,views,visible" },
+  { n: "eye", t: "r", a: "look,optic,see,seen,show,sight,views,visible" },
+  { n: "eye-dropper", t: "s", a: "beaker,clone,color,copy,eyedropper,pipette" },
+  { n: "eye-slash", t: "s", a: "blind,hide,show,toggle,unseen,views,visible,visiblity" },
+  { n: "eye-slash", t: "r", a: "blind,hide,show,toggle,unseen,views,visible,visiblity" },
+  { n: "facebook", t: "b", a: "facebook-official,social network" },
+  { n: "facebook-f", t: "b", a: "facebook" },
+  { n: "facebook-messenger", t: "b", a: "" },
+  { n: "facebook-square", t: "b", a: "social network" },
+  { n: "fan", t: "s", a: "ac,air conditioning,blade,blower,cool,hot" },
+  { n: "fantasy-flight-games", t: "b", a: "Dungeons & Dragons,d&d,dnd,fantasy,game,gaming,tabletop" },
+  { n: "fast-backward", t: "s", a: "beginning,first,previous,rewind,start" },
+  { n: "fast-forward", t: "s", a: "end,last,next" },
+  { n: "faucet", t: "s", a: "covid-19,drip,house,hygiene,kitchen,sink,water" },
+  { n: "fax", t: "s", a: "business,communicate,copy,facsimile,send" },
+  { n: "feather", t: "s", a: "bird,light,plucked,quill,write" },
+  { n: "feather-alt", t: "s", a: "bird,light,plucked,quill,write" },
+  { n: "fedex", t: "b", a: "Federal Express,package,shipping" },
+  { n: "fedora", t: "b", a: "linux,operating system,os" },
+  { n: "female", t: "s", a: "human,person,profile,user,woman" },
+  { n: "fighter-jet", t: "s", a: "airplane,fast,fly,goose,maverick,plane,quick,top gun,transportation,travel" },
+  { n: "figma", t: "b", a: "app,design,interface" },
+  { n: "file", t: "s", a: "document,new,page,pdf,resume" },
+  { n: "file", t: "r", a: "document,new,page,pdf,resume" },
+  { n: "file-alt", t: "s", a: "document,file-text,invoice,new,page,pdf" },
+  { n: "file-alt", t: "r", a: "document,file-text,invoice,new,page,pdf" },
+  { n: "file-archive", t: "s", a: ".zip,bundle,compress,compression,download,zip" },
+  { n: "file-archive", t: "r", a: ".zip,bundle,compress,compression,download,zip" },
+  { n: "file-audio", t: "s", a: "document,mp3,music,page,play,sound" },
+  { n: "file-audio", t: "r", a: "document,mp3,music,page,play,sound" },
+  { n: "file-code", t: "s", a: "css,development,document,html" },
+  { n: "file-code", t: "r", a: "css,development,document,html" },
+  { n: "file-contract", t: "s", a: "agreement,binding,document,legal,signature" },
+  { n: "file-csv", t: "s", a: "document,excel,numbers,spreadsheets,table" },
+  { n: "file-download", t: "s", a: "document,export,save" },
+  { n: "file-excel", t: "s", a: "csv,document,numbers,spreadsheets,table" },
+  { n: "file-excel", t: "r", a: "csv,document,numbers,spreadsheets,table" },
+  { n: "file-export", t: "s", a: "download,save" },
+  { n: "file-image", t: "s", a: "document,image,jpg,photo,png" },
+  { n: "file-image", t: "r", a: "document,image,jpg,photo,png" },
+  { n: "file-import", t: "s", a: "copy,document,send,upload" },
+  { n: "file-invoice", t: "s", a: "account,bill,charge,document,payment,receipt" },
+  { n: "file-invoice-dollar", t: "s", a: "$,account,bill,charge,document,dollar-sign,money,payment,receipt,usd" },
+  { n: "file-medical", t: "s", a: "document,health,history,prescription,record" },
+  { n: "file-medical-alt", t: "s", a: "document,health,history,prescription,record" },
+  { n: "file-pdf", t: "s", a: "acrobat,document,preview,save" },
+  { n: "file-pdf", t: "r", a: "acrobat,document,preview,save" },
+  { n: "file-powerpoint", t: "s", a: "display,document,keynote,presentation" },
+  { n: "file-powerpoint", t: "r", a: "display,document,keynote,presentation" },
+  { n: "file-prescription", t: "s", a: "document,drugs,medical,medicine,rx" },
+  { n: "file-signature", t: "s", a: "John Hancock,contract,document,name" },
+  { n: "file-upload", t: "s", a: "document,import,page,save" },
+  { n: "file-video", t: "s", a: "document,m4v,movie,mp4,play" },
+  { n: "file-video", t: "r", a: "document,m4v,movie,mp4,play" },
+  { n: "file-word", t: "s", a: "document,edit,page,text,writing" },
+  { n: "file-word", t: "r", a: "document,edit,page,text,writing" },
+  { n: "fill", t: "s", a: "bucket,color,paint,paint bucket" },
+  { n: "fill-drip", t: "s", a: "bucket,color,drop,paint,paint bucket,spill" },
+  { n: "film", t: "s", a: "cinema,movie,strip,video" },
+  { n: "filter", t: "s", a: "funnel,options,separate,sort" },
+  { n: "fingerprint", t: "s", a: "human,id,identification,lock,smudge,touch,unique,unlock" },
+  { n: "fire", t: "s", a: "burn,caliente,flame,heat,hot,popular" },
+  { n: "fire-alt", t: "s", a: "burn,caliente,flame,heat,hot,popular" },
+  { n: "fire-extinguisher", t: "s", a: "burn,caliente,fire fighter,flame,heat,hot,rescue" },
+  { n: "firefox", t: "b", a: "browser" },
+  { n: "firefox-browser", t: "b", a: "browser" },
+  { n: "first-aid", t: "s", a: "emergency,emt,health,medical,rescue" },
+  { n: "first-order", t: "b", a: "" },
+  { n: "first-order-alt", t: "b", a: "" },
+  { n: "firstdraft", t: "b", a: "" },
+  { n: "fish", t: "s", a: "fauna,gold,seafood,swimming" },
+  { n: "fist-raised", t: "s", a: "Dungeons & Dragons,d&d,dnd,fantasy,hand,ki,monk,resist,strength,unarmed combat" },
+  { n: "flag", t: "s", a: "country,notice,notification,notify,pole,report,symbol" },
+  { n: "flag", t: "r", a: "country,notice,notification,notify,pole,report,symbol" },
+  { n: "flag-checkered", t: "s", a: "notice,notification,notify,pole,racing,report,symbol" },
+  { n: "flag-usa", t: "s", a: "betsy ross,country,old glory,stars,stripes,symbol" },
+  { n: "flask", t: "s", a: "beaker,experimental,labs,science" },
+  { n: "flickr", t: "b", a: "" },
+  { n: "flipboard", t: "b", a: "" },
+  { n: "flushed", t: "s", a: "embarrassed,emoticon,face" },
+  { n: "flushed", t: "r", a: "embarrassed,emoticon,face" },
+  { n: "fly", t: "b", a: "" },
+  { n: "folder", t: "s", a: "archive,directory,document,file" },
+  { n: "folder", t: "r", a: "archive,directory,document,file" },
+  { n: "folder-minus", t: "s", a: "archive,delete,directory,document,file,negative,remove" },
+  { n: "folder-open", t: "s", a: "archive,directory,document,empty,file,new" },
+  { n: "folder-open", t: "r", a: "archive,directory,document,empty,file,new" },
+  { n: "folder-plus", t: "s", a: "add,archive,create,directory,document,file,new,positive" },
+  { n: "font", t: "s", a: "alphabet,glyph,text,type,typeface" },
+  { n: "font-awesome", t: "b", a: "meanpath" },
+  { n: "font-awesome-alt", t: "b", a: "" },
+  { n: "font-awesome-flag", t: "b", a: "" },
+  { n: "font-awesome-logo-full", t: "r", a: "" },
+  { n: "font-awesome-logo-full", t: "s", a: "" },
+  { n: "font-awesome-logo-full", t: "b", a: "" },
+  { n: "fonticons", t: "b", a: "" },
+  { n: "fonticons-fi", t: "b", a: "" },
+  { n: "football-ball", t: "s", a: "ball,fall,nfl,pigskin,seasonal" },
+  { n: "fort-awesome", t: "b", a: "castle" },
+  { n: "fort-awesome-alt", t: "b", a: "castle" },
+  { n: "forumbee", t: "b", a: "" },
+  { n: "forward", t: "s", a: "forward,next,skip" },
+  { n: "foursquare", t: "b", a: "" },
+  { n: "free-code-camp", t: "b", a: "" },
+  { n: "freebsd", t: "b", a: "" },
+  { n: "frog", t: "s", a: "amphibian,bullfrog,fauna,hop,kermit,kiss,prince,ribbit,toad,wart" },
+  { n: "frown", t: "s", a: "disapprove,emoticon,face,rating,sad" },
+  { n: "frown", t: "r", a: "disapprove,emoticon,face,rating,sad" },
+  { n: "frown-open", t: "s", a: "disapprove,emoticon,face,rating,sad" },
+  { n: "frown-open", t: "r", a: "disapprove,emoticon,face,rating,sad" },
+  { n: "fulcrum", t: "b", a: "" },
+  { n: "funnel-dollar", t: "s", a: "filter,money,options,separate,sort" },
+  { n: "futbol", t: "s", a: "ball,football,mls,soccer" },
+  { n: "futbol", t: "r", a: "ball,football,mls,soccer" },
+  { n: "galactic-republic", t: "b", a: "politics,star wars" },
+  { n: "galactic-senate", t: "b", a: "star wars" },
+  { n: "gamepad", t: "s", a: "arcade,controller,d-pad,joystick,video,video game" },
+  { n: "gas-pump", t: "s", a: "car,fuel,gasoline,petrol" },
+  { n: "gavel", t: "s", a: "hammer,judge,law,lawyer,opinion" },
+  { n: "gem", t: "s", a: "diamond,jewelry,sapphire,stone,treasure" },
+  { n: "gem", t: "r", a: "diamond,jewelry,sapphire,stone,treasure" },
+  { n: "genderless", t: "s", a: "androgynous,asexual,sexless" },
+  { n: "get-pocket", t: "b", a: "" },
+  { n: "gg", t: "b", a: "" },
+  { n: "gg-circle", t: "b", a: "" },
+  { n: "ghost", t: "s", a: "apparition,blinky,clyde,floating,halloween,holiday,inky,pinky,spirit" },
+  { n: "gift", t: "s", a: "christmas,generosity,giving,holiday,party,present,wrapped,xmas" },
+  { n: "gifts", t: "s", a: "christmas,generosity,giving,holiday,party,present,wrapped,xmas" },
+  { n: "git", t: "b", a: "" },
+  { n: "git-alt", t: "b", a: "" },
+  { n: "git-square", t: "b", a: "" },
+  { n: "github", t: "b", a: "octocat" },
+  { n: "github-alt", t: "b", a: "octocat" },
+  { n: "github-square", t: "b", a: "octocat" },
+  { n: "gitkraken", t: "b", a: "" },
+  { n: "gitlab", t: "b", a: "Axosoft" },
+  { n: "gitter", t: "b", a: "" },
+  { n: "glass-cheers", t: "s", a: "alcohol,bar,beverage,celebration,champagne,clink,drink,holiday,new year's eve,party,toast" },
+  { n: "glass-martini", t: "s", a: "alcohol,bar,beverage,drink,liquor" },
+  { n: "glass-martini-alt", t: "s", a: "alcohol,bar,beverage,drink,liquor" },
+  { n: "glass-whiskey", t: "s", a: "alcohol,bar,beverage,bourbon,drink,liquor,neat,rye,scotch,whisky" },
+  { n: "glasses", t: "s", a: "hipster,nerd,reading,sight,spectacles,vision" },
+  { n: "glide", t: "b", a: "" },
+  { n: "glide-g", t: "b", a: "" },
+  { n: "globe", t: "s", a: "all,coordinates,country,earth,global,gps,language,localize,location,map,online,place,planet,translate,travel,world" },
+  { n: "globe-africa", t: "s", a: "all,country,earth,global,gps,language,localize,location,map,online,place,planet,translate,travel,world" },
+  { n: "globe-americas", t: "s", a: "all,country,earth,global,gps,language,localize,location,map,online,place,planet,translate,travel,world" },
+  { n: "globe-asia", t: "s", a: "all,country,earth,global,gps,language,localize,location,map,online,place,planet,translate,travel,world" },
+  { n: "globe-europe", t: "s", a: "all,country,earth,global,gps,language,localize,location,map,online,place,planet,translate,travel,world" },
+  { n: "gofore", t: "b", a: "" },
+  { n: "golf-ball", t: "s", a: "caddy,eagle,putt,tee" },
+  { n: "goodreads", t: "b", a: "" },
+  { n: "goodreads-g", t: "b", a: "" },
+  { n: "google", t: "b", a: "" },
+  { n: "google-drive", t: "b", a: "" },
+  { n: "google-play", t: "b", a: "" },
+  { n: "google-plus", t: "b", a: "google-plus-circle,google-plus-official" },
+  { n: "google-plus-g", t: "b", a: "google-plus,social network" },
+  { n: "google-plus-square", t: "b", a: "social network" },
+  { n: "google-wallet", t: "b", a: "" },
+  { n: "gopuram", t: "s", a: "building,entrance,hinduism,temple,tower" },
+  { n: "graduation-cap", t: "s", a: "ceremony,college,graduate,learning,school,student" },
+  { n: "gratipay", t: "b", a: "favorite,heart,like,love" },
+  { n: "grav", t: "b", a: "" },
+  { n: "greater-than", t: "s", a: "arithmetic,compare,math" },
+  { n: "greater-than-equal", t: "s", a: "arithmetic,compare,math" },
+  { n: "grimace", t: "s", a: "cringe,emoticon,face,teeth" },
+  { n: "grimace", t: "r", a: "cringe,emoticon,face,teeth" },
+  { n: "grin", t: "s", a: "emoticon,face,laugh,smile" },
+  { n: "grin", t: "r", a: "emoticon,face,laugh,smile" },
+  { n: "grin-alt", t: "s", a: "emoticon,face,laugh,smile" },
+  { n: "grin-alt", t: "r", a: "emoticon,face,laugh,smile" },
+  { n: "grin-beam", t: "s", a: "emoticon,face,laugh,smile" },
+  { n: "grin-beam", t: "r", a: "emoticon,face,laugh,smile" },
+  { n: "grin-beam-sweat", t: "s", a: "embarass,emoticon,face,smile" },
+  { n: "grin-beam-sweat", t: "r", a: "embarass,emoticon,face,smile" },
+  { n: "grin-hearts", t: "s", a: "emoticon,face,love,smile" },
+  { n: "grin-hearts", t: "r", a: "emoticon,face,love,smile" },
+  { n: "grin-squint", t: "s", a: "emoticon,face,laugh,smile" },
+  { n: "grin-squint", t: "r", a: "emoticon,face,laugh,smile" },
+  { n: "grin-squint-tears", t: "s", a: "emoticon,face,happy,smile" },
+  { n: "grin-squint-tears", t: "r", a: "emoticon,face,happy,smile" },
+  { n: "grin-stars", t: "s", a: "emoticon,face,star-struck" },
+  { n: "grin-stars", t: "r", a: "emoticon,face,star-struck" },
+  { n: "grin-tears", t: "s", a: "LOL,emoticon,face" },
+  { n: "grin-tears", t: "r", a: "LOL,emoticon,face" },
+  { n: "grin-tongue", t: "s", a: "LOL,emoticon,face" },
+  { n: "grin-tongue", t: "r", a: "LOL,emoticon,face" },
+  { n: "grin-tongue-squint", t: "s", a: "LOL,emoticon,face" },
+  { n: "grin-tongue-squint", t: "r", a: "LOL,emoticon,face" },
+  { n: "grin-tongue-wink", t: "s", a: "LOL,emoticon,face" },
+  { n: "grin-tongue-wink", t: "r", a: "LOL,emoticon,face" },
+  { n: "grin-wink", t: "s", a: "emoticon,face,flirt,laugh,smile" },
+  { n: "grin-wink", t: "r", a: "emoticon,face,flirt,laugh,smile" },
+  { n: "grip-horizontal", t: "s", a: "affordance,drag,drop,grab,handle" },
+  { n: "grip-lines", t: "s", a: "affordance,drag,drop,grab,handle" },
+  { n: "grip-lines-vertical", t: "s", a: "affordance,drag,drop,grab,handle" },
+  { n: "grip-vertical", t: "s", a: "affordance,drag,drop,grab,handle" },
+  { n: "gripfire", t: "b", a: "" },
+  { n: "grunt", t: "b", a: "" },
+  { n: "guitar", t: "s", a: "acoustic,instrument,music,rock,rock and roll,song,strings" },
+  { n: "gulp", t: "b", a: "" },
+  { n: "h-square", t: "s", a: "directions,emergency,hospital,hotel,map" },
+  { n: "hacker-news", t: "b", a: "" },
+  { n: "hacker-news-square", t: "b", a: "" },
+  { n: "hackerrank", t: "b", a: "" },
+  { n: "hamburger", t: "s", a: "bacon,beef,burger,burger king,cheeseburger,fast food,grill,ground beef,mcdonalds,sandwich" },
+  { n: "hammer", t: "s", a: "admin,fix,repair,settings,tool" },
+  { n: "hamsa", t: "s", a: "amulet,christianity,islam,jewish,judaism,muslim,protection" },
+  { n: "hand-holding", t: "s", a: "carry,lift" },
+  { n: "hand-holding-heart", t: "s", a: "carry,charity,gift,lift,package" },
+  { n: "hand-holding-medical", t: "s", a: "care,covid-19,donate,help" },
+  { n: "hand-holding-usd", t: "s", a: "$,carry,dollar sign,donation,giving,lift,money,price" },
+  { n: "hand-holding-water", t: "s", a: "carry,covid-19,drought,grow,lift" },
+  { n: "hand-lizard", t: "s", a: "game,roshambo" },
+  { n: "hand-lizard", t: "r", a: "game,roshambo" },
+  { n: "hand-middle-finger", t: "s", a: "flip the bird,gesture,hate,rude" },
+  { n: "hand-paper", t: "s", a: "game,halt,roshambo,stop" },
+  { n: "hand-paper", t: "r", a: "game,halt,roshambo,stop" },
+  { n: "hand-peace", t: "s", a: "rest,truce" },
+  { n: "hand-peace", t: "r", a: "rest,truce" },
+  { n: "hand-point-down", t: "s", a: "finger,hand-o-down,point" },
+  { n: "hand-point-down", t: "r", a: "finger,hand-o-down,point" },
+  { n: "hand-point-left", t: "s", a: "back,finger,hand-o-left,left,point,previous" },
+  { n: "hand-point-left", t: "r", a: "back,finger,hand-o-left,left,point,previous" },
+  { n: "hand-point-right", t: "s", a: "finger,forward,hand-o-right,next,point,right" },
+  { n: "hand-point-right", t: "r", a: "finger,forward,hand-o-right,next,point,right" },
+  { n: "hand-point-up", t: "s", a: "finger,hand-o-up,point" },
+  { n: "hand-point-up", t: "r", a: "finger,hand-o-up,point" },
+  { n: "hand-pointer", t: "s", a: "arrow,cursor,select" },
+  { n: "hand-pointer", t: "r", a: "arrow,cursor,select" },
+  { n: "hand-rock", t: "s", a: "fist,game,roshambo" },
+  { n: "hand-rock", t: "r", a: "fist,game,roshambo" },
+  { n: "hand-scissors", t: "s", a: "cut,game,roshambo" },
+  { n: "hand-scissors", t: "r", a: "cut,game,roshambo" },
+  { n: "hand-sparkles", t: "s", a: "clean,covid-19,hygiene,magic,soap,wash" },
+  { n: "hand-spock", t: "s", a: "live long,prosper,salute,star trek,vulcan" },
+  { n: "hand-spock", t: "r", a: "live long,prosper,salute,star trek,vulcan" },
+  { n: "hands", t: "s", a: "carry,hold,lift" },
+  { n: "hands-helping", t: "s", a: "aid,assistance,handshake,partnership,volunteering" },
+  { n: "hands-wash", t: "s", a: "covid-19,hygiene,soap,wash" },
+  { n: "handshake", t: "s", a: "agreement,greeting,meeting,partnership" },
+  { n: "handshake", t: "r", a: "agreement,greeting,meeting,partnership" },
+  { n: "handshake-alt-slash", t: "s", a: "broken,covid-19,social distance" },
+  { n: "handshake-slash", t: "s", a: "broken,covid-19,social distance" },
+  { n: "hanukiah", t: "s", a: "candle,hanukkah,jewish,judaism,light" },
+  { n: "hard-hat", t: "s", a: "construction,hardhat,helmet,safety" },
+  { n: "hashtag", t: "s", a: "Twitter,instagram,pound,social media,tag" },
+  { n: "hat-cowboy", t: "s", a: "buckaroo,horse,jackeroo,john b.,old west,pardner,ranch,rancher,rodeo,western,wrangler" },
+  { n: "hat-cowboy-side", t: "s", a: "buckaroo,horse,jackeroo,john b.,old west,pardner,ranch,rancher,rodeo,western,wrangler" },
+  { n: "hat-wizard", t: "s", a: "Dungeons & Dragons,accessory,buckle,clothing,d&d,dnd,fantasy,halloween,head,holiday,mage,magic,pointy,witch" },
+  { n: "hdd", t: "s", a: "cpu,hard drive,harddrive,machine,save,storage" },
+  { n: "hdd", t: "r", a: "cpu,hard drive,harddrive,machine,save,storage" },
+  { n: "head-side-cough", t: "s", a: "cough,covid-19,germs,lungs,respiratory,sick" },
+  { n: "head-side-cough-slash", t: "s", a: "cough,covid-19,germs,lungs,respiratory,sick" },
+  { n: "head-side-mask", t: "s", a: "breath,covid-19,filter,respirator,virus" },
+  { n: "head-side-virus", t: "s", a: "cold,covid-19,flu,sick" },
+  { n: "heading", t: "s", a: "format,header,text,title" },
+  { n: "headphones", t: "s", a: "audio,listen,music,sound,speaker" },
+  { n: "headphones-alt", t: "s", a: "audio,listen,music,sound,speaker" },
+  { n: "headset", t: "s", a: "audio,gamer,gaming,listen,live chat,microphone,shot caller,sound,support,telemarketer" },
+  { n: "heart", t: "s", a: "favorite,like,love,relationship,valentine" },
+  { n: "heart", t: "r", a: "favorite,like,love,relationship,valentine" },
+  { n: "heart-broken", t: "s", a: "breakup,crushed,dislike,dumped,grief,love,lovesick,relationship,sad" },
+  { n: "heartbeat", t: "s", a: "ekg,electrocardiogram,health,lifeline,vital signs" },
+  { n: "helicopter", t: "s", a: "airwolf,apache,chopper,flight,fly,travel" },
+  { n: "highlighter", t: "s", a: "edit,marker,sharpie,update,write" },
+  { n: "hiking", t: "s", a: "activity,backpack,fall,fitness,outdoors,person,seasonal,walking" },
+  { n: "hippo", t: "s", a: "animal,fauna,hippopotamus,hungry,mammal" },
+  { n: "hips", t: "b", a: "" },
+  { n: "hire-a-helper", t: "b", a: "" },
+  { n: "history", t: "s", a: "Rewind,clock,reverse,time,time machine" },
+  { n: "hockey-puck", t: "s", a: "ice,nhl,sport" },
+  { n: "holly-berry", t: "s", a: "catwoman,christmas,decoration,flora,halle,holiday,ororo munroe,plant,storm,xmas" },
+  { n: "home", t: "s", a: "abode,building,house,main" },
+  { n: "hooli", t: "b", a: "" },
+  { n: "hornbill", t: "b", a: "" },
+  { n: "horse", t: "s", a: "equus,fauna,mammmal,mare,neigh,pony" },
+  { n: "horse-head", t: "s", a: "equus,fauna,mammmal,mare,neigh,pony" },
+  { n: "hospital", t: "s", a: "building,covid-19,emergency room,medical center" },
+  { n: "hospital", t: "r", a: "building,covid-19,emergency room,medical center" },
+  { n: "hospital-alt", t: "s", a: "building,covid-19,emergency room,medical center" },
+  { n: "hospital-symbol", t: "s", a: "clinic,covid-19,emergency,map" },
+  { n: "hospital-user", t: "s", a: "covid-19,doctor,network,patient,primary care" },
+  { n: "hot-tub", t: "s", a: "bath,jacuzzi,massage,sauna,spa" },
+  { n: "hotdog", t: "s", a: "bun,chili,frankfurt,frankfurter,kosher,polish,sandwich,sausage,vienna,weiner" },
+  { n: "hotel", t: "s", a: "building,inn,lodging,motel,resort,travel" },
+  { n: "hotjar", t: "b", a: "" },
+  { n: "hourglass", t: "s", a: "hour,minute,sand,stopwatch,time" },
+  { n: "hourglass", t: "r", a: "hour,minute,sand,stopwatch,time" },
+  { n: "hourglass-end", t: "s", a: "hour,minute,sand,stopwatch,time" },
+  { n: "hourglass-half", t: "s", a: "hour,minute,sand,stopwatch,time" },
+  { n: "hourglass-start", t: "s", a: "hour,minute,sand,stopwatch,time" },
+  { n: "house-damage", t: "s", a: "building,devastation,disaster,home,insurance" },
+  { n: "house-user", t: "s", a: "covid-19,home,isolation,quarantine" },
+  { n: "houzz", t: "b", a: "" },
+  { n: "hryvnia", t: "s", a: "currency,money,ukraine,ukrainian" },
+  { n: "html5", t: "b", a: "" },
+  { n: "hubspot", t: "b", a: "" },
+  { n: "i-cursor", t: "s", a: "editing,i-beam,type,writing" },
+  { n: "ice-cream", t: "s", a: "chocolate,cone,dessert,frozen,scoop,sorbet,vanilla,yogurt" },
+  { n: "icicles", t: "s", a: "cold,frozen,hanging,ice,seasonal,sharp" },
+  { n: "icons", t: "s", a: "bolt,emoji,heart,image,music,photo,symbols" },
+  { n: "id-badge", t: "s", a: "address,contact,identification,license,profile" },
+  { n: "id-badge", t: "r", a: "address,contact,identification,license,profile" },
+  { n: "id-card", t: "s", a: "contact,demographics,document,identification,issued,profile" },
+  { n: "id-card", t: "r", a: "contact,demographics,document,identification,issued,profile" },
+  { n: "id-card-alt", t: "s", a: "contact,demographics,document,identification,issued,profile" },
+  { n: "ideal", t: "b", a: "" },
+  { n: "igloo", t: "s", a: "dome,dwelling,eskimo,home,house,ice,snow" },
+  { n: "image", t: "s", a: "album,landscape,photo,picture" },
+  { n: "image", t: "r", a: "album,landscape,photo,picture" },
+  { n: "images", t: "s", a: "album,landscape,photo,picture" },
+  { n: "images", t: "r", a: "album,landscape,photo,picture" },
+  { n: "imdb", t: "b", a: "" },
+  { n: "inbox", t: "s", a: "archive,desk,email,mail,message" },
+  { n: "indent", t: "s", a: "align,justify,paragraph,tab" },
+  { n: "industry", t: "s", a: "building,factory,industrial,manufacturing,mill,warehouse" },
+  { n: "infinity", t: "s", a: "eternity,forever,math" },
+  { n: "info", t: "s", a: "details,help,information,more,support" },
+  { n: "info-circle", t: "s", a: "details,help,information,more,support" },
+  { n: "instagram", t: "b", a: "" },
+  { n: "instagram-square", t: "b", a: "" },
+  { n: "intercom", t: "b", a: "app,customer,messenger" },
+  { n: "internet-explorer", t: "b", a: "browser,ie" },
+  { n: "invision", t: "b", a: "app,design,interface" },
+  { n: "ioxhost", t: "b", a: "" },
+  { n: "italic", t: "s", a: "edit,emphasis,font,format,text,type" },
+  { n: "itch-io", t: "b", a: "" },
+  { n: "itunes", t: "b", a: "" },
+  { n: "itunes-note", t: "b", a: "" },
+  { n: "java", t: "b", a: "" },
+  { n: "jedi", t: "s", a: "crest,force,sith,skywalker,star wars,yoda" },
+  { n: "jedi-order", t: "b", a: "star wars" },
+  { n: "jenkins", t: "b", a: "" },
+  { n: "jira", t: "b", a: "atlassian" },
+  { n: "joget", t: "b", a: "" },
+  { n: "joint", t: "s", a: "blunt,cannabis,doobie,drugs,marijuana,roach,smoke,smoking,spliff" },
+  { n: "joomla", t: "b", a: "" },
+  { n: "journal-whills", t: "s", a: "book,force,jedi,sith,star wars,yoda" },
+  { n: "js", t: "b", a: "" },
+  { n: "js-square", t: "b", a: "" },
+  { n: "jsfiddle", t: "b", a: "" },
+  { n: "kaaba", t: "s", a: "building,cube,islam,muslim" },
+  { n: "kaggle", t: "b", a: "" },
+  { n: "key", t: "s", a: "lock,password,private,secret,unlock" },
+  { n: "keybase", t: "b", a: "" },
+  { n: "keyboard", t: "s", a: "accessory,edit,input,text,type,write" },
+  { n: "keyboard", t: "r", a: "accessory,edit,input,text,type,write" },
+  { n: "keycdn", t: "b", a: "" },
+  { n: "khanda", t: "s", a: "chakkar,sikh,sikhism,sword" },
+  { n: "kickstarter", t: "b", a: "" },
+  { n: "kickstarter-k", t: "b", a: "" },
+  { n: "kiss", t: "s", a: "beso,emoticon,face,love,smooch" },
+  { n: "kiss", t: "r", a: "beso,emoticon,face,love,smooch" },
+  { n: "kiss-beam", t: "s", a: "beso,emoticon,face,love,smooch" },
+  { n: "kiss-beam", t: "r", a: "beso,emoticon,face,love,smooch" },
+  { n: "kiss-wink-heart", t: "s", a: "beso,emoticon,face,love,smooch" },
+  { n: "kiss-wink-heart", t: "r", a: "beso,emoticon,face,love,smooch" },
+  { n: "kiwi-bird", t: "s", a: "bird,fauna,new zealand" },
+  { n: "korvue", t: "b", a: "" },
+  { n: "landmark", t: "s", a: "building,historic,memorable,monument,politics" },
+  { n: "language", t: "s", a: "dialect,idiom,localize,speech,translate,vernacular" },
+  { n: "laptop", t: "s", a: "computer,cpu,dell,demo,device,mac,macbook,machine,pc" },
+  { n: "laptop-code", t: "s", a: "computer,cpu,dell,demo,develop,device,mac,macbook,machine,pc" },
+  { n: "laptop-house", t: "s", a: "computer,covid-19,device,office,remote,work from home" },
+  { n: "laptop-medical", t: "s", a: "computer,device,ehr,electronic health records,history" },
+  { n: "laravel", t: "b", a: "" },
+  { n: "lastfm", t: "b", a: "" },
+  { n: "lastfm-square", t: "b", a: "" },
+  { n: "laugh", t: "s", a: "LOL,emoticon,face,laugh,smile" },
+  { n: "laugh", t: "r", a: "LOL,emoticon,face,laugh,smile" },
+  { n: "laugh-beam", t: "s", a: "LOL,emoticon,face,happy,smile" },
+  { n: "laugh-beam", t: "r", a: "LOL,emoticon,face,happy,smile" },
+  { n: "laugh-squint", t: "s", a: "LOL,emoticon,face,happy,smile" },
+  { n: "laugh-squint", t: "r", a: "LOL,emoticon,face,happy,smile" },
+  { n: "laugh-wink", t: "s", a: "LOL,emoticon,face,happy,smile" },
+  { n: "laugh-wink", t: "r", a: "LOL,emoticon,face,happy,smile" },
+  { n: "layer-group", t: "s", a: "arrange,develop,layers,map,stack" },
+  { n: "leaf", t: "s", a: "eco,flora,nature,plant,vegan" },
+  { n: "leanpub", t: "b", a: "" },
+  { n: "lemon", t: "s", a: "citrus,lemonade,lime,tart" },
+  { n: "lemon", t: "r", a: "citrus,lemonade,lime,tart" },
+  { n: "less", t: "b", a: "" },
+  { n: "less-than", t: "s", a: "arithmetic,compare,math" },
+  { n: "less-than-equal", t: "s", a: "arithmetic,compare,math" },
+  { n: "level-down-alt", t: "s", a: "arrow,level-down" },
+  { n: "level-up-alt", t: "s", a: "arrow,level-up" },
+  { n: "life-ring", t: "s", a: "coast guard,help,overboard,save,support" },
+  { n: "life-ring", t: "r", a: "coast guard,help,overboard,save,support" },
+  { n: "lightbulb", t: "s", a: "energy,idea,inspiration,light" },
+  { n: "lightbulb", t: "r", a: "energy,idea,inspiration,light" },
+  { n: "line", t: "b", a: "" },
+  { n: "link", t: "s", a: "attach,attachment,chain,connect" },
+  { n: "linkedin", t: "b", a: "linkedin-square" },
+  { n: "linkedin-in", t: "b", a: "linkedin" },
+  { n: "linode", t: "b", a: "" },
+  { n: "linux", t: "b", a: "tux" },
+  { n: "lira-sign", t: "s", a: "currency,money,try,turkish" },
+  { n: "list", t: "s", a: "checklist,completed,done,finished,ol,todo,ul" },
+  { n: "list-alt", t: "s", a: "checklist,completed,done,finished,ol,todo,ul" },
+  { n: "list-alt", t: "r", a: "checklist,completed,done,finished,ol,todo,ul" },
+  { n: "list-ol", t: "s", a: "checklist,completed,done,finished,numbers,ol,todo,ul" },
+  { n: "list-ul", t: "s", a: "checklist,completed,done,finished,ol,todo,ul" },
+  { n: "location-arrow", t: "s", a: "address,compass,coordinate,direction,gps,map,navigation,place" },
+  { n: "lock", t: "s", a: "admin,lock,open,password,private,protect,security" },
+  { n: "lock-open", t: "s", a: "admin,lock,open,password,private,protect,security" },
+  { n: "long-arrow-alt-down", t: "s", a: "download,long-arrow-down" },
+  { n: "long-arrow-alt-left", t: "s", a: "back,long-arrow-left,previous" },
+  { n: "long-arrow-alt-right", t: "s", a: "forward,long-arrow-right,next" },
+  { n: "long-arrow-alt-up", t: "s", a: "long-arrow-up,upload" },
+  { n: "low-vision", t: "s", a: "blind,eye,sight" },
+  { n: "luggage-cart", t: "s", a: "bag,baggage,suitcase,travel" },
+  { n: "lungs", t: "s", a: "air,breath,covid-19,organ,respiratory" },
+  { n: "lungs-virus", t: "s", a: "breath,covid-19,respiratory,sick" },
+  { n: "lyft", t: "b", a: "" },
+  { n: "magento", t: "b", a: "" },
+  { n: "magic", t: "s", a: "autocomplete,automatic,mage,magic,spell,wand,witch,wizard" },
+  { n: "magnet", t: "s", a: "Attract,lodestone,tool" },
+  { n: "mail-bulk", t: "s", a: "archive,envelope,letter,post office,postal,postcard,send,stamp,usps" },
+  { n: "mailchimp", t: "b", a: "" },
+  { n: "male", t: "s", a: "human,man,person,profile,user" },
+  { n: "mandalorian", t: "b", a: "" },
+  { n: "map", t: "s", a: "address,coordinates,destination,gps,localize,location,map,navigation,paper,pin,place,point of interest,position,route,travel" },
+  { n: "map", t: "r", a: "address,coordinates,destination,gps,localize,location,map,navigation,paper,pin,place,point of interest,position,route,travel" },
+  { n: "map-marked", t: "s", a: "address,coordinates,destination,gps,localize,location,map,navigation,paper,pin,place,point of interest,position,route,travel" },
+  { n: "map-marked-alt", t: "s", a: "address,coordinates,destination,gps,localize,location,map,navigation,paper,pin,place,point of interest,position,route,travel" },
+  { n: "map-marker", t: "s", a: "address,coordinates,destination,gps,localize,location,map,navigation,paper,pin,place,point of interest,position,route,travel" },
+  { n: "map-marker-alt", t: "s", a: "address,coordinates,destination,gps,localize,location,map,navigation,paper,pin,place,point of interest,position,route,travel" },
+  { n: "map-pin", t: "s", a: "address,agree,coordinates,destination,gps,localize,location,map,marker,navigation,pin,place,position,travel" },
+  { n: "map-signs", t: "s", a: "directions,directory,map,signage,wayfinding" },
+  { n: "markdown", t: "b", a: "" },
+  { n: "marker", t: "s", a: "design,edit,sharpie,update,write" },
+  { n: "mars", t: "s", a: "male" },
+  { n: "mars-double", t: "s", a: "" },
+  { n: "mars-stroke", t: "s", a: "" },
+  { n: "mars-stroke-h", t: "s", a: "" },
+  { n: "mars-stroke-v", t: "s", a: "" },
+  { n: "mask", t: "s", a: "carnivale,costume,disguise,halloween,secret,super hero" },
+  { n: "mastodon", t: "b", a: "" },
+  { n: "maxcdn", t: "b", a: "" },
+  { n: "mdb", t: "b", a: "" },
+  { n: "medal", t: "s", a: "award,ribbon,star,trophy" },
+  { n: "medapps", t: "b", a: "" },
+  { n: "medium", t: "b", a: "" },
+  { n: "medium-m", t: "b", a: "" },
+  { n: "medkit", t: "s", a: "first aid,firstaid,health,help,support" },
+  { n: "medrt", t: "b", a: "" },
+  { n: "meetup", t: "b", a: "" },
+  { n: "megaport", t: "b", a: "" },
+  { n: "meh", t: "s", a: "emoticon,face,neutral,rating" },
+  { n: "meh", t: "r", a: "emoticon,face,neutral,rating" },
+  { n: "meh-blank", t: "s", a: "emoticon,face,neutral,rating" },
+  { n: "meh-blank", t: "r", a: "emoticon,face,neutral,rating" },
+  { n: "meh-rolling-eyes", t: "s", a: "emoticon,face,neutral,rating" },
+  { n: "meh-rolling-eyes", t: "r", a: "emoticon,face,neutral,rating" },
+  { n: "memory", t: "s", a: "DIMM,RAM,hardware,storage,technology" },
+  { n: "mendeley", t: "b", a: "" },
+  { n: "menorah", t: "s", a: "candle,hanukkah,jewish,judaism,light" },
+  { n: "mercury", t: "s", a: "transgender" },
+  { n: "meteor", t: "s", a: "armageddon,asteroid,comet,shooting star,space" },
+  { n: "microblog", t: "b", a: "" },
+  { n: "microchip", t: "s", a: "cpu,hardware,processor,technology" },
+  { n: "microphone", t: "s", a: "audio,podcast,record,sing,sound,voice" },
+  { n: "microphone-alt", t: "s", a: "audio,podcast,record,sing,sound,voice" },
+  { n: "microphone-alt-slash", t: "s", a: "audio,disable,mute,podcast,record,sing,sound,voice" },
+  { n: "microphone-slash", t: "s", a: "audio,disable,mute,podcast,record,sing,sound,voice" },
+  { n: "microscope", t: "s", a: "covid-19,electron,lens,optics,science,shrink" },
+  { n: "microsoft", t: "b", a: "" },
+  { n: "minus", t: "s", a: "collapse,delete,hide,minify,negative,remove,trash" },
+  { n: "minus-circle", t: "s", a: "delete,hide,negative,remove,shape,trash" },
+  { n: "minus-square", t: "s", a: "collapse,delete,hide,minify,negative,remove,shape,trash" },
+  { n: "minus-square", t: "r", a: "collapse,delete,hide,minify,negative,remove,shape,trash" },
+  { n: "mitten", t: "s", a: "clothing,cold,glove,hands,knitted,seasonal,warmth" },
+  { n: "mix", t: "b", a: "" },
+  { n: "mixcloud", t: "b", a: "" },
+  { n: "mixer", t: "b", a: "" },
+  { n: "mizuni", t: "b", a: "" },
+  { n: "mobile", t: "s", a: "apple,call,cell phone,cellphone,device,iphone,number,screen,telephone" },
+  { n: "mobile-alt", t: "s", a: "apple,call,cell phone,cellphone,device,iphone,number,screen,telephone" },
+  { n: "modx", t: "b", a: "" },
+  { n: "monero", t: "b", a: "" },
+  { n: "money-bill", t: "s", a: "buy,cash,checkout,money,payment,price,purchase" },
+  { n: "money-bill-alt", t: "s", a: "buy,cash,checkout,money,payment,price,purchase" },
+  { n: "money-bill-alt", t: "r", a: "buy,cash,checkout,money,payment,price,purchase" },
+  { n: "money-bill-wave", t: "s", a: "buy,cash,checkout,money,payment,price,purchase" },
+  { n: "money-bill-wave-alt", t: "s", a: "buy,cash,checkout,money,payment,price,purchase" },
+  { n: "money-check", t: "s", a: "bank check,buy,checkout,cheque,money,payment,price,purchase" },
+  { n: "money-check-alt", t: "s", a: "bank check,buy,checkout,cheque,money,payment,price,purchase" },
+  { n: "monument", t: "s", a: "building,historic,landmark,memorable" },
+  { n: "moon", t: "s", a: "contrast,crescent,dark,lunar,night" },
+  { n: "moon", t: "r", a: "contrast,crescent,dark,lunar,night" },
+  { n: "mortar-pestle", t: "s", a: "crush,culinary,grind,medical,mix,pharmacy,prescription,spices" },
+  { n: "mosque", t: "s", a: "building,islam,landmark,muslim" },
+  { n: "motorcycle", t: "s", a: "bike,machine,transportation,vehicle" },
+  { n: "mountain", t: "s", a: "glacier,hiking,hill,landscape,travel,view" },
+  { n: "mouse", t: "s", a: "click,computer,cursor,input,peripheral" },
+  { n: "mouse-pointer", t: "s", a: "arrow,cursor,select" },
+  { n: "mug-hot", t: "s", a: "caliente,cocoa,coffee,cup,drink,holiday,hot chocolate,steam,tea,warmth" },
+  { n: "music", t: "s", a: "lyrics,melody,note,sing,sound" },
+  { n: "napster", t: "b", a: "" },
+  { n: "neos", t: "b", a: "" },
+  { n: "network-wired", t: "s", a: "computer,connect,ethernet,internet,intranet" },
+  { n: "neuter", t: "s", a: "" },
+  { n: "newspaper", t: "s", a: "article,editorial,headline,journal,journalism,news,press" },
+  { n: "newspaper", t: "r", a: "article,editorial,headline,journal,journalism,news,press" },
+  { n: "nimblr", t: "b", a: "" },
+  { n: "node", t: "b", a: "" },
+  { n: "node-js", t: "b", a: "" },
+  { n: "not-equal", t: "s", a: "arithmetic,compare,math" },
+  { n: "notes-medical", t: "s", a: "clipboard,doctor,ehr,health,history,records" },
+  { n: "npm", t: "b", a: "" },
+  { n: "ns8", t: "b", a: "" },
+  { n: "nutritionix", t: "b", a: "" },
+  { n: "object-group", t: "s", a: "combine,copy,design,merge,select" },
+  { n: "object-group", t: "r", a: "combine,copy,design,merge,select" },
+  { n: "object-ungroup", t: "s", a: "copy,design,merge,select,separate" },
+  { n: "object-ungroup", t: "r", a: "copy,design,merge,select,separate" },
+  { n: "odnoklassniki", t: "b", a: "" },
+  { n: "odnoklassniki-square", t: "b", a: "" },
+  { n: "oil-can", t: "s", a: "auto,crude,gasoline,grease,lubricate,petroleum" },
+  { n: "old-republic", t: "b", a: "politics,star wars" },
+  { n: "om", t: "s", a: "buddhism,hinduism,jainism,mantra" },
+  { n: "opencart", t: "b", a: "" },
+  { n: "openid", t: "b", a: "" },
+  { n: "opera", t: "b", a: "" },
+  { n: "optin-monster", t: "b", a: "" },
+  { n: "orcid", t: "b", a: "" },
+  { n: "osi", t: "b", a: "" },
+  { n: "otter", t: "s", a: "animal,badger,fauna,fur,mammal,marten" },
+  { n: "outdent", t: "s", a: "align,justify,paragraph,tab" },
+  { n: "page4", t: "b", a: "" },
+  { n: "pagelines", t: "b", a: "eco,flora,leaf,leaves,nature,plant,tree" },
+  { n: "pager", t: "s", a: "beeper,cellphone,communication" },
+  { n: "paint-brush", t: "s", a: "acrylic,art,brush,color,fill,paint,pigment,watercolor" },
+  { n: "paint-roller", t: "s", a: "acrylic,art,brush,color,fill,paint,pigment,watercolor" },
+  { n: "palette", t: "s", a: "acrylic,art,brush,color,fill,paint,pigment,watercolor" },
+  { n: "palfed", t: "b", a: "" },
+  { n: "pallet", t: "s", a: "archive,box,inventory,shipping,warehouse" },
+  { n: "paper-plane", t: "s", a: "air,float,fold,mail,paper,send" },
+  { n: "paper-plane", t: "r", a: "air,float,fold,mail,paper,send" },
+  { n: "paperclip", t: "s", a: "attach,attachment,connect,link" },
+  { n: "parachute-box", t: "s", a: "aid,assistance,rescue,supplies" },
+  { n: "paragraph", t: "s", a: "edit,format,text,writing" },
+  { n: "parking", t: "s", a: "auto,car,garage,meter" },
+  { n: "passport", t: "s", a: "document,id,identification,issued,travel" },
+  { n: "pastafarianism", t: "s", a: "agnosticism,atheism,flying spaghetti monster,fsm" },
+  { n: "paste", t: "s", a: "clipboard,copy,document,paper" },
+  { n: "patreon", t: "b", a: "" },
+  { n: "pause", t: "s", a: "hold,wait" },
+  { n: "pause-circle", t: "s", a: "hold,wait" },
+  { n: "pause-circle", t: "r", a: "hold,wait" },
+  { n: "paw", t: "s", a: "animal,cat,dog,pet,print" },
+  { n: "paypal", t: "b", a: "" },
+  { n: "peace", t: "s", a: "serenity,tranquility,truce,war" },
+  { n: "pen", t: "s", a: "design,edit,update,write" },
+  { n: "pen-alt", t: "s", a: "design,edit,update,write" },
+  { n: "pen-fancy", t: "s", a: "design,edit,fountain pen,update,write" },
+  { n: "pen-nib", t: "s", a: "design,edit,fountain pen,update,write" },
+  { n: "pen-square", t: "s", a: "edit,pencil-square,update,write" },
+  { n: "pencil-alt", t: "s", a: "design,edit,pencil,update,write" },
+  { n: "pencil-ruler", t: "s", a: "design,draft,draw,pencil" },
+  { n: "penny-arcade", t: "b", a: "Dungeons & Dragons,d&d,dnd,fantasy,game,gaming,pax,tabletop" },
+  { n: "people-arrows", t: "s", a: "covid-19,personal space,social distance,space,spread,users" },
+  { n: "people-carry", t: "s", a: "box,carry,fragile,help,movers,package" },
+  { n: "pepper-hot", t: "s", a: "buffalo wings,capsicum,chili,chilli,habanero,jalapeno,mexican,spicy,tabasco,vegetable" },
+  { n: "percent", t: "s", a: "discount,fraction,proportion,rate,ratio" },
+  { n: "percentage", t: "s", a: "discount,fraction,proportion,rate,ratio" },
+  { n: "periscope", t: "b", a: "" },
+  { n: "person-booth", t: "s", a: "changing,changing room,election,human,person,vote,voting" },
+  { n: "phabricator", t: "b", a: "" },
+  { n: "phoenix-framework", t: "b", a: "" },
+  { n: "phoenix-squadron", t: "b", a: "" },
+  { n: "phone", t: "s", a: "call,earphone,number,support,telephone,voice" },
+  { n: "phone-alt", t: "s", a: "call,earphone,number,support,telephone,voice" },
+  { n: "phone-slash", t: "s", a: "call,cancel,earphone,mute,number,support,telephone,voice" },
+  { n: "phone-square", t: "s", a: "call,earphone,number,support,telephone,voice" },
+  { n: "phone-square-alt", t: "s", a: "call,earphone,number,support,telephone,voice" },
+  { n: "phone-volume", t: "s", a: "call,earphone,number,sound,support,telephone,voice,volume-control-phone" },
+  { n: "photo-video", t: "s", a: "av,film,image,library,media" },
+  { n: "php", t: "b", a: "" },
+  { n: "pied-piper", t: "b", a: "" },
+  { n: "pied-piper-alt", t: "b", a: "" },
+  { n: "pied-piper-hat", t: "b", a: "clothing" },
+  { n: "pied-piper-pp", t: "b", a: "" },
+  { n: "pied-piper-square", t: "b", a: "" },
+  { n: "piggy-bank", t: "s", a: "bank,save,savings" },
+  { n: "pills", t: "s", a: "drugs,medicine,prescription,tablets" },
+  { n: "pinterest", t: "b", a: "" },
+  { n: "pinterest-p", t: "b", a: "" },
+  { n: "pinterest-square", t: "b", a: "" },
+  { n: "pizza-slice", t: "s", a: "cheese,chicago,italian,mozzarella,new york,pepperoni,pie,slice,teenage mutant ninja turtles,tomato" },
+  { n: "place-of-worship", t: "s", a: "building,church,holy,mosque,synagogue" },
+  { n: "plane", t: "s", a: "airplane,destination,fly,location,mode,travel,trip" },
+  { n: "plane-arrival", t: "s", a: "airplane,arriving,destination,fly,land,landing,location,mode,travel,trip" },
+  { n: "plane-departure", t: "s", a: "airplane,departing,destination,fly,location,mode,take off,taking off,travel,trip" },
+  { n: "plane-slash", t: "s", a: "airplane mode,canceled,covid-19,delayed,grounded,travel" },
+  { n: "play", t: "s", a: "audio,music,playing,sound,start,video" },
+  { n: "play-circle", t: "s", a: "audio,music,playing,sound,start,video" },
+  { n: "play-circle", t: "r", a: "audio,music,playing,sound,start,video" },
+  { n: "playstation", t: "b", a: "" },
+  { n: "plug", t: "s", a: "connect,electric,online,power" },
+  { n: "plus", t: "s", a: "add,create,expand,new,positive,shape" },
+  { n: "plus-circle", t: "s", a: "add,create,expand,new,positive,shape" },
+  { n: "plus-square", t: "s", a: "add,create,expand,new,positive,shape" },
+  { n: "plus-square", t: "r", a: "add,create,expand,new,positive,shape" },
+  { n: "podcast", t: "s", a: "audio,broadcast,music,sound" },
+  { n: "poll", t: "s", a: "results,survey,trend,vote,voting" },
+  { n: "poll-h", t: "s", a: "results,survey,trend,vote,voting" },
+  { n: "poo", t: "s", a: "crap,poop,shit,smile,turd" },
+  { n: "poo-storm", t: "s", a: "bolt,cloud,euphemism,lightning,mess,poop,shit,turd" },
+  { n: "poop", t: "s", a: "crap,poop,shit,smile,turd" },
+  { n: "portrait", t: "s", a: "id,image,photo,picture,selfie" },
+  { n: "pound-sign", t: "s", a: "currency,gbp,money" },
+  { n: "power-off", t: "s", a: "cancel,computer,on,reboot,restart" },
+  { n: "pray", t: "s", a: "kneel,preach,religion,worship" },
+  { n: "praying-hands", t: "s", a: "kneel,preach,religion,worship" },
+  { n: "prescription", t: "s", a: "drugs,medical,medicine,pharmacy,rx" },
+  { n: "prescription-bottle", t: "s", a: "drugs,medical,medicine,pharmacy,rx" },
+  { n: "prescription-bottle-alt", t: "s", a: "drugs,medical,medicine,pharmacy,rx" },
+  { n: "print", t: "s", a: "business,copy,document,office,paper" },
+  { n: "procedures", t: "s", a: "EKG,bed,electrocardiogram,health,hospital,life,patient,vital" },
+  { n: "product-hunt", t: "b", a: "" },
+  { n: "project-diagram", t: "s", a: "chart,graph,network,pert" },
+  { n: "pump-medical", t: "s", a: "anti-bacterial,clean,covid-19,disinfect,hygiene,medical grade,sanitizer,soap" },
+  { n: "pump-soap", t: "s", a: "anti-bacterial,clean,covid-19,disinfect,hygiene,sanitizer,soap" },
+  { n: "pushed", t: "b", a: "" },
+  { n: "puzzle-piece", t: "s", a: "add-on,addon,game,section" },
+  { n: "python", t: "b", a: "" },
+  { n: "qq", t: "b", a: "" },
+  { n: "qrcode", t: "s", a: "barcode,info,information,scan" },
+  { n: "question", t: "s", a: "help,information,support,unknown" },
+  { n: "question-circle", t: "s", a: "help,information,support,unknown" },
+  { n: "question-circle", t: "r", a: "help,information,support,unknown" },
+  { n: "quidditch", t: "s", a: "ball,bludger,broom,golden snitch,harry potter,hogwarts,quaffle,sport,wizard" },
+  { n: "quinscape", t: "b", a: "" },
+  { n: "quora", t: "b", a: "" },
+  { n: "quote-left", t: "s", a: "mention,note,phrase,text,type" },
+  { n: "quote-right", t: "s", a: "mention,note,phrase,text,type" },
+  { n: "quran", t: "s", a: "book,islam,muslim,religion" },
+  { n: "r-project", t: "b", a: "" },
+  { n: "radiation", t: "s", a: "danger,dangerous,deadly,hazard,nuclear,radioactive,warning" },
+  { n: "radiation-alt", t: "s", a: "danger,dangerous,deadly,hazard,nuclear,radioactive,warning" },
+  { n: "rainbow", t: "s", a: "gold,leprechaun,prism,rain,sky" },
+  { n: "random", t: "s", a: "arrows,shuffle,sort,swap,switch,transfer" },
+  { n: "raspberry-pi", t: "b", a: "" },
+  { n: "ravelry", t: "b", a: "" },
+  { n: "react", t: "b", a: "" },
+  { n: "reacteurope", t: "b", a: "" },
+  { n: "readme", t: "b", a: "" },
+  { n: "rebel", t: "b", a: "" },
+  { n: "receipt", t: "s", a: "check,invoice,money,pay,table" },
+  { n: "record-vinyl", t: "s", a: "LP,album,analog,music,phonograph,sound" },
+  { n: "recycle", t: "s", a: "Waste,compost,garbage,reuse,trash" },
+  { n: "red-river", t: "b", a: "" },
+  { n: "reddit", t: "b", a: "" },
+  { n: "reddit-alien", t: "b", a: "" },
+  { n: "reddit-square", t: "b", a: "" },
+  { n: "redhat", t: "b", a: "linux,operating system,os" },
+  { n: "redo", t: "s", a: "forward,refresh,reload,repeat" },
+  { n: "redo-alt", t: "s", a: "forward,refresh,reload,repeat" },
+  { n: "registered", t: "s", a: "copyright,mark,trademark" },
+  { n: "registered", t: "r", a: "copyright,mark,trademark" },
+  { n: "remove-format", t: "s", a: "cancel,font,format,remove,style,text" },
+  { n: "renren", t: "b", a: "" },
+  { n: "reply", t: "s", a: "mail,message,respond" },
+  { n: "reply-all", t: "s", a: "mail,message,respond" },
+  { n: "replyd", t: "b", a: "" },
+  { n: "republican", t: "s", a: "american,conservative,election,elephant,politics,republican party,right,right-wing,usa" },
+  { n: "researchgate", t: "b", a: "" },
+  { n: "resolving", t: "b", a: "" },
+  { n: "restroom", t: "s", a: "bathroom,john,loo,potty,washroom,waste,wc" },
+  { n: "retweet", t: "s", a: "refresh,reload,share,swap" },
+  { n: "rev", t: "b", a: "" },
+  { n: "ribbon", t: "s", a: "badge,cause,lapel,pin" },
+  { n: "ring", t: "s", a: "Dungeons & Dragons,Gollum,band,binding,d&d,dnd,engagement,fantasy,gold,jewelry,marriage,precious" },
+  { n: "road", t: "s", a: "highway,map,pavement,route,street,travel" },
+  { n: "robot", t: "s", a: "android,automate,computer,cyborg" },
+  { n: "rocket", t: "s", a: "aircraft,app,jet,launch,nasa,space" },
+  { n: "rocketchat", t: "b", a: "" },
+  { n: "rockrms", t: "b", a: "" },
+  { n: "route", t: "s", a: "directions,navigation,travel" },
+  { n: "rss", t: "s", a: "blog,feed,journal,news,writing" },
+  { n: "rss-square", t: "s", a: "blog,feed,journal,news,writing" },
+  { n: "ruble-sign", t: "s", a: "currency,money,rub" },
+  { n: "ruler", t: "s", a: "design,draft,length,measure,planning" },
+  { n: "ruler-combined", t: "s", a: "design,draft,length,measure,planning" },
+  { n: "ruler-horizontal", t: "s", a: "design,draft,length,measure,planning" },
+  { n: "ruler-vertical", t: "s", a: "design,draft,length,measure,planning" },
+  { n: "running", t: "s", a: "exercise,health,jog,person,run,sport,sprint" },
+  { n: "rupee-sign", t: "s", a: "currency,indian,inr,money" },
+  { n: "sad-cry", t: "s", a: "emoticon,face,tear,tears" },
+  { n: "sad-cry", t: "r", a: "emoticon,face,tear,tears" },
+  { n: "sad-tear", t: "s", a: "emoticon,face,tear,tears" },
+  { n: "sad-tear", t: "r", a: "emoticon,face,tear,tears" },
+  { n: "safari", t: "b", a: "browser" },
+  { n: "salesforce", t: "b", a: "" },
+  { n: "sass", t: "b", a: "" },
+  { n: "satellite", t: "s", a: "communications,hardware,orbit,space" },
+  { n: "satellite-dish", t: "s", a: "SETI,communications,hardware,receiver,saucer,signal,space" },
+  { n: "save", t: "s", a: "disk,download,floppy,floppy-o" },
+  { n: "save", t: "r", a: "disk,download,floppy,floppy-o" },
+  { n: "schlix", t: "b", a: "" },
+  { n: "school", t: "s", a: "building,education,learn,student,teacher" },
+  { n: "screwdriver", t: "s", a: "admin,fix,mechanic,repair,settings,tool" },
+  { n: "scribd", t: "b", a: "" },
+  { n: "scroll", t: "s", a: "Dungeons & Dragons,announcement,d&d,dnd,fantasy,paper,script" },
+  { n: "sd-card", t: "s", a: "image,memory,photo,save" },
+  { n: "search", t: "s", a: "bigger,enlarge,find,magnify,preview,zoom" },
+  { n: "search-dollar", t: "s", a: "bigger,enlarge,find,magnify,money,preview,zoom" },
+  { n: "search-location", t: "s", a: "bigger,enlarge,find,magnify,preview,zoom" },
+  { n: "search-minus", t: "s", a: "minify,negative,smaller,zoom,zoom out" },
+  { n: "search-plus", t: "s", a: "bigger,enlarge,magnify,positive,zoom,zoom in" },
+  { n: "searchengin", t: "b", a: "" },
+  { n: "seedling", t: "s", a: "flora,grow,plant,vegan" },
+  { n: "sellcast", t: "b", a: "eercast" },
+  { n: "sellsy", t: "b", a: "" },
+  { n: "server", t: "s", a: "computer,cpu,database,hardware,network" },
+  { n: "servicestack", t: "b", a: "" },
+  { n: "shapes", t: "s", a: "blocks,build,circle,square,triangle" },
+  { n: "share", t: "s", a: "forward,save,send,social" },
+  { n: "share-alt", t: "s", a: "forward,save,send,social" },
+  { n: "share-alt-square", t: "s", a: "forward,save,send,social" },
+  { n: "share-square", t: "s", a: "forward,save,send,social" },
+  { n: "share-square", t: "r", a: "forward,save,send,social" },
+  { n: "shekel-sign", t: "s", a: "currency,ils,money" },
+  { n: "shield-alt", t: "s", a: "achievement,award,block,defend,security,winner" },
+  { n: "shield-virus", t: "s", a: "antibodies,barrier,covid-19,health,protect" },
+  { n: "ship", t: "s", a: "boat,sea,water" },
+  { n: "shipping-fast", t: "s", a: "express,fedex,mail,overnight,package,ups" },
+  { n: "shirtsinbulk", t: "b", a: "" },
+  { n: "shoe-prints", t: "s", a: "feet,footprints,steps,walk" },
+  { n: "shopify", t: "b", a: "" },
+  { n: "shopping-bag", t: "s", a: "buy,checkout,grocery,payment,purchase" },
+  { n: "shopping-basket", t: "s", a: "buy,checkout,grocery,payment,purchase" },
+  { n: "shopping-cart", t: "s", a: "buy,checkout,grocery,payment,purchase" },
+  { n: "shopware", t: "b", a: "" },
+  { n: "shower", t: "s", a: "bath,clean,faucet,water" },
+  { n: "shuttle-van", t: "s", a: "airport,machine,public-transportation,transportation,travel,vehicle" },
+  { n: "sign", t: "s", a: "directions,real estate,signage,wayfinding" },
+  { n: "sign-in-alt", t: "s", a: "arrow,enter,join,log in,login,sign in,sign up,sign-in,signin,signup" },
+  { n: "sign-language", t: "s", a: "Translate,asl,deaf,hands" },
+  { n: "sign-out-alt", t: "s", a: "arrow,exit,leave,log out,logout,sign-out" },
+  { n: "signal", t: "s", a: "bars,graph,online,reception,status" },
+  { n: "signature", t: "s", a: "John Hancock,cursive,name,writing" },
+  { n: "sim-card", t: "s", a: "hard drive,hardware,portable,storage,technology,tiny" },
+  { n: "simplybuilt", t: "b", a: "" },
+  { n: "sistrix", t: "b", a: "" },
+  { n: "sitemap", t: "s", a: "directory,hierarchy,ia,information architecture,organization" },
+  { n: "sith", t: "b", a: "" },
+  { n: "skating", t: "s", a: "activity,figure skating,fitness,ice,person,winter" },
+  { n: "sketch", t: "b", a: "app,design,interface" },
+  { n: "skiing", t: "s", a: "activity,downhill,fast,fitness,olympics,outdoors,person,seasonal,slalom" },
+  { n: "skiing-nordic", t: "s", a: "activity,cross country,fitness,outdoors,person,seasonal" },
+  { n: "skull", t: "s", a: "bones,skeleton,x-ray,yorick" },
+  { n: "skull-crossbones", t: "s", a: "Dungeons & Dragons,alert,bones,d&d,danger,dead,deadly,death,dnd,fantasy,halloween,holiday,jolly-roger,pirate,poison,skeleton,warning" },
+  { n: "skyatlas", t: "b", a: "" },
+  { n: "skype", t: "b", a: "" },
+  { n: "slack", t: "b", a: "anchor,hash,hashtag" },
+  { n: "slack-hash", t: "b", a: "anchor,hash,hashtag" },
+  { n: "slash", t: "s", a: "cancel,close,mute,off,stop,x" },
+  { n: "sleigh", t: "s", a: "christmas,claus,fly,holiday,santa,sled,snow,xmas" },
+  { n: "sliders-h", t: "s", a: "adjust,settings,sliders,toggle" },
+  { n: "slideshare", t: "b", a: "" },
+  { n: "smile", t: "s", a: "approve,emoticon,face,happy,rating,satisfied" },
+  { n: "smile", t: "r", a: "approve,emoticon,face,happy,rating,satisfied" },
+  { n: "smile-beam", t: "s", a: "emoticon,face,happy,positive" },
+  { n: "smile-beam", t: "r", a: "emoticon,face,happy,positive" },
+  { n: "smile-wink", t: "s", a: "emoticon,face,happy,hint,joke" },
+  { n: "smile-wink", t: "r", a: "emoticon,face,happy,hint,joke" },
+  { n: "smog", t: "s", a: "dragon,fog,haze,pollution,smoke,weather" },
+  { n: "smoking", t: "s", a: "cancer,cigarette,nicotine,smoking status,tobacco" },
+  { n: "smoking-ban", t: "s", a: "ban,cancel,no smoking,non-smoking" },
+  { n: "sms", t: "s", a: "chat,conversation,message,mobile,notification,phone,sms,texting" },
+  { n: "snapchat", t: "b", a: "" },
+  { n: "snapchat-ghost", t: "b", a: "" },
+  { n: "snapchat-square", t: "b", a: "" },
+  { n: "snowboarding", t: "s", a: "activity,fitness,olympics,outdoors,person" },
+  { n: "snowflake", t: "s", a: "precipitation,rain,winter" },
+  { n: "snowflake", t: "r", a: "precipitation,rain,winter" },
+  { n: "snowman", t: "s", a: "decoration,frost,frosty,holiday" },
+  { n: "snowplow", t: "s", a: "clean up,cold,road,storm,winter" },
+  { n: "soap", t: "s", a: "bubbles,clean,covid-19,hygiene,wash" },
+  { n: "socks", t: "s", a: "business socks,business time,clothing,feet,flight of the conchords,wednesday" },
+  { n: "solar-panel", t: "s", a: "clean,eco-friendly,energy,green,sun" },
+  { n: "sort", t: "s", a: "filter,order" },
+  { n: "sort-alpha-down", t: "s", a: "alphabetical,arrange,filter,order,sort-alpha-asc" },
+  { n: "sort-alpha-down-alt", t: "s", a: "alphabetical,arrange,filter,order,sort-alpha-asc" },
+  { n: "sort-alpha-up", t: "s", a: "alphabetical,arrange,filter,order,sort-alpha-desc" },
+  { n: "sort-alpha-up-alt", t: "s", a: "alphabetical,arrange,filter,order,sort-alpha-desc" },
+  { n: "sort-amount-down", t: "s", a: "arrange,filter,number,order,sort-amount-asc" },
+  { n: "sort-amount-down-alt", t: "s", a: "arrange,filter,order,sort-amount-asc" },
+  { n: "sort-amount-up", t: "s", a: "arrange,filter,order,sort-amount-desc" },
+  { n: "sort-amount-up-alt", t: "s", a: "arrange,filter,order,sort-amount-desc" },
+  { n: "sort-down", t: "s", a: "arrow,descending,filter,order,sort-desc" },
+  { n: "sort-numeric-down", t: "s", a: "arrange,filter,numbers,order,sort-numeric-asc" },
+  { n: "sort-numeric-down-alt", t: "s", a: "arrange,filter,numbers,order,sort-numeric-asc" },
+  { n: "sort-numeric-up", t: "s", a: "arrange,filter,numbers,order,sort-numeric-desc" },
+  { n: "sort-numeric-up-alt", t: "s", a: "arrange,filter,numbers,order,sort-numeric-desc" },
+  { n: "sort-up", t: "s", a: "arrow,ascending,filter,order,sort-asc" },
+  { n: "soundcloud", t: "b", a: "" },
+  { n: "sourcetree", t: "b", a: "" },
+  { n: "spa", t: "s", a: "flora,massage,mindfulness,plant,wellness" },
+  { n: "space-shuttle", t: "s", a: "astronaut,machine,nasa,rocket,space,transportation" },
+  { n: "speakap", t: "b", a: "" },
+  { n: "speaker-deck", t: "b", a: "" },
+  { n: "spell-check", t: "s", a: "dictionary,edit,editor,grammar,text" },
+  { n: "spider", t: "s", a: "arachnid,bug,charlotte,crawl,eight,halloween" },
+  { n: "spinner", t: "s", a: "circle,loading,progress" },
+  { n: "splotch", t: "s", a: "Ink,blob,blotch,glob,stain" },
+  { n: "spotify", t: "b", a: "" },
+  { n: "spray-can", t: "s", a: "Paint,aerosol,design,graffiti,tag" },
+  { n: "square", t: "s", a: "block,box,shape" },
+  { n: "square", t: "r", a: "block,box,shape" },
+  { n: "square-full", t: "s", a: "block,box,shape" },
+  { n: "square-root-alt", t: "s", a: "arithmetic,calculus,division,math" },
+  { n: "squarespace", t: "b", a: "" },
+  { n: "stack-exchange", t: "b", a: "" },
+  { n: "stack-overflow", t: "b", a: "" },
+  { n: "stackpath", t: "b", a: "" },
+  { n: "stamp", t: "s", a: "art,certificate,imprint,rubber,seal" },
+  { n: "star", t: "s", a: "achievement,award,favorite,important,night,rating,score" },
+  { n: "star", t: "r", a: "achievement,award,favorite,important,night,rating,score" },
+  { n: "star-and-crescent", t: "s", a: "islam,muslim,religion" },
+  { n: "star-half", t: "s", a: "achievement,award,rating,score,star-half-empty,star-half-full" },
+  { n: "star-half", t: "r", a: "achievement,award,rating,score,star-half-empty,star-half-full" },
+  { n: "star-half-alt", t: "s", a: "achievement,award,rating,score,star-half-empty,star-half-full" },
+  { n: "star-of-david", t: "s", a: "jewish,judaism,religion" },
+  { n: "star-of-life", t: "s", a: "doctor,emt,first aid,health,medical" },
+  { n: "staylinked", t: "b", a: "" },
+  { n: "steam", t: "b", a: "" },
+  { n: "steam-square", t: "b", a: "" },
+  { n: "steam-symbol", t: "b", a: "" },
+  { n: "step-backward", t: "s", a: "beginning,first,previous,rewind,start" },
+  { n: "step-forward", t: "s", a: "end,last,next" },
+  { n: "stethoscope", t: "s", a: "covid-19,diagnosis,doctor,general practitioner,hospital,infirmary,medicine,office,outpatient" },
+  { n: "sticker-mule", t: "b", a: "" },
+  { n: "sticky-note", t: "s", a: "message,note,paper,reminder,sticker" },
+  { n: "sticky-note", t: "r", a: "message,note,paper,reminder,sticker" },
+  { n: "stop", t: "s", a: "block,box,square" },
+  { n: "stop-circle", t: "s", a: "block,box,circle,square" },
+  { n: "stop-circle", t: "r", a: "block,box,circle,square" },
+  { n: "stopwatch", t: "s", a: "clock,reminder,time" },
+  { n: "stopwatch-20", t: "s", a: "ABCs,countdown,covid-19,happy birthday,i will survive,reminder,seconds,time,timer" },
+  { n: "store", t: "s", a: "building,buy,purchase,shopping" },
+  { n: "store-alt", t: "s", a: "building,buy,purchase,shopping" },
+  { n: "store-alt-slash", t: "s", a: "building,buy,closed,covid-19,purchase,shopping" },
+  { n: "store-slash", t: "s", a: "building,buy,closed,covid-19,purchase,shopping" },
+  { n: "strava", t: "b", a: "" },
+  { n: "stream", t: "s", a: "flow,list,timeline" },
+  { n: "street-view", t: "s", a: "directions,location,map,navigation" },
+  { n: "strikethrough", t: "s", a: "cancel,edit,font,format,text,type" },
+  { n: "stripe", t: "b", a: "" },
+  { n: "stripe-s", t: "b", a: "" },
+  { n: "stroopwafel", t: "s", a: "caramel,cookie,dessert,sweets,waffle" },
+  { n: "studiovinari", t: "b", a: "" },
+  { n: "stumbleupon", t: "b", a: "" },
+  { n: "stumbleupon-circle", t: "b", a: "" },
+  { n: "subscript", t: "s", a: "edit,font,format,text,type" },
+  { n: "subway", t: "s", a: "machine,railway,train,transportation,vehicle" },
+  { n: "suitcase", t: "s", a: "baggage,luggage,move,suitcase,travel,trip" },
+  { n: "suitcase-rolling", t: "s", a: "baggage,luggage,move,suitcase,travel,trip" },
+  { n: "sun", t: "s", a: "brighten,contrast,day,lighter,sol,solar,star,weather" },
+  { n: "sun", t: "r", a: "brighten,contrast,day,lighter,sol,solar,star,weather" },
+  { n: "superpowers", t: "b", a: "" },
+  { n: "superscript", t: "s", a: "edit,exponential,font,format,text,type" },
+  { n: "supple", t: "b", a: "" },
+  { n: "surprise", t: "s", a: "emoticon,face,shocked" },
+  { n: "surprise", t: "r", a: "emoticon,face,shocked" },
+  { n: "suse", t: "b", a: "linux,operating system,os" },
+  { n: "swatchbook", t: "s", a: "Pantone,color,design,hue,palette" },
+  { n: "swift", t: "b", a: "" },
+  { n: "swimmer", t: "s", a: "athlete,head,man,olympics,person,pool,water" },
+  { n: "swimming-pool", t: "s", a: "ladder,recreation,swim,water" },
+  { n: "symfony", t: "b", a: "" },
+  { n: "synagogue", t: "s", a: "building,jewish,judaism,religion,star of david,temple" },
+  { n: "sync", t: "s", a: "exchange,refresh,reload,rotate,swap" },
+  { n: "sync-alt", t: "s", a: "exchange,refresh,reload,rotate,swap" },
+  { n: "syringe", t: "s", a: "covid-19,doctor,immunizations,medical,needle" },
+  { n: "table", t: "s", a: "data,excel,spreadsheet" },
+  { n: "table-tennis", t: "s", a: "ball,paddle,ping pong" },
+  { n: "tablet", t: "s", a: "apple,device,ipad,kindle,screen" },
+  { n: "tablet-alt", t: "s", a: "apple,device,ipad,kindle,screen" },
+  { n: "tablets", t: "s", a: "drugs,medicine,pills,prescription" },
+  { n: "tachometer-alt", t: "s", a: "dashboard,fast,odometer,speed,speedometer" },
+  { n: "tag", t: "s", a: "discount,label,price,shopping" },
+  { n: "tags", t: "s", a: "discount,label,price,shopping" },
+  { n: "tape", t: "s", a: "design,package,sticky" },
+  { n: "tasks", t: "s", a: "checklist,downloading,downloads,loading,progress,project management,settings,to do" },
+  { n: "taxi", t: "s", a: "cab,cabbie,car,car service,lyft,machine,transportation,travel,uber,vehicle" },
+  { n: "teamspeak", t: "b", a: "" },
+  { n: "teeth", t: "s", a: "bite,dental,dentist,gums,mouth,smile,tooth" },
+  { n: "teeth-open", t: "s", a: "dental,dentist,gums bite,mouth,smile,tooth" },
+  { n: "telegram", t: "b", a: "" },
+  { n: "telegram-plane", t: "b", a: "" },
+  { n: "temperature-high", t: "s", a: "cook,covid-19,mercury,summer,thermometer,warm" },
+  { n: "temperature-low", t: "s", a: "cold,cool,covid-19,mercury,thermometer,winter" },
+  { n: "tencent-weibo", t: "b", a: "" },
+  { n: "tenge", t: "s", a: "currency,kazakhstan,money,price" },
+  { n: "terminal", t: "s", a: "code,command,console,development,prompt" },
+  { n: "text-height", t: "s", a: "edit,font,format,text,type" },
+  { n: "text-width", t: "s", a: "edit,font,format,text,type" },
+  { n: "th", t: "s", a: "blocks,boxes,grid,squares" },
+  { n: "th-large", t: "s", a: "blocks,boxes,grid,squares" },
+  { n: "th-list", t: "s", a: "checklist,completed,done,finished,ol,todo,ul" },
+  { n: "the-red-yeti", t: "b", a: "" },
+  { n: "theater-masks", t: "s", a: "comedy,perform,theatre,tragedy" },
+  { n: "themeco", t: "b", a: "" },
+  { n: "themeisle", t: "b", a: "" },
+  { n: "thermometer", t: "s", a: "covid-19,mercury,status,temperature" },
+  { n: "thermometer-empty", t: "s", a: "cold,mercury,status,temperature" },
+  { n: "thermometer-full", t: "s", a: "fever,hot,mercury,status,temperature" },
+  { n: "thermometer-half", t: "s", a: "mercury,status,temperature" },
+  { n: "thermometer-quarter", t: "s", a: "mercury,status,temperature" },
+  { n: "thermometer-three-quarters", t: "s", a: "mercury,status,temperature" },
+  { n: "think-peaks", t: "b", a: "" },
+  { n: "thumbs-down", t: "s", a: "disagree,disapprove,dislike,hand,social,thumbs-o-down" },
+  { n: "thumbs-down", t: "r", a: "disagree,disapprove,dislike,hand,social,thumbs-o-down" },
+  { n: "thumbs-up", t: "s", a: "agree,approve,favorite,hand,like,ok,okay,social,success,thumbs-o-up,yes,you got it dude" },
+  { n: "thumbs-up", t: "r", a: "agree,approve,favorite,hand,like,ok,okay,social,success,thumbs-o-up,yes,you got it dude" },
+  { n: "thumbtack", t: "s", a: "coordinates,location,marker,pin,thumb-tack" },
+  { n: "ticket-alt", t: "s", a: "movie,pass,support,ticket" },
+  { n: "times", t: "s", a: "close,cross,error,exit,incorrect,notice,notification,notify,problem,wrong,x" },
+  { n: "times-circle", t: "s", a: "close,cross,exit,incorrect,notice,notification,notify,problem,wrong,x" },
+  { n: "times-circle", t: "r", a: "close,cross,exit,incorrect,notice,notification,notify,problem,wrong,x" },
+  { n: "tint", t: "s", a: "color,drop,droplet,raindrop,waterdrop" },
+  { n: "tint-slash", t: "s", a: "color,drop,droplet,raindrop,waterdrop" },
+  { n: "tired", t: "s", a: "angry,emoticon,face,grumpy,upset" },
+  { n: "tired", t: "r", a: "angry,emoticon,face,grumpy,upset" },
+  { n: "toggle-off", t: "s", a: "switch" },
+  { n: "toggle-on", t: "s", a: "switch" },
+  { n: "toilet", t: "s", a: "bathroom,flush,john,loo,pee,plumbing,poop,porcelain,potty,restroom,throne,washroom,waste,wc" },
+  { n: "toilet-paper", t: "s", a: "bathroom,covid-19,halloween,holiday,lavatory,prank,restroom,roll" },
+  { n: "toilet-paper-slash", t: "s", a: "bathroom,covid-19,halloween,holiday,lavatory,leaves,prank,restroom,roll,trouble,ut oh" },
+  { n: "toolbox", t: "s", a: "admin,container,fix,repair,settings,tools" },
+  { n: "tools", t: "s", a: "admin,fix,repair,screwdriver,settings,tools,wrench" },
+  { n: "tooth", t: "s", a: "bicuspid,dental,dentist,molar,mouth,teeth" },
+  { n: "torah", t: "s", a: "book,jewish,judaism,religion,scroll" },
+  { n: "torii-gate", t: "s", a: "building,shintoism" },
+  { n: "tractor", t: "s", a: "agriculture,farm,vehicle" },
+  { n: "trade-federation", t: "b", a: "" },
+  { n: "trademark", t: "s", a: "copyright,register,symbol" },
+  { n: "traffic-light", t: "s", a: "direction,road,signal,travel" },
+  { n: "trailer", t: "s", a: "carry,haul,moving,travel" },
+  { n: "train", t: "s", a: "bullet,commute,locomotive,railway,subway" },
+  { n: "tram", t: "s", a: "crossing,machine,mountains,seasonal,transportation" },
+  { n: "transgender", t: "s", a: "intersex" },
+  { n: "transgender-alt", t: "s", a: "intersex" },
+  { n: "trash", t: "s", a: "delete,garbage,hide,remove" },
+  { n: "trash-alt", t: "s", a: "delete,garbage,hide,remove,trash-o" },
+  { n: "trash-alt", t: "r", a: "delete,garbage,hide,remove,trash-o" },
+  { n: "trash-restore", t: "s", a: "back,control z,oops,undo" },
+  { n: "trash-restore-alt", t: "s", a: "back,control z,oops,undo" },
+  { n: "tree", t: "s", a: "bark,fall,flora,forest,nature,plant,seasonal" },
+  { n: "trello", t: "b", a: "atlassian" },
+  { n: "tripadvisor", t: "b", a: "" },
+  { n: "trophy", t: "s", a: "achievement,award,cup,game,winner" },
+  { n: "truck", t: "s", a: "cargo,delivery,shipping,vehicle" },
+  { n: "truck-loading", t: "s", a: "box,cargo,delivery,inventory,moving,rental,vehicle" },
+  { n: "truck-monster", t: "s", a: "offroad,vehicle,wheel" },
+  { n: "truck-moving", t: "s", a: "cargo,inventory,rental,vehicle" },
+  { n: "truck-pickup", t: "s", a: "cargo,vehicle" },
+  { n: "tshirt", t: "s", a: "clothing,fashion,garment,shirt" },
+  { n: "tty", t: "s", a: "communication,deaf,telephone,teletypewriter,text" },
+  { n: "tumblr", t: "b", a: "" },
+  { n: "tumblr-square", t: "b", a: "" },
+  { n: "tv", t: "s", a: "computer,display,monitor,television" },
+  { n: "twitch", t: "b", a: "" },
+  { n: "twitter", t: "b", a: "social network,tweet" },
+  { n: "twitter-square", t: "b", a: "social network,tweet" },
+  { n: "typo3", t: "b", a: "" },
+  { n: "uber", t: "b", a: "" },
+  { n: "ubuntu", t: "b", a: "linux,operating system,os" },
+  { n: "uikit", t: "b", a: "" },
+  { n: "umbraco", t: "b", a: "" },
+  { n: "umbrella", t: "s", a: "protection,rain,storm,wet" },
+  { n: "umbrella-beach", t: "s", a: "protection,recreation,sand,shade,summer,sun" },
+  { n: "underline", t: "s", a: "edit,emphasis,format,text,writing" },
+  { n: "undo", t: "s", a: "back,control z,exchange,oops,return,rotate,swap" },
+  { n: "undo-alt", t: "s", a: "back,control z,exchange,oops,return,swap" },
+  { n: "uniregistry", t: "b", a: "" },
+  { n: "unity", t: "b", a: "" },
+  { n: "universal-access", t: "s", a: "accessibility,hearing,person,seeing,visual impairment" },
+  { n: "university", t: "s", a: "bank,building,college,higher education - students,institution" },
+  { n: "unlink", t: "s", a: "attachment,chain,chain-broken,remove" },
+  { n: "unlock", t: "s", a: "admin,lock,password,private,protect" },
+  { n: "unlock-alt", t: "s", a: "admin,lock,password,private,protect" },
+  { n: "untappd", t: "b", a: "" },
+  { n: "upload", t: "s", a: "hard drive,import,publish" },
+  { n: "ups", t: "b", a: "United Parcel Service,package,shipping" },
+  { n: "usb", t: "b", a: "" },
+  { n: "user", t: "s", a: "account,avatar,head,human,man,person,profile" },
+  { n: "user", t: "r", a: "account,avatar,head,human,man,person,profile" },
+  { n: "user-alt", t: "s", a: "account,avatar,head,human,man,person,profile" },
+  { n: "user-alt-slash", t: "s", a: "account,avatar,head,human,man,person,profile" },
+  { n: "user-astronaut", t: "s", a: "avatar,clothing,cosmonaut,nasa,space,suit" },
+  { n: "user-check", t: "s", a: "accept,check,person,verified" },
+  { n: "user-circle", t: "s", a: "account,avatar,head,human,man,person,profile" },
+  { n: "user-circle", t: "r", a: "account,avatar,head,human,man,person,profile" },
+  { n: "user-clock", t: "s", a: "alert,person,remind,time" },
+  { n: "user-cog", t: "s", a: "admin,cog,person,settings" },
+  { n: "user-edit", t: "s", a: "edit,pen,pencil,person,update,write" },
+  { n: "user-friends", t: "s", a: "group,people,person,team,users" },
+  { n: "user-graduate", t: "s", a: "cap,clothing,commencement,gown,graduation,person,student" },
+  { n: "user-injured", t: "s", a: "cast,injury,ouch,patient,person,sling" },
+  { n: "user-lock", t: "s", a: "admin,lock,person,private,unlock" },
+  { n: "user-md", t: "s", a: "covid-19,job,medical,nurse,occupation,physician,profile,surgeon" },
+  { n: "user-minus", t: "s", a: "delete,negative,remove" },
+  { n: "user-ninja", t: "s", a: "assassin,avatar,dangerous,deadly,sneaky" },
+  { n: "user-nurse", t: "s", a: "covid-19,doctor,midwife,practitioner,surgeon" },
+  { n: "user-plus", t: "s", a: "add,avatar,positive,sign up,signup,team" },
+  { n: "user-secret", t: "s", a: "clothing,coat,hat,incognito,person,privacy,spy,whisper" },
+  { n: "user-shield", t: "s", a: "admin,person,private,protect,safe" },
+  { n: "user-slash", t: "s", a: "ban,delete,remove" },
+  { n: "user-tag", t: "s", a: "avatar,discount,label,person,role,special" },
+  { n: "user-tie", t: "s", a: "avatar,business,clothing,formal,professional,suit" },
+  { n: "user-times", t: "s", a: "archive,delete,remove,x" },
+  { n: "users", t: "s", a: "friends,group,people,persons,profiles,team" },
+  { n: "users-cog", t: "s", a: "admin,cog,group,person,settings,team" },
+  { n: "usps", t: "b", a: "american,package,shipping,usa" },
+  { n: "ussunnah", t: "b", a: "" },
+  { n: "utensil-spoon", t: "s", a: "cutlery,dining,scoop,silverware,spoon" },
+  { n: "utensils", t: "s", a: "cutlery,dining,dinner,eat,food,fork,knife,restaurant" },
+  { n: "vaadin", t: "b", a: "" },
+  { n: "vector-square", t: "s", a: "anchors,lines,object,render,shape" },
+  { n: "venus", t: "s", a: "female" },
+  { n: "venus-double", t: "s", a: "female" },
+  { n: "venus-mars", t: "s", a: "Gender" },
+  { n: "viacoin", t: "b", a: "" },
+  { n: "viadeo", t: "b", a: "" },
+  { n: "viadeo-square", t: "b", a: "" },
+  { n: "vial", t: "s", a: "experiment,lab,sample,science,test,test tube" },
+  { n: "vials", t: "s", a: "experiment,lab,sample,science,test,test tube" },
+  { n: "viber", t: "b", a: "" },
+  { n: "video", t: "s", a: "camera,film,movie,record,video-camera" },
+  { n: "video-slash", t: "s", a: "add,create,film,new,positive,record,video" },
+  { n: "vihara", t: "s", a: "buddhism,buddhist,building,monastery" },
+  { n: "vimeo", t: "b", a: "" },
+  { n: "vimeo-square", t: "b", a: "" },
+  { n: "vimeo-v", t: "b", a: "vimeo" },
+  { n: "vine", t: "b", a: "" },
+  { n: "virus", t: "s", a: "bug,covid-19,flu,health,sick,viral" },
+  { n: "virus-slash", t: "s", a: "bug,covid-19,cure,eliminate,flu,health,sick,viral" },
+  { n: "viruses", t: "s", a: "bugs,covid-19,flu,health,multiply,sick,spread,viral" },
+  { n: "vk", t: "b", a: "" },
+  { n: "vnv", t: "b", a: "" },
+  { n: "voicemail", t: "s", a: "answer,inbox,message,phone" },
+  { n: "volleyball-ball", t: "s", a: "beach,olympics,sport" },
+  { n: "volume-down", t: "s", a: "audio,lower,music,quieter,sound,speaker" },
+  { n: "volume-mute", t: "s", a: "audio,music,quiet,sound,speaker" },
+  { n: "volume-off", t: "s", a: "audio,ban,music,mute,quiet,silent,sound" },
+  { n: "volume-up", t: "s", a: "audio,higher,louder,music,sound,speaker" },
+  { n: "vote-yea", t: "s", a: "accept,cast,election,politics,positive,yes" },
+  { n: "vr-cardboard", t: "s", a: "3d,augment,google,reality,virtual" },
+  { n: "vuejs", t: "b", a: "" },
+  { n: "walking", t: "s", a: "exercise,health,pedometer,person,steps" },
+  { n: "wallet", t: "s", a: "billfold,cash,currency,money" },
+  { n: "warehouse", t: "s", a: "building,capacity,garage,inventory,storage" },
+  { n: "water", t: "s", a: "lake,liquid,ocean,sea,swim,wet" },
+  { n: "wave-square", t: "s", a: "frequency,pulse,signal" },
+  { n: "waze", t: "b", a: "" },
+  { n: "weebly", t: "b", a: "" },
+  { n: "weibo", t: "b", a: "" },
+  { n: "weight", t: "s", a: "health,measurement,scale,weight" },
+  { n: "weight-hanging", t: "s", a: "anvil,heavy,measurement" },
+  { n: "weixin", t: "b", a: "" },
+  { n: "whatsapp", t: "b", a: "" },
+  { n: "whatsapp-square", t: "b", a: "" },
+  { n: "wheelchair", t: "s", a: "accessible,handicap,person" },
+  { n: "whmcs", t: "b", a: "" },
+  { n: "wifi", t: "s", a: "connection,hotspot,internet,network,wireless" },
+  { n: "wikipedia-w", t: "b", a: "" },
+  { n: "wind", t: "s", a: "air,blow,breeze,fall,seasonal,weather" },
+  { n: "window-close", t: "s", a: "browser,cancel,computer,development" },
+  { n: "window-close", t: "r", a: "browser,cancel,computer,development" },
+  { n: "window-maximize", t: "s", a: "browser,computer,development,expand" },
+  { n: "window-maximize", t: "r", a: "browser,computer,development,expand" },
+  { n: "window-minimize", t: "s", a: "browser,collapse,computer,development" },
+  { n: "window-minimize", t: "r", a: "browser,collapse,computer,development" },
+  { n: "window-restore", t: "s", a: "browser,computer,development" },
+  { n: "window-restore", t: "r", a: "browser,computer,development" },
+  { n: "windows", t: "b", a: "microsoft,operating system,os" },
+  { n: "wine-bottle", t: "s", a: "alcohol,beverage,cabernet,drink,glass,grapes,merlot,sauvignon" },
+  { n: "wine-glass", t: "s", a: "alcohol,beverage,cabernet,drink,grapes,merlot,sauvignon" },
+  { n: "wine-glass-alt", t: "s", a: "alcohol,beverage,cabernet,drink,grapes,merlot,sauvignon" },
+  { n: "wix", t: "b", a: "" },
+  { n: "wizards-of-the-coast", t: "b", a: "Dungeons & Dragons,d&d,dnd,fantasy,game,gaming,tabletop" },
+  { n: "wolf-pack-battalion", t: "b", a: "" },
+  { n: "won-sign", t: "s", a: "currency,krw,money" },
+  { n: "wordpress", t: "b", a: "" },
+  { n: "wordpress-simple", t: "b", a: "" },
+  { n: "wpbeginner", t: "b", a: "" },
+  { n: "wpexplorer", t: "b", a: "" },
+  { n: "wpforms", t: "b", a: "" },
+  { n: "wpressr", t: "b", a: "rendact" },
+  { n: "wrench", t: "s", a: "construction,fix,mechanic,plumbing,settings,spanner,tool,update" },
+  { n: "x-ray", t: "s", a: "health,medical,radiological images,radiology,skeleton" },
+  { n: "xbox", t: "b", a: "" },
+  { n: "xing", t: "b", a: "" },
+  { n: "xing-square", t: "b", a: "" },
+  { n: "y-combinator", t: "b", a: "" },
+  { n: "yahoo", t: "b", a: "" },
+  { n: "yammer", t: "b", a: "" },
+  { n: "yandex", t: "b", a: "" },
+  { n: "yandex-international", t: "b", a: "" },
+  { n: "yarn", t: "b", a: "" },
+  { n: "yelp", t: "b", a: "" },
+  { n: "yen-sign", t: "s", a: "currency,jpy,money" },
+  { n: "yin-yang", t: "s", a: "daoism,opposites,taoism" },
+  { n: "yoast", t: "b", a: "" },
+  { n: "youtube", t: "b", a: "film,video,youtube-play,youtube-square" },
+  { n: "youtube-square", t: "b", a: "" },
+  { n: "zhihu", t: "b", a: "" }
 ];
