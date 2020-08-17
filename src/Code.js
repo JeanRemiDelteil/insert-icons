@@ -22,7 +22,7 @@
  */
 function onOpen(event) {
   Plugins.init();
-  
+
   app.getUi()
     .createAddonMenu()
     .addItem('Open sidebar to select icons', 'showSidebar')
@@ -38,7 +38,7 @@ function onOpen(event) {
  */
 function onInstall(event) {
   Plugins.init();
-  
+
   onOpen(event);
 }
 
@@ -48,17 +48,17 @@ function onInstall(event) {
  */
 function showSidebar() {
   Plugins.init();
-  
+
   var template = HtmlService.createTemplateFromFile('sidebar/index');
-  
+
   // Print list of icons
   template['iconList'] = JSON.stringify(IconLists);
-  
+
   // Apply config to template
   for (var key in app.sidebarConfig) {
     template[key] = app.sidebarConfig[key];
   }
-  
+
   // Display sidebar
   var sidebarUi = template.evaluate().setTitle('Insert icons');
   app.getUi().showSidebar(sidebarUi);
@@ -73,18 +73,18 @@ function showSidebar() {
  */
 function addImageInCurrentPage(blob, title) {
   Plugins.init();
-  
+
   blob = blob.replace('data:image/png;base64,', '');
   var decodedBlob = Utilities.base64Decode(blob);
-  
+
   /**
    * @type {Blob}
    *
    * Note: Spreadsheet insert image fails if there are no title in the blob
    */
   var imageBlob = Utilities.newBlob(decodedBlob, 'image/png', title);
-  
-  
+
+
   app.addImageToFile(imageBlob, title);
 }
 
